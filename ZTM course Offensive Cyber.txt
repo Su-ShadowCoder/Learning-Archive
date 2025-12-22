@@ -1,0 +1,446 @@
+🔴 ZTM course: Offensive Cyber Security Expert; Professional Ethical Hacker
+
+
+⚡⚡Security Bugs & Vulnerabilities ⚡⚡ — Cheat Sheet (Exam-Focused)
+
+⚡What Vulnerabilities Are  
+Security vulnerabilities are weaknesses in software, systems, or configurations that allow attackers to break confidentiality, integrity, or availability. Exams test your ability to identify, explain, and prevent them.
+
+⚡Most Tested Vulnerabilities (OWASP‑Focused)  
+- Broken Access Control  
+Users can perform actions they are not authorized to do. Caused by missing authorization checks, predictable IDs, or exposed admin functions. Leads to privilege escalation.
+
+- Injection (SQL, OS, LDAP)  
+Untrusted input is executed as code or commands. Caused by concatenating input directly into queries. Can lead to data theft, account takeover, or full system compromise.
+
+- Cryptographic Failures  
+Weak, outdated, or misused encryption exposes sensitive data. Examples: plain‑text storage, using outdated algorithms, weak keys, missing TLS.
+
+- Security Misconfiguration  
+Default settings, unnecessary features, open ports, no hardening. One of the most common real‑world causes of breaches.
+
+- Vulnerable & Outdated Components  
+Old libraries or frameworks contain known exploits. Attackers target unpatched systems because public exploits already exist.
+
+- Insecure Design  
+Security never included in the architecture. Missing threat modeling, insecure workflows, flawed logic.
+
+- Identification & Authentication Failures  
+Weak login mechanisms, missing MFA, session handling issues. Allows credential stuffing, brute force, or session hijacking.
+
+- Software & Data Integrity Failures  
+Using untrusted updates, insecure CI/CD, unsafe deserialization. Can allow remote code execution.
+
+- Logging & Monitoring Failures  
+No logs or no alerting means attacks go unnoticed. Critical for incident response.
+
+- Server-Side Request Forgery (SSRF)  
+Attacker forces the server to make requests to internal systems. Can bypass firewalls and access private networks.
+
+⚡Specific High‑Impact Bug Types  
+- Buffer Overflow  
+Writing outside memory boundaries; can lead to crashes or code execution.
+
+- Buffer Over‑Read  
+Reading beyond buffer limits, exposing memory contents (e.g., Heartbleed).
+
+- Arbitrary Code Execution  
+Attacker can run any code on the system. Usually combined with memory corruption or deserialization bugs.
+
+- Uncontrolled Format String  
+User input used in print/format functions can leak memory or allow code execution.
+
+- HTTP Parameter Pollution  
+Multiple duplicate parameters used to bypass validation or change server behavior.
+
+⚡Why Vulnerabilities Exist  
+- No input validation or sanitation  
+- Poor authentication or missing authorization  
+- Misconfigured services, defaults left running  
+- Using old or unpatched components  
+- Weak architecture or design flaws  
+- No monitoring or error handling  
+- Developer shortcuts, insecure assumptions
+
+⚡Core Exam “Need‑to‑Know”  
+- Injection is about **input becoming commands**.  
+- Broken access control is about **missing authorization checks**.  
+- Outdated components matter because **public exploits already exist**.  
+- Misconfiguration is common because **defaults = insecure**.  
+- Insecure design is not about coding mistakes but **architectural flaws**.  
+- Logging failures turn small attacks into **undetected breaches**.  
+- SSRF abuses **the server’s trust relationships**, not the user’s.
+
+⚡How Attackers Exploit Bugs  
+- Provide malicious input  
+- Manipulate parameters, headers, cookies  
+- Abuse default configurations  
+- Use known exploits for outdated components  
+- Trigger insecure behaviors (deserialization, file uploads, redirects)
+
+⚡Prevention Essentials  
+- Validate all user input  
+- Use parameterized queries  
+- Enforce least privilege everywhere  
+- Patch systems and update dependencies  
+- Harden configurations, disable defaults  
+- Implement secure design (threat modeling)  
+- Enable strict logging and alerting  
+- Use strong encryption and proper key handling  
+- Run regular vulnerability scans and pentests
+
+⚡Quick Exam Pointers  
+- If the question mentions “untrusted input,” think **injection**.  
+- If the issue is “user can access X they shouldn’t,” think **broken access control**.  
+- If something “ran with default settings,” think **misconfiguration**.  
+- If outdated libraries are mentioned, answer **vulnerable components**.  
+- If logs are missing, answer **monitoring failures**.  
+- If internal requests are possible, answer **SSRF**.  
+- If input becomes part of a file, object, or serialized stream, think **integrity failure** or **deserialization**.
+
+⚡One‑Sentence Memory Hooks  
+- Injection = input becomes code.  
+- Access control = who is allowed to do what.  
+- Cryptographic failure = weak or wrong encryption.  
+- Misconfiguration = insecure defaults left running.  
+- Outdated components = known exploits waiting.  
+- Insecure design = bad architecture from the start.  
+- Integrity failure = untrusted code gets executed.  
+- Logging failure = attack happens silently.  
+- SSRF = server becomes attacker’s proxy.
+
+
+
+
+⚡Network Monitoring With TCPDump
+
+Use tcpdump to monitor traffic that you have captured in the terminal. This is what pros usually use with Nmap in the CLI terminal. It is useful for real-time inspection or saving a pcap for Wireshark. A pcap is a binary file that stores captured network packets. You can use specific commands to record captured traffic in the terminal while monitoring real-time traffic and view it in Wireshark later when needed.
+The command "man tcpdump" opens the full manual where you can read all the available options and learn how to use tcpdump in more detail.
+
+⚡Common Network Attacks
+Common network attacks:
+- Targeting endpoint devices (unauthorized access)
+- Targeting routers
+- MITM attack
+- DDoS (distributed denial of service attack)
+
+⚡MITM Attack
+A man-in-the-middle (MITM) attack occurs when an attacker intercepts communication between devices and a network.
+
+Network setup:
+- Target network: router
+- Connected devices: four devices, one being the attacker
+
+Attack method:
+- The attacker manipulates ARP packets to intercept communication between the router and target devices.
+
+⚡DHCP Flow
+Device-to-router communication:
+- Device connects to the router (Wi-Fi/LAN).
+- Device requests an IP via DHCP.
+- Router responds with IP, subnet mask, gateway, and other configuration details.
+- Device now knows its own IP and the router’s IP.
+
+⚡ARP Flow
+Steps for ARP communication:
+- Device sends an ARP request: "Who has [router IP]? Tell me [device MAC]."
+- Router replies with its MAC address.
+- Device stores the router’s MAC address in its ARP cache.
+- Device can now initiate a TCP connection (SYN → SYN-ACK → ACK).
+
+⚡ARP Spoofing
+Attack steps:
+- The attacker hijacks ARP requests from both the router and the device.
+- Spoofed ARP packets are sent to both sides, telling the router that the attacker is the target and telling the target that the attacker is the router.
+- Any data transmitted passes through the attacker, completing the MITM attack.
+
+⚡Measures to Prevent MITM Attacks
+- Strong credentials for the access point
+- Strong router login credentials
+- Visit only HTTPS websites
+- Use a VPN
+
+
+
+⚡⚡Cyber Security Strategies⚡⚡
+Cyber security strategies involve layered defenses to reduce risk, protect digital assets, and detect/respond to attacks. Exams usually focus on core strategies, common attacks, and key tools or flows.
+
+⚡Protect and Recover Strategy
+Focuses on prevention using protection technologies:
+- Firewalls
+- Demilitarized zones (DMZ)
+- Proxy servers
+- Micro-segmentation
+
+Need-to-know for exams:
+- Protect & Recover alone is insufficient because it focuses only on prevention; without detection, intrusions may go unnoticed.
+- Weaknesses include lack of monitoring, vulnerability management gaps, weak credentials, and lateral movement within the network.
+- Detection and response are required alongside prevention to ensure attackers cannot persist undetected.
+
+⚡Endpoint Protection Strategy
+Secures endpoint devices that hold critical data:
+- Antivirus software
+- Anti-malware software
+- Vulnerability management tools
+- Host-based firewalls
+- Application whitelisting
+- Web browser protections
+
+Need-to-know for exams:
+- Endpoints are critical points of attack because they store sensitive data and are directly accessible by users, making them common targets for malware or phishing.
+- Layered endpoint protection is essential because no single tool can prevent all attacks; combining antivirus, firewalls, and whitelisting strengthens defense.
+- Endpoint protection alone is insufficient since attackers can exploit unpatched vulnerabilities, stolen credentials, or social engineering.
+
+⚡Application Centric Strategy
+Secures applications during development:
+- Static code analysis (performed multiple times)
+- Threat modeling
+- Final security checks before launch
+- Penetration testing and patching vulnerabilities
+
+Need-to-know for exams:
+- Securing code, libraries, and frameworks is critical because vulnerabilities in any component can compromise the application even if the main code is secure.
+- Vulnerabilities include buffer overflows, bugs, and insecure APIs that attackers can exploit.
+- Final security checks and penetration testing are essential because this is the last opportunity to detect vulnerabilities before the application is deployed.
+- This strategy is most effective when combined with other strategies; it is not sufficient on its own.
+
+⚡Identity Centric Strategy
+Focuses on authentication, credentials, and authorization:
+- Multi-factor authentication (MFA)
+- Brute-force protection
+- Monitoring login attempts
+
+Need-to-know for exams:
+- Identity management is critical because unauthorized access often starts with compromised credentials.
+- MFA adds additional security by requiring multiple verification factors, making it harder for attackers to bypass access.
+- Online brute-force attacks are generally slow, but offline attacks can be faster; knowing the difference helps prioritize defense strategies.
+
+⚡Data Centric Strategy
+Emphasizes encryption and data loss prevention:
+- Encrypt sensitive files
+- Manage encryption keys securely
+- Implement data loss prevention (DLP) tools
+
+Need-to-know for exams:
+- Encryption reduces the attack surface by protecting data even if attackers gain access to the system.
+- Encrypted data appears as random noise, buying time for the organization to respond and reducing the chance of data misuse.
+- Key management is critical because losing keys or poor management can nullify the benefits of encryption.
+- DLP ensures sensitive data cannot leave the organization accidentally or maliciously.
+
+⚡Attack Centric Strategy
+Focuses on understanding attacker methods to design defenses:
+Attacker steps:
+- Footprinting: passive information gathering to map targets
+- Scanning: discovering technologies and services in use
+- Exploitation: gaining access through vulnerabilities or social engineering
+- Post exploitation: running scripts to maintain or expand access
+- Maintaining access: persistence on the target system
+
+Countermeasures:
+- Protection: firewalls and network filters block unwanted scans
+- Detection: monitoring scans and suspicious activity to identify attacks
+- Response: blocking or mitigating attacks to prevent damage
+
+Need-to-know for exams:
+- Understanding attacker stages is important because it allows defenders to predict and disrupt attacks.
+- Protection, detection, and response are complementary layers; relying on one alone leaves gaps.
+- Countermeasure examples should be understood in context with the attacker’s stage for practical defensive strategies.
+
+⚡Key Exam Tips
+- Common network attacks to remember: MITM, DDoS, endpoint compromises
+- Each strategy has limitations if used alone; layered strategies are more effective
+- Understand cause-and-effect: why a vulnerability in a library affects the application, why detection is needed alongside prevention
+- Be familiar with core tools and processes: tcpdump, ARP, DHCP, encryption, MFA
+
+
+
+⚡⚡Anonymity & Privacy⚡⚡
+Understanding anonymity and privacy is essential in cyber security exams because many techniques focus on masking identity, preventing tracking, and avoiding attribution. These topics also relate to OPSEC, threat modeling, and real-world attacker behavior.
+
+⚡How to Stay Anonymous
+To remain anonymous online, you typically combine multiple privacy tools:
+- VPNs
+- Tor browser
+- Proxies
+
+Need-to-know for exams:
+- VPNs hide your IP by tunneling traffic but the VPN provider can still see your real IP.
+- Tor provides anonymity through multi-hop encryption but is slower due to routing traffic through multiple nodes.
+- Proxies forward traffic through another server but often provide weaker anonymity compared to Tor.
+
+⚡Proxy-Chains With Different Tools
+A proxy redirects an attacker’s Nmap scan through a third party, hiding the original IP and MAC address from the target.
+
+The following commands show how to install and use Tor with ProxyChains on a Linux endpoint device (epd):
+- sudo apt-get install tor
+Installs the Tor service.
+- service tor start
+Starts the Tor service.
+- service tor status
+Checks if Tor is running. Look for “active.”
+- sudo apt-get install proxychains
+Installs ProxyChains, which routes traffic through a proxy such as Tor.
+- sudo nano /etc/proxychains.conf
+Configure ProxyChains:
+  - Disable strict_chain
+  - Enable dynamic_chain
+  - Add: socks5 127.0.0.1 9050
+  - Save and exit
+- proxychains firefox
+Launches Firefox through ProxyChains to confirm it works.
+- proxychains nmap nmap.org -F
+Runs an Nmap scan through ProxyChains to hide your real IP.
+
+Note: Tor and ProxyChains slow down scans and browser traffic due to multi-hop routing.
+
+Need-to-know for exams:
+- Dynamic_chain allows ProxyChains to continue even if one proxy fails.
+- Tor uses port 9050 for SOCKS5 traffic.
+- ProxyChains modifies applications that cannot normally use a proxy.
+- OPSEC risk: using Tor + Nmap may still expose timing and behavioral fingerprints.
+
+⚡Installing VPN for Kali
+To install and configure OpenVPN on Kali Linux:
+- sudo apt-get install openvpn
+Installs OpenVPN.
+- Go to vpnbook.com and select an OpenVPN certificate bundle such as vpnbook-fr1-tcp80.ovpn.
+- Extract the downloaded file.
+- In the network settings, select “Import saved VPN configuration.”
+- Choose the .ovpn file (for example vpnbook-fr1-tcp80.ovpn).
+- Enter the VPNBook username and password from the website.
+- Save and enable the VPN connection.
+- ifconfig
+Shows a new interface with a different IP assigned by the VPN.
+- In a browser, search: what is my ip
+You should see the VPN’s IP instead of your real IP.
+
+Using a VPN hides your real IP from websites, but the VPN provider still sees it. Combining Tor, proxies, and VPNs increases anonymity but also increases complexity and latency.
+
+Need-to-know for exams:
+- VPN tunnels encrypt traffic between your device and the VPN server.
+- VPNs do not guarantee anonymity; they provide privacy against local observers (ISP, public WiFi).
+- Chaining Tor and VPN can change trust models (VPN before Tor vs. Tor before VPN).
+- Many attackers use public WiFi + VPN + Tor to avoid attribution.
+
+⚡Whoami Anonymity Tool
+Whoami is an anonymity automation tool that configures multiple privacy layers without requiring each tool to be installed manually.
+
+Steps to install from GitHub:
+- Search: whoami github
+- Choose the omer-dogan/kali-whoami repository.
+- Scroll to “Getting Started” and copy the installation commands.
+- git clone <repository>
+Clones the tool.
+- cd kali-whoami
+Enter the tool directory.
+- sudo make install
+Installs the tool.
+- sudo kali-whoami --help
+Shows usage options.
+- sudo kali-whoami --start
+Starts the anonymity mode.
+- Choose option 3 in the tool if prompted.
+- Verify your IP in the browser.
+
+Only download tools from trusted sources such as reputable GitHub accounts. Avoid unknown websites.
+
+Need-to-know for exams:
+- Automation tools save time but can introduce risks if not verified.
+- GitHub tools must be inspected for malicious code before installation.
+- Whoami modifies network settings, so understand the changes it performs.
+
+⚡Steps to Be as Anonymous as Possible
+Remaining anonymous today is difficult because companies and governments heavily invest in tracking and identification.
+
+Key steps:
+- Use a burner phone with no personal accounts attached.
+- Use anonymous or temporary email services.
+- Use a burner laptop with no personal data or logins.
+- Use proxies, Tor, and VPNs together when browsing.
+- Connect only through public WiFi networks such as cafés or restaurants.
+
+These steps reduce traceability but require strict operational security. A single mistake can deanonymize you.
+
+Need-to-know for exams:
+- OPSEC (Operational Security) is the discipline of reducing personal information leakage.
+- Burner devices prevent correlation between personal identity and online activity.
+- Public WiFi separates your real network identity from your online actions.
+- “Nothing is free” applies in cyber security because free tools often monetize user data.
+- Total anonymity is nearly impossible; the goal is to reduce attribution probability.
+
+Exam Tips:
+- Understand the difference between privacy and anonymity.
+- Know how Tor, VPNs, and proxies work at a basic network level.
+- Be able to explain why combining tools increases anonymity but also increases latency.
+- Recognize common OPSEC failures that lead to deanonymization.
+
+
+⚡⚡⚡SHELLS & EXPLOITATION/INITIAL ACCESS CONCEPTS – CHEAT SHEET⚡⚡⚡
+
+Shell Fundamentals
+A shell is a program that accepts text commands and executes them on a system. In cyber operations, a shell is the primary interface for interacting with a compromised system. A shell is not an exploit; it is what you gain after an exploit works.
+- Shell: command interface (bash, sh, zsh, PowerShell, cmd)
+- Local shell: runs commands on your own machine
+- Remote shell: runs commands on a target machine
+- Interactive shell: supports real-time input (arrows, clear, editors)
+- Non-interactive shell: limited, one-shot commands
+- TTY/PTY: pseudo-terminal needed for full interaction
+
+Initial Access & Code Execution
+Initial access means you have some ability to execute commands on the target, even if it is extremely limited. Code execution does not guarantee a full shell. You may start with single-command execution and must upgrade it.
+- Initial access: first point where commands can run remotely
+- Foothold: stable maintained access (shell or webshell)
+- Code execution: ability to run system commands or scripts
+- Privilege level: the account context your commands run under
+- Privilege escalation: raising privileges to root/admin
+
+Shell Types
+Different shell types depend on how the connection is made and how stable it is. Firewalls and network rules heavily influence which type works.
+- Reverse shell: target connects back to attacker’s listener; works well where outbound allowed
+- Bind shell: target opens a port and attacker connects; often blocked by firewalls
+- Webshell: command execution via a script (PHP, ASPX); not a real terminal
+- Unstable shell: poor interaction, missing TTY, breaks easily
+- Stable shell: upgraded with TTY, behaves like a real terminal
+
+Exploitation vs Shell Access
+Exploitation is the method used to reach code execution. The shell is the interface gained afterward. Confusing them leads to misunderstanding the workflow.
+- Exploit: technique that triggers a vulnerability
+- Vulnerability: flaw enabling unintended actions
+- Payload: the action delivered after exploit triggers (e.g., reverse shell)
+- Listener: attacker waiting for incoming connection from reverse shell
+- Inbound/outbound: traffic direction relevant for firewall bypass
+
+Networking Concepts That Affect Shells
+Reverse and bind shells depend on network behavior. TCP shells are reliable but still break if the underlying process dies.
+- TCP connection: reliable, ordered stream used by most shells
+- Port: communication endpoint required for shell connections
+- Outbound rules: typically more permissive; advantage for reverse shells
+- Inbound rules: often blocked; disadvantage for bind shells
+- Firewall behavior: shapes which shell types succeed
+
+Recon & Enumeration
+Before exploitation, reconnaissance reveals what services and versions run on a target. This guides which vulnerabilities and shell methods are possible.
+- Port scan: identifies open ports and reachable services
+- Service detection: discovers software and version numbers
+- OS fingerprinting: estimates operating system
+- CVE: catalogued vulnerabilities linked to versions
+- Misconfiguration: common non-CVE weakness (default creds, bad permissions)
+
+High-Yield Workflow (Conceptual)
+This is the mental map exam questions often target.
+- Enumerate services and versions
+- Identify vulnerabilities or misconfigurations
+- Exploit to gain code execution
+- Obtain a shell (reverse, bind, or webshell)
+- Upgrade to stable shell (TTY/PTY)
+- Perform privilege escalation
+- Maintain foothold within scope
+
+Cause-and-Effect Highlights
+Exams often test reasoning, not memorization.
+- If inbound is blocked → bind shell fails → reverse shell likely succeeds
+- If reverse shell lacks TTY → no interactive programs → must upgrade shell
+- If exploit gives only single-command execution → convert to a shell for usability
+- If shell runs as low-priv user → privilege escalation required before sensitive access
+- If webshell exists → likely lateral movement or privilege escalation step next
+
