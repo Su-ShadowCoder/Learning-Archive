@@ -9,7 +9,7 @@
 
 # Why is this usefull? example, Amazone -> delivery drones needed to transport packages. because complicated. to make code more manageable, use OOP. easier to maintain, extend and write. example, to code a custom data type: object; which is the propellors which allows the drone to fly, another example is signalling to signal and give status. another dev works on camera and works on the vision of the drone. this breaks up the funtionality in different pieces, that model the real world into seperate objects. so that different people can work on different parts and then they can combine them afterwards. 
 
-# OOP is a method of dividing and qonquiring in programming where you can seperate a whole goal/functionality into smaller objects and work to complete the objective in organized manner trough the use of creating different custom data types and then combining them. 
+# OOP is a method of dividing and conquiring in programming where you can seperate a whole goal/functionality into smaller objects and work to complete the objective in organized manner trough the use of creating different custom data types and then combining them. 
 # ////////////////////////////////////////////////////////////////
 
 
@@ -69,6 +69,53 @@
 # player one and player 2 are at different location in memory. This way we are able to keep things safe. 
 # ////////////////////////////////////////////////////////////////
 
+# Define the class
+# class Car:
+#     def __init__(self, make, model, year):
+#         # Initialize attributes
+#         self.make = make
+#         self.model = model
+#         self.year = year
+
+#     # Define a method
+#     def display_info(self):
+#         print(f"Car: {self.year} {self.make} {self.model}")
+
+
+# # Create an object of the class
+# my_car = Car("BrandName", "ModelName", 2023)
+
+# # Call the method
+# my_car.display_info()
+
+
+# /////////////////////////////////////////////////////////////////////////
+
+
+# Exercise:
+# Create a class called Book that has:
+
+# Attributes: title, author, pages.
+
+# A method summary() that prints a short description of the book.
+
+# Then, create an object of the class and call the method.
+
+# class Book:
+#     def __init__(self, title, author, pages):
+#         self.title = title
+#         self.author = author
+#         self.pages = pages
+
+#     def summary(self):
+#         print(f"Title: {self.title}\n"
+#         f"Author: {self.author}\n"
+#         f"Pages: {self.pages}")
+
+
+# putin_bio = Book("Putins Biography", "Putin", 310)
+
+# putin_bio.summary()
 
 
 
