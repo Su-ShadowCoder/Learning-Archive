@@ -122,20 +122,30 @@
 # ////////////////////////////////////////////////////////////////
 # Lesson: Attributes and Methods
 
+# by typing help then object like here under you can get the full code template so you dont have to search into the code what the hack a object is. This explains the whole object code which is very very nice. 
+
+# help(Book)
+
+# class PlayerCharacter:
+#     # Class Object Attribute , not dynamic
+#     membership = True
+#     def __init__(self, name, age):
+#         if (self.membership):
+            
+#             self.name = name #attributes, are dynamic
+#             self.age = age
+
+#     def shout(self):
+#         print(f'my name is {self.name}')
+
+# player1 = PlayerCharacter('cindy', 44)
+# player2 = PlayerCharacter('Tom', 21)
 
 
+# print(player2.membership)
+# print(player1.membership)
 
-
-
-
-
-
-
-
-
-
-
-
+# print(player2.shout())
 # ////////////////////////////////////////////////////////////////
 
 
