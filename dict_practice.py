@@ -269,12 +269,76 @@
 # /////////////////////////
 
 
+# employees = [
+#     ("Liam Carter", "SOC Analyst"),
+#     ("Noah Bennett", "Junior SOC Analyst"),
+#     ("Ava Mitchell", "SIEM Engineer"),
+#     ("Sophia Turner", "Incident Responder"),
+#     ("Ethan Brooks", "Threat Hunter"),
+#     ("Mia Collins", "Cybersecurity Analyst"),
+#     ("James Walker", "Penetration Tester"),
+#     ("Isabella Reed", "Security Engineer"),
+#     ("Lucas Hughes", "Blue Team Lead"),
+#     ("Amelia Foster", "SOC Manager"),
+#     ("Benjamin Scott", "Malware Analyst"),
+#     ("Charlotte Price", "GRC Analyst"),
+#     ("Henry Adams", "Network Security Engineer"),
+#     ("Evelyn Murphy", "DFIR Specialist"),
+#     ("Jack Edwards", "Cloud Security Engineer"),
+# ]
+
+# employees_roles_dict = {}
+
+# for key, value in employees:
+#     employees_roles_dict[key] = value
+
+# # print(employees_roles_dict)
+
+# departments_raw = [
+#     ("SOC", "Liam Carter"),
+#     ("SOC", "Noah Bennett"),
+#     ("SOC", "Lucas Hughes"),
+#     ("SOC", "Amelia Foster"),
+
+#     ("Threat Intelligence", "Ethan Brooks"),
+#     ("Threat Intelligence", "Benjamin Scott"),
+
+#     ("Engineering", "Ava Mitchell"),
+#     ("Engineering", "Isabella Reed"),
+#     ("Engineering", "Henry Adams"),
+#     ("Engineering", "Jack Edwards"),
+
+#     ("Incident Response", "Sophia Turner"),
+#     ("Incident Response", "Evelyn Murphy"),
+
+#     ("Penetration Testing", "James Walker"),
+
+#     ("General Security", "Mia Collins"),
+#     ("General Security", "Charlotte Price"),
+# ]
+
+# department_dict = {}
+
+# for key, value in departments_raw:
+#     department_dict[key] = value
+
+# # print(department_dict)
+
+# cybersec_employee_info = {
+#     "name": "CyberSec Ltd",
+#     "employees": employees_roles_dict,
+#     "departments": department_dict
+# }
+
+# print(cybersec_employee_info)
 
 # Exercise 17
 # Create a dictionary for a network:
 # network_name: "office_net"
 # devices: (list of dictionaries with ip, mac, and status)
 # /////////////////////////
+
+
 
 # Exercise 18
 # Create a dictionary for a threat intelligence report:
