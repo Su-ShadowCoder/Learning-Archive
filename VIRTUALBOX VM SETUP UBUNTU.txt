@@ -1,0 +1,113 @@
+# 💻 VIRTUALBOX VM SETUP (UBUNTU EXAMPLE)
+# Goal: Create a new VM in VirtualBox for lab or testing purposes.
+
+################################################################################
+# PHASE 1: INSTALL VIRTUALBOX
+1. Download VirtualBox for your host OS: https://www.virtualbox.org/wiki/Downloads
+2. Install it following your OS instructions.
+3. Install the VirtualBox Extension Pack for USB, RDP, and other features.
+
+################################################################################
+# PHASE 2: CREATE NEW VM
+1. Open VirtualBox and click "New".
+2. Name: e.g., Ubuntu-Lab
+3. Select the downloaded ISO.
+4. OS: Linux
+5. OS Distribution: Debian for Kali and Ubuntu
+6. OS Version: Debian (64-bit)
+
+# Assign Memory
+7. Recommended: 2GB minimum, 4GB for better performance.
+8. Click Next.
+
+# Assign CPU Cores
+9. Assign 4 CPU cores.
+
+10. Storage: storage size:
+11. Size: Minimum 20GB. ->25 GB
+12. Click Create.
+13. Video memory allocation at least 80 MB to 90 MB
+
+################################################################################
+#-------------------------SKIP------------------
+# PHASE 2.5: NOT NECESSARY:  Create Virtual Disk
+8. Select "Create a virtual hard disk now".
+9. Disk type: VDI (VirtualBox Disk Image).
+10. Storage: Dynamically allocated.
+
+#
+1. Download the Ubuntu ISO: https://ubuntu.com/download
+2. Go to VM Settings -> Storage -> Controller: IDE -> Empty -> Choose disk.
+
+################################################################################
+# PHASE 3: CONFIGURE VM NETWORK AND ACCESS
+1. VM Settings -> Network -> Adapter 1:
+   - NAT (internet) or Bridged Adapter (host access).
+
+1.5 Select Bridged Adapter so the current virtual machine can communicate with other machines on you current local network. Basically allowing you VM to be able to connect with other machines or VM.
+
+2. (Optional) Add Adapter 2 for Host-only networking.
+3. (Optional) Setup Shared Folder:
+   - Settings -> Shared Folders -> Add
+   - Select host folder and mount point (e.g., /mnt/shared)
+   - Enable "Auto-mount" and "Make Permanent".
+
+################################################################################
+# PHASE 4: 
+OS INSTALLATION ON THE VM:
+
+1. Start the VM by selecting the desired VM in the list on the left and select the Right-Arrow button: Start
+
+2. Choose Graphical Install, keep in mind that the VM window will stay small until OS installation is complete.
+
+3. Select English language, location: United states or whatever you require, keyboard config on American English.
+
+4. Host name can be the OS name.
+
+5. you don't have to specify the domain name, and can leave it empty.
+
+6. full name what every you want, username for account what every you want. Make sure to type a strong password. 
+
+7. you can choose whatever for time
+
+8. partition disk setting -> guided- use entire disk, choose the hard disk that you have allocated for the VM. select: All files in one partition. and finally finish partitioning and write change to disk.
+Then confirm yes.
+
+9. You can leave the software selection as it is and continue.
+
+10. Select Yes to: install the GRUB boot loader to primary drive.
+Then select the hard disk you created for this particular VM and continue.
+
+11. Finally finish the installation by pressing on continue and letting the VM reboot.
+
+12. After login in with your username and password. You should make one final test. 
+
+13. Testing Network connectivity:
+click on the terminal at the App bar - The Command line interface
+And type in; Terminal:
+ping google.com -c 4
+
+This will ping google.com 4 times. if you get a response back, that means that your network connection works.
+
+Now your are done with installing Linux!
+
+What ever you do in the virtual machine to the OS and its VM, will stay in the virtual machine. as the virtual machine is considered a machine on it's own like a physical machine. You can always start over and delete the current VM. you can even copy the finished one as a back up in case something happens to your current one and easily switch up. of course all the data wouldt be the same.
+
+
+################################################################################
+# PHASE 5: POST-INSTALL CONFIGURATION
+1. Update system:
+   sudo apt update && sudo apt upgrade -y
+2. Install useful packages:
+   sudo apt install -y git curl wget vim net-tools openssh-server
+3. Enable SSH (if remote access needed):
+   sudo systemctl enable ssh
+   sudo systemctl start ssh
+   sudo systemctl status ssh
+
+################################################################################
+# PHASE 6: FINAL NOTES
+1. Take a snapshot of the VM for easy rollback.
+2. Shut down VM when not in use to save resources.
+3. Document VM details (OS version, username, IP) for future reference.
+
