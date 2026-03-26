@@ -226,8 +226,8 @@
 # rem_lines = user_data.strip().split("\n")
 # split_lines = [line.split(", ") for line in rem_lines]
 # usr_d_dict = dict(split_lines)
-# # print(usr_d_dict)
-# # ////
+# print(usr_d_dict)
+# # # ////
 
 
 # linux_system = {
@@ -338,6 +338,27 @@
 # devices: (list of dictionaries with ip, mac, and status)
 # /////////////////////////
 
+devices_raw_data = """
+192.168.1.1   00:1A:2B:3C:4D:5E   online
+192.168.1.2   00:1A:2B:3C:4D:5F   offline
+192.168.1.10  A4:C3:F0:85:AC:23   online
+192.168.1.15  B8:27:EB:12:34:56   online
+192.168.1.20  DC:A6:32:9F:10:AB   offline
+"""
+
+devices = []
+
+for line in devices_raw_data.strip().splitlines():
+
+
+
+
+# office_net = {
+#     "network_name": "office_net",
+#     "devices": 
+# }
+
+
 
 
 # Exercise 18
@@ -346,3 +367,5 @@
 # indicators: (list of IPs)
 # details: (dictionary with severity, description, mitigation_steps as a list)
 # /////////////////////////
+
+# !!!!After this learn how to convert Raw data in different forms!!!!
