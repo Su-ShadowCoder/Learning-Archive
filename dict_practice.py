@@ -369,3 +369,5 @@ for line in devices_raw_data.strip().splitlines():
 # /////////////////////////
 
 # !!!!After this learn how to convert Raw data in different forms!!!!
+
+
