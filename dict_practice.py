@@ -338,6 +338,8 @@
 # devices: (list of dictionaries with ip, mac, and status)
 # /////////////////////////
 
+import pprint
+
 devices_raw_data = """
 192.168.1.1   00:1A:2B:3C:4D:5E   online
 192.168.1.2   00:1A:2B:3C:4D:5F   offline
@@ -349,15 +351,23 @@ devices_raw_data = """
 devices = []
 
 for line in devices_raw_data.strip().splitlines():
+    parts = line.split()
+    device = {
+        "ip": parts[0],
+        "mac": parts[1],
+        "status": parts[2]
+    }
+    devices.append(device)
+
+# print(devices)
 
 
+office_net = {
+    "network_name": "office_net",
+    "devices": devices
+}
 
-
-# office_net = {
-#     "network_name": "office_net",
-#     "devices": 
-# }
-
+pprint.pprint(office_net)
 
 
 
