@@ -400,3 +400,7 @@ print("file2 running")
 
 # ////////////////////////////////////////////////////////////////////
 
+# !!!!After this learn how to convert Raw data in different forms!!!!
+
+# check python exercises for the rest of the excercises. 
+
