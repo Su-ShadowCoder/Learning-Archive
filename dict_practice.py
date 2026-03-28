@@ -130,6 +130,7 @@
 #     "username": "abdullah123",
 #     "email": "test@email.com",
 #     "address": {
+#         "City":"Utrecht",
 #         "zip": "1234AB"
 #     }
 #     }
@@ -252,7 +253,7 @@
 # log_entry = {
 #     "event":  "failed_login",
 #     "user": "root",
-#     "attemps": 3,
+#     "attempts": 3,
 #     "metadata": {
 #         "ip": "8.8.8.8",
 #         "location": "unknown"
@@ -320,9 +321,11 @@
 # department_dict = {}
 
 # for key, value in departments_raw:
-#     department_dict[key] = value
+#     if key not in department_dict:
+#         department_dict[key] = []
+#     department_dict[key].append(value)
 
-# # print(department_dict)
+# print(department_dict)
 
 # cybersec_employee_info = {
 #     "name": "CyberSec Ltd",
@@ -338,36 +341,36 @@
 # devices: (list of dictionaries with ip, mac, and status)
 # /////////////////////////
 
-import pprint
+# import pprint
 
-devices_raw_data = """
-192.168.1.1   00:1A:2B:3C:4D:5E   online
-192.168.1.2   00:1A:2B:3C:4D:5F   offline
-192.168.1.10  A4:C3:F0:85:AC:23   online
-192.168.1.15  B8:27:EB:12:34:56   online
-192.168.1.20  DC:A6:32:9F:10:AB   offline
-"""
+# devices_raw_data = """
+# 192.168.1.1   00:1A:2B:3C:4D:5E   online
+# 192.168.1.2   00:1A:2B:3C:4D:5F   offline
+# 192.168.1.10  A4:C3:F0:85:AC:23   online
+# 192.168.1.15  B8:27:EB:12:34:56   online
+# 192.168.1.20  DC:A6:32:9F:10:AB   offline
+# """
 
-devices = []
+# devices = []
 
-for line in devices_raw_data.strip().splitlines():
-    parts = line.split()
-    device = {
-        "ip": parts[0],
-        "mac": parts[1],
-        "status": parts[2]
-    }
-    devices.append(device)
+# for line in devices_raw_data.strip().splitlines():
+#     parts = line.split()
+#     device = {
+#         "ip": parts[0],
+#         "mac": parts[1],
+#         "status": parts[2]
+#     }
+#     devices.append(device)
 
-# print(devices)
+# # print(devices)
 
 
-office_net = {
-    "network_name": "office_net",
-    "devices": devices
-}
+# office_net = {
+#     "network_name": "office_net",
+#     "devices": devices
+# }
 
-pprint.pprint(office_net)
+# pprint.pprint(office_net)
 
 
 
@@ -377,6 +380,53 @@ pprint.pprint(office_net)
 # indicators: (list of IPs)
 # details: (dictionary with severity, description, mitigation_steps as a list)
 # /////////////////////////
+
+
+# indicators = [
+#     "192.168.1.105",
+#     "10.0.0.23",
+#     "203.0.113.47"
+# ]
+
+# details = {
+#     "192.168.1.105": {
+#         "severity": "high",
+#         "description": "Suspicious outbound traffic detected, possible C2 communication.",
+#         "mitigation_steps": [
+#             "Isolate the host from the network immediately",
+#             "Capture and analyse network traffic",
+#             "Run endpoint scan for malware",
+#             "Check process list for unknown executables"
+#         ]
+#     },
+#     "10.0.0.23": {
+#         "severity": "medium",
+#         "description": "Multiple failed SSH login attempts indicating brute force activity.",
+#         "mitigation_steps": [
+#             "Block IP at firewall level",
+#             "Review SSH logs for successful logins",
+#             "Enforce key-based authentication",
+#             "Enable fail2ban or equivalent"
+#         ]
+#     },
+#     "203.0.113.47": {
+#         "severity": "low",
+#         "description": "IP flagged in threat intel feed, no active malicious activity confirmed yet.",
+#         "mitigation_steps": [
+#             "Monitor traffic to and from this IP",
+#             "Add to watchlist in SIEM",
+#             "Cross-reference with other threat intel sources"
+#         ]
+#     }
+# }
+
+
+
+# threat_int_rep = {
+#     "threat": "Brute Force Attack",
+#     "indicators": indicators,
+#     "details": details
+# }
 
 # !!!!After this learn how to convert Raw data in different forms!!!!
 
