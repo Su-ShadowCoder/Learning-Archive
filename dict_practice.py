@@ -269,6 +269,7 @@
 # departments: (dictionary where each department has a list of employee names)
 # /////////////////////////
 
+# import pprint
 
 # employees = [
 #     ("Liam Carter", "SOC Analyst"),
@@ -325,7 +326,7 @@
 #         department_dict[key] = []
 #     department_dict[key].append(value)
 
-# print(department_dict)
+# # print(department_dict)
 
 # cybersec_employee_info = {
 #     "name": "CyberSec Ltd",
@@ -333,7 +334,7 @@
 #     "departments": department_dict
 # }
 
-# print(cybersec_employee_info)
+# pprint.pprint(cybersec_employee_info)
 
 # Exercise 17
 # Create a dictionary for a network:
