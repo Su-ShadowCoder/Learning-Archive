@@ -49,25 +49,25 @@
 # # ------------------------------------------
 # # EXERCISE 3 — Update value
 # # ------------------------------------------
-def main():
-    user = {
-        "name": "abdullah",
-        "age": 20
-    }
+# def main():
+#     user = {
+#         "name": "abdullah",
+#         "age": 20
+#     }
 
-    user["age"] = 21
+#     user["name"] = "ibrahim"
 
-    print(user)
-
-
+#     print(user)
 
 
 
-if __name__ == "__main__":
-    main()
 
-# TASK:
-# - Change "name" instead of "age"
+
+# if __name__ == "__main__":
+#     main()
+
+# # TASK:
+# # - Change "name" instead of "age"
 
 
 # # ------------------------------------------
@@ -89,9 +89,17 @@ if __name__ == "__main__":
 # if __name__ == "__main__":
 #     main()
 
-# # TASK:
-# # - Test: name, age, city
-
+# TASK:
+# - Test: name, age, city
+# abdullah@pc:~/python-projects/Python_exercises_refresh$ /bin/python3 "/home/abdullah/python-projects/Python_exercises_refresh/dict & main() - practice - 03-26.py"
+# Enter key: name
+# Found: abdullah
+# abdullah@pc:~/python-projects/Python_exercises_refresh$ /bin/python3 "/home/abdullah/python-projects/Python_exercises_refresh/dict & main() - practice - 03-26.py"
+# Enter key: age
+# Found: 20
+# abdullah@pc:~/python-projects/Python_exercises_refresh$ /bin/python3 "/home/abdullah/python-projects/Python_exercises_refresh/dict & main() - practice - 03-26.py"
+# Enter key: city
+# # Not found
 
 # # ------------------------------------------
 # # EXERCISE 5 — Default value logic
@@ -102,6 +110,9 @@ if __name__ == "__main__":
 #     }
 
 #     key = input("Enter key: ")
+
+#     user["age"] = 31
+#     user["city"] = "Amsterdam"
 
 #     if key in user:
 #         print(user[key])
@@ -115,6 +126,16 @@ if __name__ == "__main__":
 # # - Add more keys
 # # - Try missing keys
 
+# abdullah@pc:~/python-projects/Python_exercises_refresh$ /bin/python3 "/home/abdullah/python-projects/Python_exercises_refresh/dict & main() - practice - 03-26.py"
+# Enter key: city
+# Amsterdam
+# abdullah@pc:~/python-projects/Python_exercises_refresh$ /bin/python3 "/home/abdullah/python-projects/Python_exercises_refresh/dict & main() - practice - 03-26.py"
+# Enter key: age
+# 31
+# abdullah@pc:~/python-projects/Python_exercises_refresh$ /bin/python3 "/home/abdullah/python-projects/Python_exercises_refresh/dict & main() - practice - 03-26.py"
+# Enter key: occupation
+# Default: unknown
+# abdullah@pc:~/python-projects/Python_exercises_refresh$ 
 
 # # ------------------------------------------
 # # EXERCISE 6 — Counting values
@@ -128,7 +149,10 @@ if __name__ == "__main__":
 
 #     logs["ERROR"] += 1
 
-#     print(logs)
+#     logs["INFO"] *= 2
+
+#     if "ERROR" in logs:
+#         print("ERROR")
 
 # if __name__ == "__main__":
 #     main()
@@ -146,6 +170,9 @@ if __name__ == "__main__":
 #         "abdullah": "python123",
 #         "alice": "abc123"
 #     }
+
+#     # adding new user
+#     users["michael"] = "xyz123"
 
 #     username = input("Username: ")
 #     password = input("Password: ")
@@ -186,9 +213,11 @@ if __name__ == "__main__":
 # if __name__ == "__main__":
 #     main()
 
-# # TASK:
-# # - Run multiple times
-# # - Observe attempt counter increase per user
+# TASK:
+# - Run multiple times
+# - Observe attempt counter increase per user
+
+# first there is no pasward. and the counter doesnt work properly. it stops at one because there is no loop and guard for the loop. afte count 1 it just stops. 
 
 
 # # ///////////////////////////////////////////////////////////////////////
@@ -206,8 +235,11 @@ if __name__ == "__main__":
 #         "age": 20
 #     }
 
+#     user["country"] = "Narnia"
+
 #     print(user["name"])
 #     print(user["age"])
+#     print(user["country"])
 
 # if __name__ == "__main__":
 #     main()
@@ -226,6 +258,8 @@ if __name__ == "__main__":
 #         "alice": "abc123"
 #     }
 
+#     users["bruce"] = "hellow"
+
 #     username = input("Enter username: ")
 
 #     if username in users:
@@ -235,6 +269,7 @@ if __name__ == "__main__":
 
 # if __name__ == "__main__":
 #     main()
+
 
 # # TASK:
 # # - Try different usernames
@@ -249,6 +284,9 @@ if __name__ == "__main__":
 #         "abdullah": "python123",
 #         "alice": "abc123"
 #     }
+
+#     users["wayne"] = "batman"
+#     users["clark"] = "kent"
 
 #     username = input("Enter username: ")
 
@@ -265,6 +303,7 @@ if __name__ == "__main__":
 # # - Try valid and invalid usernames
 
 
+
 # # --------------------------------
 # # EXERCISE 4 — Update dictionary value
 # # --------------------------------
@@ -275,8 +314,9 @@ if __name__ == "__main__":
 #     }
 
 #     users["alice"] = "newpass999"
+#     users["abdullah"] = "oldpass"
 
-#     print(users)
+#     print(users["abdullah"])
 
 # if __name__ == "__main__":
 #     main()
@@ -300,15 +340,25 @@ if __name__ == "__main__":
 #         "alice": 0
 #     }
 
-#     username = input("Enter username: ")
+    
+#     users["clark"] = "supaman"
+#     attempts["clark"] = 0
+    
 
-#     if username in users:
-#         print("User found")
+#     while True:
+#         username = input("Enter username: ")
+#         if username in users:
+#             print("User found")
+#             attempts[username] += 1
+#             print("Attempts:", attempts[username])
+#             break
+#         else: 
+#             attempts[username] = attempts.get(username,  0) + 1
+#             print(f"User not found")
+#             print(f"Attempts: {attempts[username]}")
+#             if attempts[username] == 3:
+#                 break
 
-#         attempts[username] += 1
-#         print("Attempts:", attempts[username])
-#     else:
-#         print("User not found")
 
 # if __name__ == "__main__":
 #     main()
@@ -316,6 +366,7 @@ if __name__ == "__main__":
 # # TASK:
 # # - Run multiple times and watch attempt count increase
 # # - Add a new user and extend both dictionaries
+
 
 
 # # ////////////////////////////////////////////////////////////////////
