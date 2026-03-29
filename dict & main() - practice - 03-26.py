@@ -367,97 +367,57 @@
 # # - Run multiple times and watch attempt count increase
 # # - Add a new user and extend both dictionaries
 
-
-
-# # ////////////////////////////////////////////////////////////////////
-
+--
 
 # # ////////////////////////////////////////////////////////////////////
-# # ================================
-# # MAIN() SIMPLE PRACTICE EXERCISES
-# # ================================
 
-# # --------------------------------
-# # EXERCISE 1 — Basic main()
-# # --------------------------------
-# def main():
-#     print("Hello from main")
+# ================================
+# MAIN() SIMPLE PRACTICE EXERCISES
+# ================================
 
-# if __name__ == "__main__":
-#     main()
-
-# # TASK:
-# # - Run it
-# # - Then comment out the last two lines
-# #   and observe that nothing runs
+# --------------------------------
+# EXERCISE 1 — Basic main()
+# --------------------------------
+# TASK:
+# - Create a main() function that prints "Hello from main"
+# - Call it with the if __name__ == "__main__" guard
+# - Then comment out the guard and observe what changes
 
 
-# # --------------------------------
-# # EXERCISE 2 — Input inside main()
-# # --------------------------------
-# def main():
-#     name = input("Enter your name: ")
-#     print("Hello", name)
-
-# if __name__ == "__main__":
-#     main()
-
-# # TASK:
-# # - Move input() outside main() (try it)
-# # - Observe why structure breaks
+# --------------------------------
+# EXERCISE 2 — Input inside main()
+# --------------------------------
+# TASK:
+# - Create a main() that asks for your name and prints a greeting
+# - Then try moving input() outside main() and observe what breaks
 
 
-# # --------------------------------
-# # EXERCISE 3 — Multiple prints
-# # --------------------------------
-# def main():
-#     print("Step 1")
-#     print("Step 2")
-#     print("Step 3")
-
-# if __name__ == "__main__":
-#     main()
-
-# # TASK:
-# # - Add a 4th print line
-# # - Then remove main() call and observe nothing executes
+# --------------------------------
+# EXERCISE 3 — Multiple prints
+# --------------------------------
+# TASK:
+# - Create a main() that prints Step 1, Step 2, Step 3, Step 4
+# - Remove the main() call and observe nothing executes
 
 
-# # --------------------------------
-# # EXERCISE 4 — Direct call vs main()
-# # --------------------------------
-# def main():
-#     print("This is main")
-
-# main()
-
-# # TASK:
-# # - Compare this with previous examples
-# # - Think: what is missing here conceptually?
+# --------------------------------
+# EXERCISE 4 — Direct call vs main()
+# --------------------------------
+# TASK:
+# - Create a main() function that prints something
+# - Call it directly without the if __name__ guard
+# - Think: what is the difference and what is missing?
 
 
-# # --------------------------------
-# # EXERCISE 5 — Import behavior test
-# # --------------------------------
-
-# # file1.py
-# def main():
-#     print("Running file1")
-
-# if __name__ == "__main__":
-#     main()
+# --------------------------------
+# EXERCISE 5 — Import behavior test
+# --------------------------------
+# TASK:
+# - Create file1.py with a main() and the if __name__ guard
+# - Create file2.py that imports file1 and prints "file2 running"
+# - Run file2.py and observe that file1's main() does NOT run
 
 
-# # file2.py
-# import file1
-# print("file2 running")
-
-# # TASK:
-# # - Run file2.py
-# # - Observe:
-# #   main() in file1 does NOT run automatically
-
-# # ////////////////////////////////////////////////////////////////////
 
 # # !!!!After this learn how to convert Raw data in different forms!!!!
 
