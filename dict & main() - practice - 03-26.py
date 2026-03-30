@@ -449,21 +449,15 @@
 # - Call it directly without the if __name__ guard
 # - Think: what is the difference and what is missing?
 
-def main():
-    print_something()
+# def main():
+#     print_something()
 
-def print_something():
-    print("Hellow")
+# def print_something():
+#     print("Hellow")
 
-main()
+# main()
 
-# --------------------------------
-# EXERCISE 5 — Import behavior test
-# --------------------------------
-# TASK:
-# - Create file1.py with a main() and the if __name__ guard
-# - Create file2.py that imports file1 and prints "file2 running"
-# - Run file2.py and observe that file1's main() does NOT run
+# i think what is missing here is the ability to not execute everthing when not asked if this file is imported into another project. the guard is missing. 
 
 
 
