@@ -367,7 +367,7 @@
 # # - Run multiple times and watch attempt count increase
 # # - Add a new user and extend both dictionaries
 
---
+
 
 # # ////////////////////////////////////////////////////////////////////
 
@@ -382,6 +382,19 @@
 # - Create a main() function that prints "Hello from main"
 # - Call it with the if __name__ == "__main__" guard
 # - Then comment out the guard and observe what changes
+# //
+
+
+# def hello():
+#     print("Hello from main")
+
+# def main():
+#     hello()
+
+# if __name__ == "__main__":
+#     main()
+
+# Nothing happens because nothing is being executed to run something via code. 
 
 
 # --------------------------------
@@ -392,6 +405,21 @@
 # - Then try moving input() outside main() and observe what breaks
 
 
+# def ask_name():
+#     usr_name =  input("Please enter your name:\n")
+#     print(f"Hellow, {usr_name}!")
+
+# ask_name()
+
+
+# def main():
+#     # ask_name()
+
+# if __name__ == "__main__":
+#     main()
+
+# before you ciritsize me i did my job ad  put it outisde look at commented stuff i would have doen it right if you didnt tell me too.  
+
 # --------------------------------
 # EXERCISE 3 — Multiple prints
 # --------------------------------
@@ -399,6 +427,19 @@
 # - Create a main() that prints Step 1, Step 2, Step 3, Step 4
 # - Remove the main() call and observe nothing executes
 
+
+# def main():
+#     steps_print()
+
+# def steps_print():
+#     for numb in range(1, 5):
+#         print(f"Step {numb}")
+
+
+# if __name__ == "__main__":
+#     # main()
+
+# did as i was supposed too. 
 
 # --------------------------------
 # EXERCISE 4 — Direct call vs main()
@@ -408,6 +449,13 @@
 # - Call it directly without the if __name__ guard
 # - Think: what is the difference and what is missing?
 
+def main():
+    print_something()
+
+def print_something():
+    print("Hellow")
+
+main()
 
 # --------------------------------
 # EXERCISE 5 — Import behavior test

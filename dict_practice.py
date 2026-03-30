@@ -432,3 +432,6 @@
 # !!!!After this learn how to convert Raw data in different forms!!!!
 
 
+from dict & main() - practice - 03-26 import hello()
+
+hello()
