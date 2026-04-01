@@ -149,11 +149,55 @@
 # ////////////////////////////////////////////////////////////////
 
 
+# class PlayerCharacter:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+
+
+#     def run(self):
+#         print('run')
+
+
+# player1 = PlayerCharacter('Cindy', 44)
+# player2 = PlayerCharacter('Tom', 21)
+
+# print(player1.age)
+# print(player2.age)
+
+
+
 
 
 # ////////////////////////////////////////////////////////////////
-# Lesson:
+# Lesson:What is OOP? Part 2
 
+
+
+# class BigObject: #Class
+#     pass
+
+# objt1 = BigObject() #instanciate
+# objt2 = BigObject() #instanciate
+# objt3 = BigObject() #instanciate
 
 
 # ////////////////////////////////////////////////////////////////
+# Lesson:3
+
+# class name cannot be written in plural, and must be in singular, because when you intantiate a class you create(t) an instance
+
+# __init__ is a dunder method. typically called a constrictor method. 
+#  instantiate means , we calling the class to create(t) an object(instance). 
+
+class PlayerCharacter:
+    def __init__(self, name):
+        self.name = name
+
+    
+    def run(self):
+        print("run")
+
+player1 = PlayerCharacter()
+
+print(player1)
