@@ -507,3 +507,12 @@
 # password_authentication("python123", 3)
 # ////////////////////////////////////////////////
 
+users = {
+    "abdullah": "python123",
+    "alice": "abc123",
+    "bob": "secure999"
+}
+
+usr = input("enter:")
+
+print(users[usr])
