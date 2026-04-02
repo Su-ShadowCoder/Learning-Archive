@@ -239,3 +239,25 @@
 # ////////////////////////////////////////////////////////////////
 # Lesson: __init__
 
+# __init__ is a important keyword and acts as a constrictor, it allowes you to decide how the object and when the object is allowed to intantiate. so you have to be carefull when you intstantiate by lookin what the class requires. 
+
+# class PlayerCharacter:
+#     #class object Attribute
+#     membership = True
+#     def __init__(self, name='anonymous', age=0):
+#         if (age > 18):
+#             self.name = name # Attribute
+#             self.age = age
+
+
+#     def shout(self):
+#         print(f"my name is {self.name}")
+
+# player1 = PlayerCharacter("Tom", 10)
+# player2 = PlayerCharacter()
+# player2.attack = 50
+
+# print(player2.shout())
+
+# ////////////////////////////////////////////////////////////////
+# Lesson: Excercise
