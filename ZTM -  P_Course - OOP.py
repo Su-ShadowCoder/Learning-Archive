@@ -190,14 +190,52 @@
 # __init__ is a dunder method. typically called a constrictor method. 
 #  instantiate means , we calling the class to create(t) an object(instance). 
 
-class PlayerCharacter:
-    def __init__(self, name):
-        self.name = name
+# class PlayerCharacter:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
 
     
-    def run(self):
-        print("run")
+#     def run(self):
+#         print("run")
+#         return('done')
 
-player1 = PlayerCharacter()
+# player1 = PlayerCharacter('Cindy', 44)
+# player2 = PlayerCharacter('Tom', 40)
+# player2.attack = 50
 
-print(player1)
+# help(player1)
+# every object is not the same as each other, they are different and are located in different memory location physically. 
+# the attributes can be dynamic 
+
+# ////////////////////////////////////////////////////////////////
+# Lesson: Attributes and Methods
+
+# using the word help() you can get the blue print of something. and mostly used in object to understand it. 
+
+# class PlayerCharacter:
+#     #class object Attribute
+#     membership = True
+#     def __init__(self, name, age):
+#         if (PlayerCharacter.membership):
+#             self.name = name # Attribute
+#             self.age = age
+
+    
+#     def shout(self):
+#         print(f"my name is {self.name}")
+
+# player1 = PlayerCharacter('Cindy', 44)
+# player2 = PlayerCharacter('Tom', 40)
+# player2.attack = 50
+
+# print(player1.shout())
+# print(player2.shout())
+
+# Class object Attribute are Static, while object attributes are dynamic. 
+# Class object Attribute are Attributes every object from this class has, you cannot modify this attributes and doesnt change accrose dsinstances. 
+# print(player2.membership)
+
+# ////////////////////////////////////////////////////////////////
+# Lesson: __init__
+
