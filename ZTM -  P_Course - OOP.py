@@ -260,4 +260,60 @@
 # print(player2.shout())
 
 # ////////////////////////////////////////////////////////////////
-# Lesson: Excercise
+# # Lesson: Excercise
+
+# # Exercise Cats Everywhere
+# # Given the below class:
+
+# class Cat:
+#     species = 'mammal'
+#     all_cats = []
+
+
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#         Cat.all_cats.append(self)
+
+#     def __str__(self):
+#         if self.age <= 1:
+#             return f"Cat-Name: {self.name}, {self.age} year."
+#         else:
+#             return f"Cat-Name: {self.name}, {self.age} years."
+
+#     @classmethod
+#     def oldest(cls):
+#         oldest_cat = None
+#         age_numb = 0
+#         for cat in cls.all_cats:
+#             if cat.age > age_numb:
+#                 age_numb = cat.age
+#                 oldest_cat = cat
+#         return f"The oldest cat is {oldest_cat.name}, {age_numb} Years old."
+
+
+
+# # 1 Instantiate the Cat object with 3 cats.
+# # 2 Create a function that finds the oldest cat.
+
+# def main():
+#     cat1 = Cat("Wilfred", 5)
+#     cat2 = Cat("Lamia", 2)
+#     cat3 = Cat("Samanta", 7)
+#     cat4 = Cat("Tosti", 1)
+#     print(cat1, cat2, cat3, cat4)
+#     print(Cat.oldest())
+
+
+
+# if __name__ == "__main__":
+#     main()
+
+
+
+
+
+
+# # 3 Print out: "The oldest cat is x years old.".
+# # x will be the oldest cat age by using the function in #2
+
