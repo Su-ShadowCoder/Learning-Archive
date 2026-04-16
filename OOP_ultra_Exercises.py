@@ -521,7 +521,8 @@
 # mikebik_login()
 # ///
 
-///
+# ///
+
 # 5. Class variables (shared data)
 # Theme: Student counter
 
@@ -536,6 +537,25 @@
 
 # Understand: data shared across all objects
 
+# class Student():
+#     total_students = 0
+    
+#     def __init__(self, name, age, s_class):
+#         self.name = name 
+#         self.age = age 
+#         self.s_class = s_class
+#         Student.total_students += 1
+
+#     @classmethod
+#     def s_count(cls):
+#         return cls.total_students
+
+# s_kamal_bibi = Student("Kamal Bibi", 17, "1A")
+# s_kamal_bibi = Student("Kamal Bibi", 17, "1A")
+# s_kamal_bibi = Student("Kamal Bibi", 17, "1A")
+
+
+# print(Student.s_count())
 
 # 6. Class methods (@classmethod concept)
 # Theme: Company system
@@ -551,6 +571,40 @@
 # Goal:
 
 # Understand: methods that work on the class level, not instance level
+
+# class Employee():
+#     all_employees = []
+#     total_employee = 0
+    
+
+
+#     def __init__(self, name, salary):
+#         self.name = name
+#         self._salary = salary
+#         Employee.total_employee += 1
+#         Employee.all_employees.append(self)
+
+
+#     @classmethod
+#     def total_salary(cls):
+#         total = 0
+#         for element in cls.all_employees:
+#                 total += element._salary
+#         return total
+
+#     @classmethod
+#     def avg_salary(cls):
+#         avg_sal = cls.total_salary() / cls.total_employee
+#         return avg_sal
+    
+
+# emp1 = Employee("Richard Edward", 3500)
+# emp2 = Employee("Mike Ross", 3000)
+# emp3 = Employee("Louis Piers", 4000)
+
+# print(Employee.total_salary())
+# print(Employee.avg_salary())
+
 
 # 7. Static methods (no object needed)
 # Theme: Math utilities
@@ -568,6 +622,22 @@
 # Goal:
 
 # Understand: function inside class that doesn’t depend on object
+
+
+
+# class MathTools():
+    
+#     @staticmethod
+#     def is_even(x):
+#         return x % 2 == 0
+
+#     @staticmethod
+#     def square(y):
+#         s = y ** 2
+#         return s
+
+# print(MathTools.is_even(44))
+# print(MathTools.square(8))
 
 # 8. Inheritance (basic reuse)
 # Theme: Animals
@@ -587,6 +657,30 @@
 # Goal:
 
 # Understand: shared structure + specialized behavior
+
+
+# class Animal:
+    
+#     def __init__(self, name):
+#         self.name = name
+
+
+# class Bunny(Animal):
+#     pass
+
+#     def speak(self):
+#         return "'squek'!, squek'!"
+
+# class Cat(Animal):
+
+#     def speak(self):
+#         return "'Meeeoow'!"
+
+# simba = Cat("Simba")
+# sunny = Bunny("Sunny")
+
+# print(simba.speak())
+# print(sunny.speak())
 
 # 9. Polymorphism (same method, different behavior)
 # Theme: Shapes
@@ -610,6 +704,32 @@
 
 # Understand: same interface, different behavior
 
+# class shape:
+#     pass
+
+#     def area(self):
+#         raise NotImplementedError
+
+# class Square(shape):
+#     def __init__(self, base, height):
+#         self.base = base
+#         self.height = height
+
+#     def area(self):
+#         return self.base * self.height
+
+# class Circle(shape):
+#     def __init__(self, radius):
+#         self.radius = radius
+#         self.pi = 3.14
+    
+#     def area(self):
+#         return self.radius ** 2 * self.pi
+
+# yellow = Circle(5)
+# print(yellow.area())
+
+
 # 10. Composition (objects inside objects)
 # Theme: Online shop
 
@@ -627,3 +747,35 @@
 # Understand:
 
 # objects can contain OTHER objects
+
+
+
+
+
+
+
+# print(add_product())
+
+# 🔁 OOP Mastery Drill Prompt
+
+# I want to train OOP step-by-step.
+# Give me 3 exercises only focusing on:
+
+# class vs instance attributes
+# lists of objects
+# classmethods with aggregation
+
+# Rules:
+
+# Do NOT give full solutions immediately
+# First give me a problem
+# Let me attempt
+# Then only point out scope mistakes (self/cls/variable confusion)
+# Force me to identify whether something is an instance, class, or local variable
+
+# Focus especially on:
+
+# correcting my scope confusion
+# making me reason about where each variable lives
+
+# After each exercise, give me a short diagnosis of my mistake pattern.
