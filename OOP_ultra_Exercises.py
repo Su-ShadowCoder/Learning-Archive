@@ -750,11 +750,54 @@
 
 
 
+# class Product:
+#     all_products = []
+#     def __init__(self, name, price):
+#         self.name = name
+#         self.price = price
+#         Product.all_products.append(self)
+    
+#     @classmethod
+#     def get_all_products(cls):
+#         for p in cls.all_products:
+#             print(p.name)
 
 
+# class Cart:
+#     def __init__(self):
+#         self.product_container = []
 
+#     def get_product_container(self):
+#         for element in self.product_container:
+#             print(element.name)
+
+#     def add_product(self, product):
+#         self.product_container.append(product)
+
+#     def total_price(self):
+#         total_price = 0
+#         for p in self.product_container:
+#             total_price += p.price
+#         return total_price
+
+# milk = Product("Milk", 2)
+# chocolate = Product("Chocolate", 1)
+# cheese = Product("Cheese", 4)
+
+# cart1 = Cart()
+
+# cart1.add_product(milk)
+# cart1.add_product(cheese)
+
+# print(cart1.total_price())
+
+# cart1.get_product_container()
+
+# Product.get_all_products()
 
 # print(add_product())
+# //////////////////////////////////////////////
+
 
 # 🔁 OOP Mastery Drill Prompt
 
