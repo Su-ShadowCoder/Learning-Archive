@@ -1,0 +1,164 @@
+# 🔥 Exercise 1 — Player System
+# 📌 Requirements
+
+# Build a system for players.
+
+# Data:
+# Each player has:
+# name
+# score
+# Class behavior:
+# There must be a shared list that stores ALL players
+# Methods:
+# Add each new player to that shared list automatically
+# A method that returns the total number of players
+# A method that returns the average score of all players
+# ⚠️ What I will check
+# Did you use self vs cls correctly?
+# Where does the list live?
+# Are you mixing instance data with class data?
+# ////
+
+
+# class Player:
+#     all_players = []
+#     def __init__(self, name, score):
+#         self.name = name
+#         self.score = score
+#         Player.all_players.append(self)
+    
+#     @classmethod
+#     def get_all_players(cls):
+#         for p in cls.all_players:
+#             print(p.name, p.score)
+
+#     @classmethod
+#     def total_players(cls):
+#         total_p = len(cls.all_players)
+#         return total_p
+
+#     @classmethod
+#     def total_score(cls):
+#         total_s = 0
+#         for p in cls.all_players:
+#             total_s += p.score
+#         return total_s
+
+#     @classmethod
+#     def avg_playa_score(cls):
+#         avg_playerScore = 0
+#         avg_playerScore = cls.total_score() / cls.total_players()
+#         print(avg_playerScore)
+
+
+ 
+# player_1 = Player("adrew123", 120)
+# player_2 = Player("boba_4", 99)
+# player_3 = Player("soprano555", 110)
+
+# Player.get_all_players()
+# print(Player.total_players())
+# print(Player.total_score())
+# Player.avg_playa_score()
+
+# ////
+# 🔥 Exercise 2 — Order System (Composition)
+# 📌 Requirements
+
+# Build a simple order system.
+
+# Classes:
+# Item
+# has name, price
+# Order
+# contains a list of items
+# Methods:
+# Add item to order
+# Get total price of order
+# Get names of all items in order (list or print)
+# ⚠️ What I will check
+# Does the list belong to the class or the instance?
+# Are you passing objects correctly?
+# Are you iterating over objects properly?
+# ////
+
+# class Item:
+#     def __init__(self, name, price):
+#         self.name = name
+#         self.price = price
+
+    
+
+# class Order:
+#     def __init__(self):
+#         self.item_lst = []
+
+#     def add_item(self, product):
+#         self.item_lst.append(product)
+
+#     def total_price_order(self):
+#         total_p = 0
+#         for price in self.item_lst:
+#             total_p += price.price
+#         return f"Total price: {total_p} Euro's"
+
+#     def get_all_itemlist_name(self):
+#         all_items = []
+#         for item in self.item_lst:
+#             all_items.append(item.name)
+#         return all_items
+
+# jam = Item("Jam 450g", 1.50)
+# rice = Item("Rice 1kg", 2)
+# chickenpie = Item("Chickenpie 400g", 1.30)
+
+
+# Order_basket1 = Order()
+
+# Order_basket1.add_item(jam)
+# Order_basket1.add_item(rice)
+# Order_basket1.add_item(chickenpie)
+
+# print(Order_basket1.get_all_itemlist_name())
+# print(Order_basket1.total_price_order())
+
+# ////
+# 🔥 Exercise 3 — Company Salary System
+# 📌 Requirements
+
+# Build a company system.
+
+# Data:
+# Each employee has:
+# name
+# salary
+# Class behavior:
+# Store ALL employees in one shared list
+# Methods:
+# Get total salary payout (all employees combined)
+# Get highest salary
+# Get employee count
+# ⚠️ What I will check
+# Are you using cls correctly for aggregation?
+# Are you accessing instance data through objects?
+# Are you confusing local variables with class variables?
+# ////
+
+
+# ////
+
+
+
+
+# 🧠 Important rule
+
+# For every method you write, answer FIRST:
+
+# “Where does the data live?”
+
+# one object → self
+# shared across all → cls
+# temporary → local variable
+
+# Start with Exercise 1 only.
+# Send it. I’ll debug your thinking, not just your code.

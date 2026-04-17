@@ -797,28 +797,3 @@
 
 # print(add_product())
 # //////////////////////////////////////////////
-
-
-# 🔁 OOP Mastery Drill Prompt
-
-# I want to train OOP step-by-step.
-# Give me 3 exercises only focusing on:
-
-# class vs instance attributes
-# lists of objects
-# classmethods with aggregation
-
-# Rules:
-
-# Do NOT give full solutions immediately
-# First give me a problem
-# Let me attempt
-# Then only point out scope mistakes (self/cls/variable confusion)
-# Force me to identify whether something is an instance, class, or local variable
-
-# Focus especially on:
-
-# correcting my scope confusion
-# making me reason about where each variable lives
-
-# After each exercise, give me a short diagnosis of my mistake pattern.
