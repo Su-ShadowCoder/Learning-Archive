@@ -145,10 +145,57 @@
 # ////
 
 
+class Employee:
+    employee_list = []
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+        Employee.employee_list.append(self)
+
+    @classmethod
+    def get_all_emp(cls):
+        emp = []
+        for element in cls.employee_list:
+            emp.append(element.name)
+        return emp
+
+    @classmethod
+    def get_total_emp_count(cls):
+        return len(cls.employee_list)
+    
+    @classmethod
+    def total_all_emp_Pay_out(cls):
+        total_sal = 0
+        for sal in cls.employee_list:
+            total_sal += sal.salary
+        return total_sal
+    
+    @classmethod
+    def get_highest_salary(cls):
+        highest_sal = 0
+        for sal in cls.employee_list:
+            if sal.salary > highest_sal:
+                    highest_sal = sal.salary
+        return highest_sal
+    
+
+
+
+emp2 = Employee("Mike Ross", 3500)
+emp3 = Employee("Jessica Pierson", 8000)
+emp4 = Employee("Harvey Specter", 6000)
+emp1 = Employee("Richard Alone", 2000)
+
+print(Employee.get_all_emp())
+
+print(Employee.get_total_emp_count())
+
+print(Employee.total_all_emp_Pay_out())
+
+print(Employee.get_highest_salary())
+
+
 # ////
-
-
-
 
 # 🧠 Important rule
 
