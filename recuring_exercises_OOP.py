@@ -195,3 +195,189 @@
 # print(Employee.get_highest_salary())
 
 # ///////
+
+
+
+# ///////
+
+# class Book:
+#     all_books = []
+#     def __init__(self, name, author, pages):
+#         self.name = name
+#         self.author = author
+#         self.pages = pages
+#         Book.all_books.append(self)
+
+
+# class Library:
+#     def __init__(self):
+#         self.lib = []
+
+#     def add_book(self, book):
+#         self.lib.append(book)
+    
+#     def show_all_titles(self):
+#         all_titles = []
+#         for book in self.lib:
+#             all_titles.append(book.name)
+#         return all_titles
+
+#     def total_pages_lib(self):
+#         total_pages = 0
+#         for book in self.lib:
+#             total_pages += book.pages
+    
+#     def get_library(self):
+#         library = []
+#         for book in self.lib:
+#             library.append(f"{book.name}, {book.author}, {book.pages} pages")
+#         return library
+
+# # apparantly instead of a tuple you can also use a f string to append multiple things in one container. 
+
+
+# bk1 = Book("The Silent Horizon", "Elias Verne", 342)
+# bk2 = Book("Ashes of Tomorrow","Mira Solen", 287)
+# bk3 = Book("The Iron Garden", "Tobias Hale", 415)
+# bk4 = Book("Fractured Light", "Noura El-Karim", 198)
+# bk5 = Book("Echoes Beneath", "Daniel Cross", 256)
+
+# library_praryfire = Library()
+
+# library_praryfire.add_book(bk1)
+# library_praryfire.add_book(bk2)
+# library_praryfire.add_book(bk3)
+
+# print(library_praryfire.get_library())
+
+# ///////
+
+# ///////
+
+# class BankAccount:
+#     all_bank_accounts = []
+#     def __init__(self, owner_name, __balance):
+#         self.owner_name = owner_name
+#         self.__balance = __balance
+#         BankAccount.all_bank_accounts.append(self)
+
+#     @classmethod
+#     def total_all_acc_money(cls):
+#         total_money = 0
+#         for account in cls.all_bank_accounts:
+#             total_money += account.__balance # dont make a specific logic for if account goes into minus because the __balance attribute is safeguarded in not being able to access the balance beyond negative trough the withdraw method.
+#         return f"Total all Account Balance: {total_money} Euro." 
+
+#     @classmethod
+#     def highest_balance_account(cls):
+#         first_acc = cls.all_bank_accounts[0]
+#         highest_acc_balance = first_acc.__balance
+#         for account in cls.all_bank_accounts:
+#             if account.__balance > highest_acc_balance:
+#                 highest_acc_balance = account.__balance
+#                 name = account.owner_name
+#         return name, highest_acc_balance
+
+#     @classmethod
+#     def get_all_accounts(cls):
+#         all_acounts = []
+#         for account in cls.all_bank_accounts:
+#             all_acounts.append(f"Name: {account.owner_name} - Balance: {account.__balance} Euro.")
+#         return all_acounts
+
+#     def deposit_money(self, money):
+#         self.__balance += money
+#         print(f"Bank Account:{self.owner_name} - Bank Balance: {self.__balance} Euro")
+
+#     def withdraw_money(self, money):   #(no negative balance allowed)
+#         if self.__balance > 0:
+#             if self.__balance - money < 0:
+#                 print(f"Unable withdraw, Insufficient funds!")
+#             else:
+#                 self.__balance -= money    
+#                 print(f"Bank Account:{self.owner_name} - Bank Balance: {self.__balance} Euro")
+#         else:
+#             print(f"Unable withdraw, Insufficient funds!")
+    
+# ba1 = BankAccount("Adam Carter", 1250.75)
+# ba2 = BankAccount("Sara Khan", 3400.00)
+# ba3 = BankAccount("Lucas Meyer", 890.50)
+# ba4 = BankAccount("Nina Vos", 5600.20)
+# ba5 = BankAccount("Omar El-Sayed", 150.00)
+
+# print(BankAccount.get_all_accounts())
+# print(BankAccount.highest_balance_account())
+# print(BankAccount.total_all_acc_money())
+
+# ba1.deposit_money(2000)
+# ba2.withdraw_money(5000)
+# ba3.withdraw_money(200)
+
+# ///////
+
+# ///////
+
+
+
+# class Student:
+#     all_student_lst = []
+#     def __init__(self, name):
+#         self.name = name
+#         Student.all_student_lst.append(self)
+
+
+#     @classmethod
+#     def get_all_student(cls):
+#         all_student = []
+#         for student in cls.all_student_lst:
+#             all_student.append(student.name)
+#         return all_student
+
+
+# class Course:
+#     def __init__(self, course_name):
+#         self.course_name = course_name
+#         self.course_student_list = []
+
+
+#     def enroll_students(self, student):
+#         self.course_student_list.append(student)
+    
+#     def get_course_student_lst(self):
+#         course_student_lst = []
+#         for student in self.course_student_list:
+#             course_student_lst.append(student.name)
+#         return course_student_lst
+    
+#     def total_student_number(self):
+#         total_numb = 0
+#         for student in self.course_student_list:
+#             total_numb += 1
+#         return total_numb # could have done a = len(self.course_student_list), return a. 
+
+
+
+# def main():
+
+#     st1 = Student("Ayaan Malik")
+#     st2 = Student("Sofia Vermeer")
+#     st3 = Student("Lucas van Dijk")
+
+#     c1 = Course("Python Basics")
+#     c2 = Course("Data Structures")
+
+#     print(Student.get_all_student())
+
+#     c1.enroll_students(st1)
+#     c2.enroll_students(st3)
+#     c1.enroll_students(st2)
+
+#     print(c1.get_course_student_lst())
+#     print(c2.get_course_student_lst())
+#     print(c1.total_student_number())
+#     print(c2.total_student_number())
+
+# if __name__ == "__main__":
+#     main()
+
+# /////////////////
