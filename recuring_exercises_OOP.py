@@ -381,3 +381,114 @@
 #     main()
 
 # /////////////////
+
+
+
+# /////////////////
+
+
+
+# class Product:
+#     product_lst = []
+#     def __init__(self, sku, name, category):
+        
+#         self.sku  = sku
+#         self.name = name
+#         self.category = category
+#         Product.product_lst.append(self)
+
+#     def __str__(self):
+#         return f"[SKU]:{self.sku}, {self.name}"
+    
+#     def __repr__(self):
+#         return f"Product(sku={self.sku}, name={self.name}, category={self.category})"
+
+
+
+# class Inventory:
+#     def __init__(self):
+#         self.lst = []
+
+#     def add_product(self, p):
+#         self.lst.append(p)
+
+#     def get_first_p_lst(self):
+#         print(self.lst[0])
+    
+#     def get_all_p_lst(self):
+#         print(self.lst)
+
+# def main():
+
+#     abc1 = Product("bc-1", "short pants", "Men")
+#     abc2 = Product("cc-2", "shirt", "Men")
+#     abc3 = Product("dc_v", "blouse", "Woman")
+
+#     print(abc1.__str__())
+#     print(abc2.__repr__())
+
+#     inv1 = Inventory()
+#     inv1.add_product(abc1)
+#     inv1.add_product(abc2)
+#     inv1.add_product(abc3)
+
+#     inv1.get_first_p_lst()
+#     inv1.get_all_p_lst()
+
+# if __name__ == "__main__":
+#     main()
+
+# /////////////////
+
+    
+
+
+
+# /////////////////
+
+
+# /////////////////
+
+class Post:
+
+    def __init__(self, username, content, timestamp):
+        self.username = username
+        self.content = content
+        self.timestamp = timestamp
+    
+
+class Feed:
+    def __init__(self):
+        self.posts_lst = []
+
+    def add_post(self, post):
+        self.posts_lst.append(post)
+
+    def __str__(self):
+        ok_feed = []
+        ok_feed.append(f"--- TIMELINE ---")
+        for p in self.posts_lst:
+            formatted_feed = f"{p.username}: \"{p.content}\" [{p.timestamp}]"
+            ok_feed.append(formatted_feed)
+        ok_feed.append("----------------")
+        return "\n".join(ok_feed)
+        
+   
+
+def main():
+    
+    p1 = Post("@Ayaan", "Learning Python today!", "10:00 AM")
+    p2 = Post("@Sofia", "Object oriented code is cool.", "10:05 AM")
+    p3 = Post("@Rico", "Done some analyses!", "10:10 AM")
+
+    my_feed = Feed()
+
+    my_feed.add_post(p1)
+    my_feed.add_post(p2)
+    my_feed.add_post(p3)
+
+    print(my_feed)
+
+
+if __name__=="__main__":
+    main()
