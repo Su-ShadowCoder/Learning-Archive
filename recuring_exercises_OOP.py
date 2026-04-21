@@ -449,46 +449,54 @@
 
 # /////////////////
 
-class Post:
+# class Post:
 
-    def __init__(self, username, content, timestamp):
-        self.username = username
-        self.content = content
-        self.timestamp = timestamp
+#     def __init__(self, username, content, timestamp):
+#         self.username = username
+#         self.content = content
+#         self.timestamp = timestamp
     
 
-class Feed:
-    def __init__(self):
-        self.posts_lst = []
+# class Feed:
+#     def __init__(self):
+#         self.posts_lst = []
 
-    def add_post(self, post):
-        self.posts_lst.append(post)
+#     def add_post(self, post):
+#         self.posts_lst.append(post)
 
-    def __str__(self):
-        ok_feed = []
-        ok_feed.append(f"--- TIMELINE ---")
-        for p in self.posts_lst:
-            formatted_feed = f"{p.username}: \"{p.content}\" [{p.timestamp}]"
-            ok_feed.append(formatted_feed)
-        ok_feed.append("----------------")
-        return "\n".join(ok_feed)
+#     def __str__(self):
+#         ok_feed = []
+#         ok_feed.append(f"--- TIMELINE ---")
+#         for p in self.posts_lst:
+#             formatted_feed = f"{p.username}: \"{p.content}\" [{p.timestamp}]"
+#             ok_feed.append(formatted_feed)
+#         ok_feed.append("----------------")
+#         return "\n".join(ok_feed)
         
    
 
-def main():
+# def main():
     
-    p1 = Post("@Ayaan", "Learning Python today!", "10:00 AM")
-    p2 = Post("@Sofia", "Object oriented code is cool.", "10:05 AM")
-    p3 = Post("@Rico", "Done some analyses!", "10:10 AM")
+#     p1 = Post("@Ayaan", "Learning Python today!", "10:00 AM")
+#     p2 = Post("@Sofia", "Object oriented code is cool.", "10:05 AM")
+#     p3 = Post("@Rico", "Done some analyses!", "10:10 AM")
 
-    my_feed = Feed()
+#     my_feed = Feed()
 
-    my_feed.add_post(p1)
-    my_feed.add_post(p2)
-    my_feed.add_post(p3)
+#     my_feed.add_post(p1)
+#     my_feed.add_post(p2)
+#     my_feed.add_post(p3)
 
-    print(my_feed)
+#     print(my_feed)
 
 
-if __name__=="__main__":
-    main()
+# if __name__=="__main__":
+    # main()
+
+
+# /////////////////
+
+
+# /////////////////
+
+
