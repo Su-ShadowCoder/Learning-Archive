@@ -346,4 +346,37 @@
 
 # //////////////////////////////////////////////
 
-# Lesson:
+# Lesson: Exercise: Password Validation
+
+
+# import re
+
+# pattern = re.compile(r"^[a-zA-Z%$#@]{8,}$")
+
+# user_inp_password = input("Please Enter a password that contains 8 characters and is in accordance with these requirments:\na-z,A-Z,%$#@:\n")
+
+# validating = pattern.search(user_inp_password)
+
+# if validating:
+#     print("You have entered a valid password!")
+# else:
+#     print("Invalid password!")
+
+
+
+
+import re
+
+def p_validator():
+    required_char = re.compile(r"^[a-zA-Z%$#@]{8,}$")
+    while True:
+        usr_i_passw = input("Please enter a password in accordance with the requirments:\n")
+        validation = required_char.search(usr_i_passw)
+        if validation:
+            print("Password fullfils the requirment!")
+            break
+        else:
+            print("Invalid password")
+
+p_validator()
+
