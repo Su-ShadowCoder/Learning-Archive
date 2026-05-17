@@ -368,10 +368,10 @@
 import re
 
 def p_validator():
-    required_char = re.compile(r"^[a-zA-Z%$#@]{8,}$")
+    required_char = re.compile(r"[a-zA-Z%$#@]{8,}")
     while True:
         usr_i_passw = input("Please enter a password in accordance with the requirments:\n")
-        validation = required_char.search(usr_i_passw)
+        validation = required_char.fullmatch(usr_i_passw)
         if validation:
             print("Password fullfils the requirment!")
             break
