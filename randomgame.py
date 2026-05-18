@@ -19,36 +19,54 @@ class RangeError(Exception):
 
 
 try:
-    user_first_numr = int(sys.argv [1])
-    user_second_numr = int(sys.argv [2])
+    user_first_numr = 1 #int(sys.argv [1])
+    user_second_numr = 10 #int(sys.argv [2])
 except (ValueError, IndexError):
             print("Please enter a valid number")
             sys.exit()
 
 
-r_num = random.randrange(user_first_numr, user_second_numr  + 1)
+def get_random_number():
+    return random.randrange(user_first_numr, user_second_numr  + 1)
 
-def user_guessing():
+def get_user_numb_inp():
     while True:
         try:
-            usr_g_num = int(input("Please guess and enter a number, the number between the numbers that you have entered:\n"))
-            if user_first_numr <= usr_g_num <= user_second_numr:
-                if usr_g_num == r_num:
-                    print(f"You are a genius, the number was: {r_num}")
-                    break
-                else:
-                    print("please try again")
+            x = None
+            x = int(input("Please guess and enter a number, the number between the numbers that you have entered:\n"))
+            if user_first_numr <= x <= user_second_numr:
+                return x
             else:
                 raise RangeError
         except ValueError:
-            print("Please enter a valid number")
+                return("Please enter a valid number")
         except RangeError:
-            print(f"{usr_g_num} is outside of specified range!")
+                return(f"{x} is outside of specified range!")
+    
+def validating(user_numb_inp, targetnumber):
+        try:
+            if user_numb_inp == targetnumber:
+                return(f"You are a genius, the number was: {targetnumber}")
+            else:
+                return("please try again")
+        except Exception as err:
+            return err
 
 
 def main():
-    user_guessing()
+    targetnumber = get_random_number()
+    
+    while True:
+        user_numb_inp = get_user_numb_inp()
+        if isinstance(user_numb_inp, str):
+            print(user_numb_inp)
+            continue
 
+        result_message = validating(user_numb_inp, targetnumber)
+        
+        print(result_message)
+        if user_numb_inp == targetnumber:
+            break
 
 
 if __name__=="__main__":

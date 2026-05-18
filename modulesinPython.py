@@ -348,7 +348,7 @@
 
 # Lesson: Exercise: Password Validation
 
-
+# version 1
 # import re
 
 # pattern = re.compile(r"^[a-zA-Z%$#@]{8,}$")
@@ -364,19 +364,216 @@
 
 
 
+# Version 1.2
+# import re
 
-import re
+# def p_validator():
+#     required_char = re.compile(r"[a-zA-Z%$#@]{8,}")
+#     while True:
+#         usr_i_passw = input("Please enter a password in accordance with the requirments:\n")
+#         validation = required_char.fullmatch(usr_i_passw)
+#         if validation:
+#             print("Password fullfils the requirment!")
+#             break
+#         else:
+#             print("Invalid password")
 
-def p_validator():
-    required_char = re.compile(r"[a-zA-Z%$#@]{8,}")
-    while True:
-        usr_i_passw = input("Please enter a password in accordance with the requirments:\n")
-        validation = required_char.fullmatch(usr_i_passw)
-        if validation:
-            print("Password fullfils the requirment!")
-            break
-        else:
-            print("Invalid password")
+# p_validator()
 
-p_validator()
+# Version 1.3
+# now i need to add that the password has to end with a digit
+
+# import re
+
+# def p_validator():
+#     required_char = re.compile(r"[a-zA-Z\d%$#@]{7,}\d")
+#     while True:
+#         usr_i_passw = input("Please enter a password in accordance with the requirments:\n")
+#         validation = required_char.fullmatch(usr_i_passw)
+#         if validation:
+#             print("Password fullfils the requirment!")
+#             break
+#         else:
+#             print("Invalid password")
+
+# p_validator()
+
+# //////////////////////////////////////////////
+
+
+# //////////////////////////////////////////////
+
+# Lesson: Testing introduciton
+
+# in the professional field while working on the code there is also a test file that allows programmers/those that are working on the project to test certain modules and stuff on the test file that is openend besides the main file. 
+
+# by allowing new people or a lot of different people to work on a project it would quickly make the project more chaotic and somethimes the programmer who is new can introduce more bugs to the parts of code he is working on. 
+
+# for this reason in practice you run a test file besides the main file. to test certain things out. and the module used for that is called: 
+# import unittest
+
+
+# //////////////////////////////////////////////
+
+
+# //////////////////////////////////////////////
+
+# Lesson: Unittest
+
+# i have made a test.py file and is opened besides this file.
+
+# def do_stuff(num=0):
+#     try:
+#             return int(num) + 5
+#     except ValueError as err:
+#         return f"please enter number"
+#     except TypeError as err:
+#         return err
+
+# the code here under was done in a test file:
+# ########
+# import unittest
+# import modulesinPython
+
+# class TestMain(unittest.TestCase):
+
+#     def setUp(self):
+#         print("About to test a function")
+
+#     def test_do_stuff(self):
+#         test_param = 10
+#         result = modulesinPython.do_stuff(test_param)
+#         self.assertEqual(result, 15)
+
+#     def test_do_stuff2(self):
+#         test_param = "akdjkfjd"
+#         result = modulesinPython.do_stuff(test_param)
+#         self.assertEqual(result, "please enter number")
+
+
+#     def test_do_stuff3(self):
+#         test_param = None
+#         result = modulesinPython.do_stuff(test_param)
+#         self.assertIsInstance(result, TypeError)
+
+
+#     def test_do_stuff4(self):
+#         test_param = ""
+#         result = modulesinPython.do_stuff(test_param)
+#         self.assertEqual(result, "please enter number")
+
+#     def test_do_stuff5(self):
+#         test_param = 0
+#         result = modulesinPython.do_stuff(test_param)
+#         self.assertEqual(result, 5)
+
+#     def tearDown(self):
+#         print('cleaning up')
+
+# if __name__ == "__main__":
+#     unittest.main()
+# ########
+
+# //////////////////////////////////////////////
+
+
+# //////////////////////////////////////////////
+
+# Lesson: Exercise: Testing
+#  using a old game that i coded and revamped it 
+
+# import random
+
+# import sys
+
+# class RangeError(Exception):
+#     pass
+
+
+# try:
+#     user_first_numr = 1 #int(sys.argv [1])
+#     user_second_numr = 10 #int(sys.argv [2])
+# except (ValueError, IndexError):
+#             print("Please enter a valid number")
+#             sys.exit()
+
+
+# def get_random_number():
+#     return random.randrange(user_first_numr, user_second_numr  + 1)
+
+# def get_user_numb_inp():
+#     while True:
+#         try:
+#             x = None
+#             x = int(input("Please guess and enter a number, the number between the numbers that you have entered:\n"))
+#             if user_first_numr <= x <= user_second_numr:
+#                 return x
+#             else:
+#                 raise RangeError
+#         except ValueError:
+#                 return("Please enter a valid number")
+#         except RangeError:
+#                 return(f"{x} is outside of specified range!")
+    
+# def validating(user_numb_inp, targetnumber):
+#         try:
+#             if user_numb_inp == targetnumber:
+#                 return(f"You are a genius, the number was: {targetnumber}")
+#             else:
+#                 return("please try again")
+#         except Exception as err:
+#             return err
+
+
+# def main():
+#     targetnumber = get_random_number()
+    
+#     while True:
+#         user_numb_inp = get_user_numb_inp()
+#         if isinstance(user_numb_inp, str):
+#             print(user_numb_inp)
+#             continue
+
+#         result_message = validating(user_numb_inp, targetnumber)
+        
+#         print(result_message)
+#         if user_numb_inp == targetnumber:
+#             break
+
+
+# if __name__=="__main__":
+#     main()
+
+##### next is a new file which is different:
+
+# import unittest
+# from unittest.mock import patch
+# import randomgame
+
+
+
+# class TestMain(unittest.TestCase):
+
+#     def test_validating_correct_guess(self):
+#         result = randomgame.validating(3, 3)
+#         self.assertEqual(result, "You are a genius, the number was: 3")
+    
+#     def test_validating_INcorrect_guess(self):
+#         result = randomgame.validating(8, 1)
+#         self.assertEqual(result, "please try again")
+
+#     @patch('builtins.input', return_value='6')
+#     def test_get_usr_input_correctly(self, mock_input):
+#         result = randomgame.get_user_numb_inp()
+#         self.assertEqual(result, 6)
+
+
+
+# if __name__ == "__main__":
+#     unittest.main()
+
+# //////////////////////////////////////////////
+
+
+# //////////////////////////////////////////////
 
