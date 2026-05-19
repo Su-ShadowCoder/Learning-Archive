@@ -2,12 +2,13 @@
 
 This repository is a single, centralized home for all my practice work, coursework, exercises, and technical notes. 
 
-Instead of creating a million separate repositories for every new topic I try, I keep everything here to track my progress and maintain my coding history in one place.
+This centralized space allows me to track my ongoing progress, organize my study materials, and maintain a complete history of my technical growth in one place.
 
 ## 📝 What Goes in Here?
 
 Basically, any file, script, or note generated while I am learning. This includes:
 
+*   **📚 Course Materials:** Dedicated course notes, lecture summaries, practical exercises.
 *   **🐍 Python Scripting:** Practice projects, automation experiments, and course exercises.
 *   **🐧 Linux & Bash:** Command-line notes, shell scripts, and system configurations.
 *   **🔍 Security & SIEM:** SIEM related Notes and materials.
