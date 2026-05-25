@@ -19,7 +19,7 @@ Basically, any file, script, or note generated while I am learning. This include
 ## 📂 Repository Structure: 
 > **Last Updated:** May 25, 2026
 
-'''text
+```text
 Learning-Archive/
 │
 ├── 📝 README.md
