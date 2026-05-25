@@ -16,8 +16,10 @@ Basically, any file, script, or note generated while I am learning. This include
 * 🧪 **The Sandbox:** Broken code, raw syntax tests, and miscellaneous files that aren't real or functional projects, but were part of the learning process.
 
 
-📂 Repository Structure: Updated May 25 2026. 17:18 PM
+## 📂 Repository Structure: 
+> **Last Updated:** May 25, 2026
 
+'''text
 Learning-Archive/
 │
 ├── 📝 README.md
