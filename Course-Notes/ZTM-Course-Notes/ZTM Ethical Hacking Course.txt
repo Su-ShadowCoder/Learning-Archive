@@ -1,0 +1,117 @@
+ZTM Ethical Hacking Course Notes
+
+
+
+
+
+|||||||||||||||||Introduction|||||||||||||||||||
+//
+Ethical hacking;
+Ethical hacking find vulnerabilities and exploits in system legally in order to find the weak points in the system and make the system more secure by patching up the weak points/vulnerabilities. Ethical hackers are white hat hackers.
+//
+
+//
+System can be a network of multiple computers, or it could be a server, one single computer or a website. a vulnerability is a weak point in the system that can be exploited in order to get authorization within the system.
+//
+
+//
+illegal hackers who commit crimes are black hat hackers.
+They exploit systems from other people to gain a certain kind of a opportunity to achieve a specific goal by make use of other people's digital assets. They thus perform malicious activity's.
+//
+
+//
+A white hat hacker is there find the vulnerability, notify the person that hired him. and let him know of the possible unauthorized access. 
+You can think of a white hack hacker as a Cyber-police. The difference between a white hat hacker and a black hat hacker is that the white hat hacker has permission to target a certain system from the company/owner that where hired by. The white hat hacker would hack as a black hat hacker to hack the company, and find vulnerability in their system by making use of their websites, the people who work in their company or their server itself.
+//
+
+
+|||||||||||||||||Setting Up Our Hacking Lab|||||||||||||||||
+//
+What is a virtual machine?
+its a program that acts as a machine within the physical machine that is using the resources from that physical machine.
+//
+
+typically you use a operating system when you have a computer.
+
+usually when you use them, its most likely that people either use Windows, Linux or MacOS. these are different sort of OS's that operate with different code but ultimate acts as an operating system for your machine. so people can interact with the computer as a whole. the computer itself is a complete system that consist of software, hardware and processes. They work together in order to achieve a specific goal or to achieve a certain objective.
+
+The operating system, is a system software that Allows for management of the Applications, run programs, and handles different users and users privileges.
+//
+
+The Hardware of the computer system. consist of: gpu, cpu, motherboard, ssd, memory disk, network card and psu.
+
+//
+
+benefits for using a virtual machine while learning hacking:
+-safe environment
+- annoying error
+- delete file should'nt have deleted
+- malware or virus
+- installing the wrong operating system
+- you can delete the vm so you can delete the whole file without your actual pc having any consequences.
+
+you cant proceed to create a new one. 
+or simply:
+make a snapshot from the moment you vm file is safe;which allows you to save the current state of the virtual machine and then you can revert it back to that moment of configuration without dealing with the consequences that has been done after the snapshot.
+
+All you need for a Virtual machine are 2 things:
+-operating system
+-virtualization software
+
+virtualization software it essentially allows the physical machine to borrow the hardware components that allows it to run the virtual machine.
+it also allows you to run multiple operating systems on a single host or single machine.
+//
+
+//Linux//
+
+Why use Linux on a virtual machine, or use it to hack?
+The benefits of using linux, is that it is a open source operating system. This means that you can inspect the code of the software and look what is in it and how it was coded. And see what programs or functions it runs. The OS can be used for many reasons for example: for hacking, servers, embedded digital smart devices, programmers. Another advantage is that most of the linux distro's that those are free of cost. While other(not all) OS system's you might need to pay for license.
+While linux is free to download. Because linux is open source it allows users to edit, copy or distribute various aspects of linux -based operating system without violating any copyright law or terms and conditions. This is one of the main reasons hackers why hackers use linux. It is because they can easily develop software used for hacking and penetration testing on linux and they change and edit the operating system for their needs. The OS is very light to run and doesn't require a lot of disk space and ram to run, and is thus easy to run. so it can be easily ran alongside any other operating system like windows and MacOS. Due to Linux being open source and allowing anyone to change and interact with the operating system, it allows people to create an operating system that will specifically made for one purpose, such as, for example, ethical hacking or penetration testing. Linux distro's like this already exist that specifically made for pen testing and checking for security loopholes, and all of them are widely being used by hackers. for this course kali linux would be used. one of the linux distros specially created for hackers and penetration testers. 
+//
+
+//Virtual Box and Kali Linux Download//
+
+//Downloading Virtual Box and Kali Linux\\
+
+How to download VB:
+step 1: 
+Enter the website:
+virtualbox.org
+step 2: 
+click on the download button that is on the right side of the site.
+step 3:
+Choose the vb platform package based on the OS you are currently using.
+step 4:
+safe the file where you want.
+step 5:
+install additional packages that are necessary
+step 6:
+Done
+
+Kali Linux is a pen testing OS, that is used the most by ethical Hackers.
+
+How to download Kali Linux:
+step 1:
+Navigate to: kali.org
+step 2:
+click on the Download button at center right of the site.
+step 3:
+select the option: installer images
+step 4:
+choose between: windows "x86_64",MacOS, intel processor chip or MacOS "apple sillicon" m serie chips
+step 5:
+click on: installer, not on the exta icons below.
+step 6:
+save the .iso file where you want.
+
+VB is a application you can use to virtualize a machine and run a OS in that virtual machine.
+
+A Kali Linux ISO is a disk image file that represents a bootable installation medium. When mounted or used in a system (like a VM), it behaves like a virtual DVD used to install or run an operating system.
+
+in order to practice. we need a lab and that lab will be the VM in the VB. by using a procedure you would be able to select the file in the VB app and making it install it on the VM. in this manner you would have a training lab to use it to learn for cybersecurity.
+
+//Creating Our First Virtual Machine\\
+
+see in IT  manual.
+
+
