@@ -2,7 +2,7 @@
 
 # Lesson: Images With Python
 
-from PIL import Image, ImageFilter
+# from PIL import Image, ImageFilter
 
 # #  asiging a filter to the image
 # img = Image.open('./photos/pikachu.jpg')
@@ -14,15 +14,13 @@ from PIL import Image, ImageFilter
 # filtered_img.save("SHARPEN.png", "png")
 
 # converting image to grey
-img = Image.open('./photos/pikachu.jpg')
-filtered_img = img.convert('L')
-filtered_img.save("grey2.png", 'png')
+# img = Image.open('./photos/pikachu.jpg')
+# filtered_img = img.convert('L')
+# filtered_img.save("grey2.png", 'png')
 
 # img = Image.open('./photos/pikachu.jpg')
 # filtered_img = img.convert("P")
 # filtered_img.save("ok.png", 'png')
-
-
 
 
 
@@ -52,6 +50,9 @@ filtered_img.save("grey2.png", 'png')
 # img2 = Image.open('./photos/squirtle.jpg')
 # cropped_img = img2.crop((100, 100, 400, 400))
 # cropped_img.save("cropped_img.png","png")
+
+
+
 
 ###############################################
 

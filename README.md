@@ -4,20 +4,8 @@ This repository is a single, centralized home for all my practice work, coursewo
 
 This centralized space allows me to track my ongoing progress, organize my study materials, and maintain a complete history of my technical growth in one place.
 
-## 📝 What Goes in Here?
-
-Basically, any file, script, or note generated while I am learning. This includes:
-
-* 📚 **Course Materials:** Dedicated course notes, lecture summaries, practical exercises.
-* ⌨️ **Python Scripting:** Practice projects, automation experiments, and course exercises.
-* 💻 **Linux & Bash:** Command-line notes, shell scripts, and system configurations.
-* 🔍 **Security & SIEM:** SIEM related Notes and materials.
-* 🛡️ **Hacking & Tech Labs:** Notes from tutorials, CTFs, and general cybersecurity learning.
-* 🧪 **The Sandbox:** Broken code, raw syntax tests, and miscellaneous files that aren't real or functional projects, but were part of the learning process.
-
-
 ## 📂 Repository Structure: 
-> **Last Updated:** May 25, 2026
+> **Last Updated:** May 30, 2026
 
 ```text
 Learning-Archive/
@@ -55,3 +43,18 @@ Learning-Archive/
         ├── LinkTree-21-2-24/
         ├── S-WebPortfolio--2.0--29-2-24/
         └── Webportfolio--1.0--26-2-24/
+```
+
+## 📝 What Goes in Here?
+
+Basically, any file, script, or note generated while I am learning. This includes:
+
+* 📚 **Course Materials:** Dedicated course notes, lecture summaries, practical exercises.
+* ⌨️ **Python Scripting:** Practice projects, automation experiments, and course exercises.
+* 💻 **Linux & Bash:** Command-line notes, shell scripts, and system configurations.
+* 🔍 **Security & SIEM:** SIEM related Notes and materials.
+* 🛡️ **Hacking & Tech Labs:** Notes from tutorials, CTFs, and general cybersecurity learning.
+* 🧪 **The Sandbox:** Broken code, raw syntax tests, and miscellaneous files that aren't real or functional projects, but were part of the learning process.
+
+
+
