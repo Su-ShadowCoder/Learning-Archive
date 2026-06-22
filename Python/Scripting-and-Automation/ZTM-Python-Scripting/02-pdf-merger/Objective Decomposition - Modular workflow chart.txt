@@ -1,0 +1,43 @@
+Modular workflow blueprint: PDF merger
+
+
+Objective: Write a Python script that Merges multiple PDF files via terminal by giving the first input as a destination and the inputs after wards as sources to select from to merge and then finally put it into the destination file.
+
+
+Deduction: 
+Here we are going to work back wards from the solution to the problem to understand what we need in big lines before we decomposition the the big lines into smaller workable block loads.
+
+The end product is a script that allows us to merge pdf files from different sources into one centralized pdf file. unifying all the pdf files.
+
+1
+so first need to choose which modules we are working with and because we are using the CLI to execute the script we need the cli module here for which is the sys module. and of course as we are working with pdf files we need the pypdf module for this.
+
+2
+now that we have all the modules, we would need to that have input destination and sourse
+
+3
+then the code must use the sources after the first input in the terminal after the script code and that would be [1] in code as index. and use those sources to combine it into an unified file in the destination.
+
+the new unified file is a object
+the obbject that has bbeen merged by pypdf - method?
+make a new obbject using pypdf for the destination file
+make a new file
+asigned the file for that obbject
+then asiggn the the sources which has been put in object to the new file.
+
+
+
+Resources:
+-sys module
+-pypdf module
+
+Decomposition:
+
+Modular Blueprint:
+
+Apply 4 Pillars of logic:
+
+
+
+
+Conclusion:
