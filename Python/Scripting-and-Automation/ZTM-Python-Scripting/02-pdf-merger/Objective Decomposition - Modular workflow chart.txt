@@ -55,8 +55,9 @@ if __name__ == "__main__":
 
 
 Modular Blueprint:
-1. take the raw datas
+
 ###
+1. take the raw datas
 Input:
 what do i need to do to get the output? and what do i need?
 cli mod = import sys
@@ -72,9 +73,28 @@ Output:
 in cli command line arguments- script, destination name, source, sources, etc,
 ###
 
+###
 2. put the raw datas in an objects - variables
 
+already done in step one
+###
 
+###
+3. check if data is valid that is put in the object with try and exception.
+Input:
+before resource acquisition:
+something with try:
+and something with exception:
+need to search about both in what way to use it and in which situations or funnel all error into one and make the user exit the request phase 
+
+search how to make the user exit the request phase in cli
+
+After Resource Acquisition:
+
+
+Output:
+data gets error handling based and either exits the input request phase or keeps iterating for a new answer. in this situation it exits the request phase in which you would have to enter the script name and arguments again in order to execute the program/script. 
+###
 
 
 

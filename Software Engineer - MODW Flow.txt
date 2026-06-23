@@ -73,6 +73,8 @@ OUTPUT:
 - Definition: Executes the final state-dump of the object to permanent storage.
 - Contract: Input: (Populated_Container_Instance, Destination) -> Output: Status_Code
 - Responsibility: Finalizes binary/text streams and handles I/O exceptions.
+
+After writing out the workflow chart-> begin Resource Acquisition - search what you need in accordance what the workflow chart requires in order to actualize the code. 
 ################################################################################
 STEP 3: LOGICAL DECOMPOSITION - SIMPLE REFERENCE GUIDE
 
