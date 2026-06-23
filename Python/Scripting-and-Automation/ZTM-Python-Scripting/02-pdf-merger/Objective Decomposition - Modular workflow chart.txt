@@ -16,7 +16,7 @@ so first need to choose which modules we are working with and because we are usi
 now that we have all the modules, we would need to that have input destination and sourse
 
 3
-then the code must use the sources after the first input in the terminal after the script code and that would be [1] in code as index. and use those sources to combine it into an unified file in the destination.
+then the code must use the sources after the first input in the terminal after the script code and that would be [2] in code as index. and use those sources to combine it into an unified file in the destination.
 
 the new unified file is a object
 the obbject that has bbeen merged by pypdf - method?
@@ -25,17 +25,58 @@ make a new file
 asigned the file for that obbject
 then asiggn the the sources which has been put in object to the new file.
 
-
-
+ 
 Resources:
 -sys module
 -pypdf module
 
 Decomposition:
 
-Modular Blueprint:
+INPUT:
+1- take the raw datas
+2- put the raw datas in an objects - variables
+3- check if data is valid that is put in the object with try and exception.
 
-Apply 4 Pillars of logic:
+PROCESSING:
+4- initiate the object-sourcedata with the class module trough the use of a method, instantiate a class object from the pypdf module.
+5- merge the object-data trough the use of a module method.
+
+OUTPUT:
+6- use the designated module method to make the merged object data into a permanent object state.
+
+In code:
+script
+
+def main():
+	"script function name"()
+
+if __name__ == "__main__":
+	main()
+
+
+Modular Blueprint:
+1. take the raw datas
+###
+Input:
+what do i need to do to get the output? and what do i need?
+cli mod = import sys
+pdf mod = import pypdf
+
+(terminal > input method  = sys.argv[2:] (from after the script input everthing else))
+
+(script file name = which would be name of the script so we can ignore this for  now)
+destination_file_name = sys.argv[1]
+sources_in_order = sys.argv[2:] 
+
+Output:
+in cli command line arguments- script, destination name, source, sources, etc,
+###
+
+2. put the raw datas in an objects - variables
+
+
+
+
 
 
 
