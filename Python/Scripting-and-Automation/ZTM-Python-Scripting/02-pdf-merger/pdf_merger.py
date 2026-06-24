@@ -5,9 +5,9 @@ import sys
 
 
 
-term_inputs = sys.argv[1:]
 
 
+help(sys.exit)
 
 
 

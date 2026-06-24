@@ -72,13 +72,13 @@ sources_in_order = sys.argv[2:]
 Output:
 in cli command line arguments- script, destination name, source, sources, etc,
 ###
-
+->
 ###
 2. put the raw datas in an objects - variables
 
 already done in step one
 ###
-
+->
 ###
 3. check if data is valid that is put in the object with try and exception.
 Input:
@@ -90,15 +90,90 @@ need to search about both in what way to use it and in which situations or funne
 search how to make the user exit the request phase in cli
 
 After Resource Acquisition:
-
+try:
+	destination_file_name = sys.argv[1]
+	sources_in_order = sys.argv[2:]
+except Exception as e:
+	parser.error(e)
+	sys.exit()
+	
+or
+except Exception:
+	print("Something went wrong, please enter the correct files. Watch out for spelling mistakes!")
+	sys.exit()
 
 Output:
 data gets error handling based and either exits the input request phase or keeps iterating for a new answer. in this situation it exits the request phase in which you would have to enter the script name and arguments again in order to execute the program/script. 
 ###
+->
+###
+4. initiate the object-sourcedata with the class module trough the use of a method, instantiate a class object from the pypdf module.
 
+Output:
+before resource acquisition:
 
+1. The source_in_order object should be instantiated with the class module pypdf, crafting a new object - new_file - in which you can work with the class properties trough abstraction which is the pypdf module, in this situation to "write" the file method?
 
+Input:
+After Resource Acquisition:
 
+from pypdf import PdfMerger
 
+Instantiated environment(module) object -> merger = PdfMerger()
+
+apparently the source object should not be added or done something to the env object. so first craft env object and instantiate that with the aforementioned method
+
+and then in the transformation phase you could relate the source object to the env object.
+
+###
+->
+###
+5. merge the object-data trough the use of a module method.
+
+Output:
+before resource acquisition:
+
+1. The instantiated new_file, is now "activated" for transformation. in this situation i need to append the existing sources withing the object, as the object already has multiple pdf files, but has not been appended to each other yet. method? how to append multiple pdf files within the object? every object is a container/array which is something that hold things togheter, within there can be something or nothing depending on what has been added to it. like a list. but every element in the list is its own variable object. so an container of objects if you will. Again what method to use to append pdf files in the object?
+
+Input:
+After Resource Acquisition:
+
+for pdf in source_in_order:
+	merger.append(pdf)
+
+###
+->
+###
+6. use the designated module method to make the merged object data into a permanent object state.
+
+Output:
+before resource acquisition:
+
+1. After transformation, we need to make the modification permanent/"write" into the memory. what method to use to save the new object state?
+
+Input:
+After Resource Acquisition:
+
+merger.write("Merged.pdf")
+
+###
+
+Resources:
+-google.com
+
+-youtube.com
+
+-https://stackoverflow.com/questions/3444645/merge-pdf-files
+
+-https://pypdf.readthedocs.io/en/stable/user/merging-pdfs.html
+
+Only for general feedback and small offloading tasks:
+-Gemini AI
 
 Conclusion:
+
+Blue print completed. Ready to write the code based on the Workflow chart.
+Clunky at the beginning. had to like understand what i was searching for. formulating the search key words is an important step to implement in order to get proper results. finally learned the most important thing is to go trough documents first when it comes to every module. as the documents has lot of information that most of the type should be available and sometimes the documents even uses references such us stack overflow for user based situations where you can look how others write their code and reference their code in this manner.
+
+Again clunky, but as i do this more i will become better at engineering code by repeatedly implementing objective decomposition method, modular blueprint, and assigning contracts in sha Allah.
+Blueprint, Decompose, Acquire, Implement
