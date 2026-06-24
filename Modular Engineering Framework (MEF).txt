@@ -1,0 +1,50 @@
+============================================================
+PROJECT NAME: [Insert Name]
+============================================================
+
+1. CORE OBJECTIVE (The "Why")
+-----------------------------
+- Define the end-user goal in one clear sentence.
+- Read this before every session to maintain focus.
+
+2. OBJECTIVE DEDUCTION (The "Constraints & Requirements")
+---------------------------------------------------------
+- What are the technical boundaries?
+- What inputs are required (CLI, API, User)?
+- What is the expected "Success Condition"?
+- What is the "Exit Condition" (Error handling)?
+
+3. DECOMPOSITION (The "Work Breakdown Structure")
+-------------------------------------------------
+- Break the objective into small, logical tasks.
+- INPUT: [e.g., Data intake, Validation, Parsing]
+- PROCESSING: [e.g., Logic, Transformation, Calculation]
+- OUTPUT: [e.g., Persistence, Display, Export]
+
+4. MODULAR BLUEPRINT (The "Architectural Contract")
+---------------------------------------------------
+- Define the dependencies (e.g., import sys, import pypdf).
+- Map specific logic to these modules.
+- Define the "contract" between blocks: What does Step A 
+  pass to Step B?
+
+5. RESOURCE ACQUISITION (The "Library/Knowledge Log")
+-----------------------------------------------------
+- Document exactly what you need to look up.
+- Log official documentation links (Avoid tutorial sites).
+- Log "Minimal Working Examples" (MWE) for complex tasks.
+
+6. IMPLEMENTATION & TESTING (The "V-Model Execution")
+-----------------------------------------------------
+- Implementation: Actual code block.
+- Verification (Unit Tests): Does the module output match 
+  the contract defined in step 4?
+- Validation (System Tests): Does the final artifact 
+  meet the Core Objective in section 1?
+
+7. POST-MORTEM / LESSONS LEARNED
+--------------------------------
+- What did you learn that you didn't know before?
+- What mistakes were made in the design phase?
+- How to prevent them next time?
+============================================================

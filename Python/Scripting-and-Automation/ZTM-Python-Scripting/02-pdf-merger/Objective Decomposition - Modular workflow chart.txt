@@ -1,5 +1,6 @@
 Modular workflow blueprint: PDF merger
-
+or 
+Modular Design Workchart: PDF Merger 
 
 Objective: Write a Python script that Merges multiple PDF files via terminal by giving the first input as a destination and the inputs after wards as sources to select from to merge and then finally put it into the destination file.
 
@@ -177,3 +178,18 @@ Clunky at the beginning. had to like understand what i was searching for. formul
 
 Again clunky, but as i do this more i will become better at engineering code by repeatedly implementing objective decomposition method, modular blueprint, and assigning contracts in sha Allah.
 Blueprint, Decompose, Acquire, Implement
+
+
+
+comments:
+oke apparently there is someproblems with the stackoverflow as it might have been overdate due to the module beingupdated.
+
+Gemini AI feedback:
+
+Stop Hardcoding, Start Validating: Don't just check if argv has inputs. Use os.path.exists() to check if the files exist. Use try-except blocks that actually catch FileNotFoundError or PermissionError instead of generic Exception.
+
+Learn "Unit Testing": Professional engineers don't "check if it works" by running it. They write a separate script (a test file) that automatically checks if their functions return the expected results. Look up pytest.
+
+Use Version Control Properly: Don't just git commit. Learn to work with branches. Create a feature-pdf-merge branch, finish the work, and then "merge" it into main. This is how real-world code is managed.
+
+CLI Best Practices: Look into the argparse module. sys.argv is "hacky." argparse is professional. It automatically creates help menus (--help) and handles types for you.

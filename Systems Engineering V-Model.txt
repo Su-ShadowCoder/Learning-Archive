@@ -1,0 +1,50 @@
+============================================================
+SOFTWARE ENGINEERING V-MODEL: EXECUTION MANUAL
+============================================================
+
+LEFT SIDE: DECOMPOSITION (THE "PLANNING" SIDE)
+----------------------------------------------
+1. BUSINESS REQUIREMENTS ANALYSIS
+   - Define the objective. What is the business problem?
+   - Deliverable: Business Requirements Document (BRD).
+
+2. SYSTEM REQUIREMENTS SPECIFICATION
+   - Define WHAT the software must do.
+   - Focus on functional and non-functional requirements 
+     (e.g., speed, security, constraints).
+
+3. ARCHITECTURAL DESIGN (High-Level)
+   - Define the software structure.
+   - Choose the stack (languages, frameworks, databases).
+   - Define the communication "contracts" between modules.
+
+4. COMPONENT DESIGN (Low-Level)
+   - Detailed logic design for individual functions/classes.
+   - Define input parameters, expected returns, and 
+     error states for each module.
+
+BOTTOM: IMPLEMENTATION
+----------------------
+- The code is written according to the Low-Level Design.
+
+RIGHT SIDE: VERIFICATION & VALIDATION (THE "TESTING" SIDE)
+----------------------------------------------------------
+5. UNIT TESTING
+   - Verification of individual modules (Component Design).
+   - Are the smallest parts doing exactly what they should?
+
+6. INTEGRATION TESTING
+   - Verification of module interactions (Architectural Design).
+   - Do the "contracts" defined earlier hold up when 
+     the modules are connected?
+
+7. SYSTEM TESTING
+   - Validation against specifications (System Requirements).
+   - Does the entire software suite function as a whole?
+
+8. ACCEPTANCE TESTING
+   - Final validation against user needs (Business Requirements).
+   - Does this solve the original problem?
+============================================================
+
+

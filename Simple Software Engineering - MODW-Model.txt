@@ -195,3 +195,34 @@ Abstraction   | Simplification| "Do I need to see the guts of this, or just the 
 Encapsulation | Organization  | "Is my data protected and grouped with its behavior?"
 Inheritance   | Hierarchy     | "Can this class borrow code from a parent to avoid repeating itself?"
 Polymorphism  | Flexibility   | "Can I use the same interface for different types of objects?"
+
+################################################################################
+
+1. Objective (The "Why")
+Purpose: Keeps the focus on the end result and prevents "scope creep" (adding unnecessary features that make the project messy).
+
+Professional translation: This is your Business Requirement. If you can't state it in one sentence, the project is too vague to build.
+
+2. Objective Deduction (The "Constraints & Requirements")
+Purpose: Identifying the "Rules of the Game." What tools am I allowed to use? What environment is this running in? What is the expected behavior when things go wrong?
+
+Professional translation: This is your Technical Specification. It turns the "Why" into "How it must behave."
+
+3. Decomposition (The "Work Breakdown Structure")
+Purpose: Dividing the mountain into hills. If you can't complete a block in an hour or two of focused work, it needs to be decomposed further.
+
+Professional translation: This is your Task Management (Jira/Linear). Professional engineers work on "Tickets." A ticket should be one specific, decomposable task.
+
+4. Modular Blueprint (The "Architecture")
+Purpose: Defining the "Contracts" between parts. Function A needs a string; Function B returns an object. If the blueprint is solid, you can build parts separately and they will "snap together" at the end.
+
+Professional translation: This is your System Architecture.
+
+Does it work for every project?
+Yes, but with one caveat: As projects grow, the "Modular Blueprint" becomes more complex.
+
+For simple scripts: Your text-file method is perfect.
+
+For medium projects (multi-file applications): You will need to start mapping the relationship between files (e.g., does module_a.py import module_b.py?).
+
+For large systems: You will eventually need to include a section for Testing (how you prove it works) and Deployment (how the user actually gets it).
