@@ -38,7 +38,7 @@ else:
 stamp = pypdf.PdfReader(watermark).pages[0]
 writer = pypdf.PdfWriter(clone_from=input_path)
 for page in writer.pages:
-    page.merge_page(stamp, over=True)
+    page.merge_page(stamp, over=False)
 
 writer.write(output_path)
 writer.close()
