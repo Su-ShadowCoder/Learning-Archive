@@ -2,6 +2,49 @@
 PROJECT NAME: [Insert Name]
 ============================================================
 
+Pick your poison:
+
+Napkin Sketch: Use this for iteration (when you're moving fast).
+
+Contractor's Blueprint: Use this for integration (when you have multiple moving parts).
+
+The Big Boy: Use this for innovation (when you're building a large, complex, or high-stakes system).
+
+----------------------------
+The "Napkin Sketch" (For quick scripts & small tasks)
+Use this for things like a watermarker script.
+
+Goal: One sentence.
+
+Inputs/Outputs: List them (e.g., in: [pdf1, pdf2], out: [pdf_final]).
+
+||? per block?
+  Output:
+  before Resource Aqcuisition:
+  
+  Input:
+  After Resource Aquisition:
+||
+
+The Flow: A simple 3-4 step numbered list of what happens first, second, and third.
+
+Why: It keeps you focused without forcing you to write a novel.
+-----------------------------
+The "Contractor's Blueprint" (For medium projects)
+Use this when you start merging files, handling multiple directories, or adding complex logic.
+
+Use your 7-step template, but keep the answers to 1-2 lines each. * Focus heavily on Section 4 (Modular Blueprint) because that’s the part that actually saves you from logic errors.
+||? per block?
+  Output:
+  before Resource Aqcuisition:
+  
+  Input:
+  After Resource Aquisition:
+||
+------------------------------
+
+The Big Boy:
+
 1. CORE OBJECTIVE (The "Why")
 -----------------------------
 - Define the end-user goal in one clear sentence.
