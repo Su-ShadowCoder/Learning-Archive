@@ -15,7 +15,7 @@ email['to'] = 'warlordwarlordwarlord007@gmail.com'
 email['subject'] = "You won 5,000,000 euro!"
 
 #
-email.set_content(html.substitute(name= 'Tintin'), 'html')
+email.set_content(html.substitute({'name': 'Tintin'}), 'html')
 #
 
 with smtplib.SMTP(host='smtp.gmail.com', port=587) as smtp:
