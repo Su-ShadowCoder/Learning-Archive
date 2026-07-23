@@ -130,9 +130,9 @@ def largest_numb(x, y):
 def is_even(x):
     return x % 2 == 0
 
-result = is_even(17)
+# result = is_even(17)
 
-print(result)
+# print(result)
 
 
 # 5. Grade Checker
@@ -183,9 +183,9 @@ def grade_check(x):
 def bmi_stat(weight, height):
     return weight / (height ** 2)
 
-result = bmi_stat(140, 1.69)
+# result = bmi_stat(140, 1.69)
 
-print(result)
+# print(result)
 
 
 # 7. Rectangle Area
@@ -224,4 +224,51 @@ def tempcc_to_f(c):
 # result = tempcc_to_f(26)
 
 # print(result)
+
+#############################################
+# scope 
+#############################################
+
+
+# 1. 
+# Abdullah
+
+# 2. 
+# Abdullah
+
+# 3. 
+# Error
+# because age is a local scope within the fucntion and they are only within the function callable
+
+# 4. 
+
+def add(balance, amount):
+    return balance + amount
+
+balance = 100
+
+balance = add(balance, 50)
+
+# wait a second this doesnt make sence why is end result  balance variable name still bbalance , wouldnt that get confused witht the parameter value?
+
+# oow wait maybe the variable gets called on the ecxpression part first and then that expression becomes the new balance with the same name. but still doesnt make sense to not have different name for it. 
+
+# print(balance)
+
+
+# 5. 
+
+# 5
+
+
+# 6. 
+
+counter = 0
+
+def incr_count(n):
+    return counter + 1
+
+counter = incr_count(counter)
+
+# print(counter)
 
