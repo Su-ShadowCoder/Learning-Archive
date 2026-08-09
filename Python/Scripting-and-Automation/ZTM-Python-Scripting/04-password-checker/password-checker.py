@@ -1,5 +1,5 @@
 import requests
-
+import hashlib
 # the request module allows your code to access the internet withtout using a interface. 
 
 # when storing a password you never want to save your password in plain text. instead it beter to hash it, by encrypting it with a certain algoritme encpryption. you can then store it on your device or such is how password are stored in databases.
@@ -10,7 +10,21 @@ import requests
 
 # What the api is going to do. its going to compare in the database that is appointed to with the first 5 letters of the hash caracter. then the api will answer back with only the info about the first 5 letters. then the rest will be done in the same of some manner. in this way the api would not now the full hash password and would be relative secure. 
 
-url = 'https://api.pwnedpasswords.com/range/' + 'password123'
-res = requests.get(url)
 
-print(res)
+def request_api_data(query_char):
+    url = 'https://api.pwnedpasswords.com/range/' + query_char
+    res = requests.get(url)
+
+    if res.status_code != 200:
+        raise RuntimeError(f"Error fetching: {res.status_code}, check the api and try again")
+    return res
+
+def pwned_api_check(password):
+    sha1password = hashlib.sha1(password.encode("utf-8")).hexdigest().upper()
+    return sha1password
+
+
+# request_api_data('123')
+
+pwned_api_check('123')
+
