@@ -115,3 +115,285 @@ in order to practice. we need a lab and that lab will be the VM in the VB. by us
 see in IT  manual.
 
 
+
+# RECONNAISSANCE & INFO GATHERING: PRO-LEVEL MINI-MANUAL
+
+## 1. THE FOUNDATION: What is Information Gathering?
+* **The Concept:** It’s about building a "target footprint." Pros divide this into **Passive** (no direct contact with target) and **Active** (direct interaction/scanning).
+* **Pro Strategy:** Spend 60-70% of your time here. The more you know, the fewer exploits you have to "guess," which keeps you undetected.
+
+---
+
+## 2. INFRASTRUCTURE: Whois Tool
+* **The Goal:** Find domain ownership, registrar info, and physical addresses.
+* **Command:** `whois <target-domain.com>`
+* **Pro Tip:** Look for the **"Name Servers"**. If they are custom (e.g., `ns1.target.com`), it suggests a self-managed infrastructure. If they are generic (e.g., `awsdns.com`), the target is cloud-hosted.
+
+---
+
+## 3. STEALTH FINGERPRINTING: WhatWeb
+* **The Goal:** Identify CMS (WordPress, Drupal), plugins, and server versions without triggering heavy alerts.
+* **Stealth Command:** `whatweb -a 1 <url>` (Level 1 is passive/stealthy).
+* **Pro Tip:** Use this to find "Version Leaks." If you see `jQuery 1.12`, you immediately know the site is vulnerable to specific Cross-Site Scripting (XSS).
+
+---
+
+## 4. AGGRESSIVE DISCOVERY: Tech Scans on IP Ranges
+* **The Goal:** Map an entire data center or subnet for technologies.
+* **Aggressive Command:** `whatweb -a 3 <IP-Range>`
+* **Pro Tip:** Pros use the `-v` (verbose) flag and pipe results to a file (`> results.txt`). This allows you to `grep` for specific vulnerabilities later (e.g., finding every server running an outdated Apache version).
+
+---
+
+## 5. RECON PHILOSOPHY: Same Tools, Different Results
+* **The Reality:** Tools like `nslookup`, `dig`, and `host` might show different DNS records based on the server they query.
+* **Pro Strategy:** **Cross-Reference.** Never trust one tool. If `theHarvester` finds 10 emails and `Hunter.io` finds 15, merge the lists and de-duplicate.
+
+---
+
+## 6. OSINT: theHarvester & Hunter.io
+* **theHarvester:** `theHarvester -d <domain> -l 500 -b google,bing,linkedin`
+* **Hunter.io:** Use the web interface or API to find email patterns (e.g., `first.last@company.com`).
+* **Pro Tip:** Use these to build a **Password Spraying** list. Once you have the email format, you can guess the usernames for the entire company.
+
+---
+
+## 7. TOOL MANAGEMENT: Downloading Online Tools
+* **Primary Method:** `git clone <github-url>`
+* **Pro Tip:** Always check the `requirements.txt` file. 
+    * Command: `pip3 install -r requirements.txt`
+    * **Pro Safety:** Run unknown tools in a VM or a Docker container to ensure the "gathering tool" isn't actually gathering *your* data.
+
+---
+
+## 8. SOCIAL FOOTPRINTING: Sherlock
+* **The Goal:** Find a target's presence across 300+ social media sites using one username.
+* **Command:** `python3 sherlock <username>`
+* **Pro Tip:** Use this for **Pivot Points**. If you find a target’s personal Instagram via Sherlock, you might find photos of their office ID badge or workstation, providing "Physical Recon" from your desk.
+
+# PROFESSIONAL RECONNAISSANCE & ENUMERATION FRAMEWORK
+
+## PHASE 1: PASSIVE RECON (No Direct Contact)
+*Goal: Gather info without the target's logs ever seeing your IP.*
+
+1.  **WHOIS & DNS Lookup:**
+    * `whois <domain>` -> Identify registrar and admin contacts.
+    * `dig +short <domain>` -> Get IP addresses.
+    * `dig axfr @<DNS_IP> <domain>` -> **Attempt Zone Transfer** (Exam Critical: checks if DNS is misconfigured to leak all subdomains).
+
+2.  **OSINT (Social & Email):**
+    * **theHarvester:** `theHarvester -d <domain> -b all` (Scrape Google, Bing, LinkedIn).
+    * **Hunter.io:** Identify email naming conventions (e.g., f.last@company.com).
+    * **Sherlock:** `python3 sherlock <username>` (Find reused handles across platforms).
+
+3.  **SEARCH ENGINE HACKING (Google Dorks):**
+    * `site:target.com filetype:pdf` (Find leaked documents).
+    * `site:target.com inurl:admin` (Find login portals).
+
+---
+
+## PHASE 2: SEMI-PASSIVE / STEALTHY RECON
+*Goal: Fingerprint the technology with minimal noise.*
+
+1.  **Web Tech Fingerprinting:**
+    * **WhatWeb:** `whatweb -a 1 <URL>` (Stealthy detection of CMS/Plugins).
+    * **Wappalyzer (Browser Ext):** Quick visual check of the tech stack.
+
+2.  **Subdomain Discovery:**
+    * **Sublist3r:** `python3 sublist3r.py -d <domain>` (Aggregates from public sources).
+    * **crt.sh:** Search Certificate Transparency logs for hidden subdomains (e.g., `dev.target.com`).
+
+---
+
+## PHASE 3: ACTIVE RECON (Direct Interaction)
+*Goal: Confirm versions and find the attack surface.*
+
+1.  **Aggressive Fingerprinting:**
+    * `whatweb -a 3 <URL>` (Deep probe of headers and scripts).
+
+2.  **Service Scanning (Nmap Foundations):**
+    * `nmap -sV -sC -T4 <IP>` -> (sV: Version detection | sC: Default scripts).
+    * **The Pro Move:** `nmap -p- --min-rate 5000 <IP>` (Scan all 65,535 ports quickly, then follow up on open ports specifically).
+
+3.  **Directory Brute Forcing:**
+    * `ffuf -u http://<IP>/FUZZ -w /path/to/wordlist.txt` 
+    * `gobuster dir -u <URL> -w /usr/share/wordlists/dirb/common.txt`
+
+---
+
+## ⚠️ PRO-TIP WARNING SIGNS & REMINDERS
+
+* **⚠️ THE "RABBIT HOLE" ALERT:** If you find a 10-year-old sub-page with no links, don't spend 3 hours on it immediately. Note it and keep mapping the rest of the network.
+* **⚠️ THE WAF TRAP:** If `WhatWeb` or `Nmap` suddenly stops giving results, you likely got blocked by a Web Application Firewall. Slow down your threads.
+* **⚠️ VERSION LIES:** Pros know that `Apache 2.4.7` on Ubuntu might have backported security patches. Don't assume it's vulnerable just by the number; check the "Header" vs. the actual behavior.
+* **⚠️ DNS CACHING:** If results aren't changing after a target change, flush your DNS cache.
+* **📝 PRO REMINDER:** **Document as you go.** A screenshot of a `Whois` result or an `nmap` output is "evidence." If it isn't in your notes, it didn't happen.
+
+---
+
+## VITAL ADDITION: THE "PIVOT" MENTALITY
+Once you gather this info, create a **Target Map**:
+* **Infrastructure:** IPs, Netblocks, DNS.
+* **Identities:** Emails, Usernames, LinkedIn profiles.
+* **Technology:** CMS versions, Web Servers, Open Ports.
+* **Vulnerabilities:** Match the versions found above to CVEs (Common Vulnerabilities and Exposures).
+
+
+
+================================================================================
+                    PRO-LEVEL MINI-MANUAL: NETWORK SCANNING
+================================================================================
+
+[1] THE RECONNAISSANCE WORKFLOW
+--------------------------------------------------------------------------------
+Phase 1: Discovery    -> Find live hosts without being "loud."
+Phase 2: Mapping      -> Identify all open ports (0-65535).
+Phase 3: Enumeration  -> Deep dive into service versions and vulnerabilities.
+Phase 4: Documentation -> Save everything for the final report.
+
+[2] THE "PRO" COMMAND STRINGS
+--------------------------------------------------------------------------------
+# The "Discovery" Scan (Fast & Stealthy)
+# Finds live hosts in a /24 range without port scanning.
+$ sudo nmap -sn -PR 192.168.1.0/24
+
+# The "Full Picture" Scan (Comprehensive)
+# Scans all 65535 ports, min-rate 5000 to keep it fast, saves to all formats.
+$ sudo nmap -p- --min-rate 5000 -vvv <target-ip> -oA full_port_scan
+
+# The "Service Intelligence" Scan (Focused)
+# Targeted version detection and default script checking on specific ports.
+$ sudo nmap -sC -sV -p <ports-found> <target-ip> -oN service_enumeration.txt
+
+[3] EVASION & ADAPTATION TACTICS
+--------------------------------------------------------------------------------
+* Bypass Simple Firewalls (MTU/Fragmentation):
+  $ sudo nmap -f --mtu 24 <target-ip>
+  (Splits headers into smaller fragments to confuse packet inspection).
+
+* Use Idle/Zombie Scan (Blind Scanning):
+  $ sudo nmap -sI <zombie-ip> <target-ip>
+  (Makes it look like the scan is coming from another device on the network).
+
+* Source Port Spoofing:
+  $ sudo nmap --source-port 53 <target-ip>
+  (Many legacy firewalls trust traffic coming from DNS (53) or HTTPS (443)).
+
+[4] NMAP SCRIPTING ENGINE (NSE) PRO-TIPS
+--------------------------------------------------------------------------------
+The NSE is what separates pros from beginners.
+* Vuln Check: `sudo nmap --script vuln <target-ip>`
+* HTTP Enum: `sudo nmap --script http-enum <target-ip>`
+* Brute Force (Specific): `sudo nmap --script ftp-brute -p 21 <target-ip>`
+
+[5] OPERATIONAL TIPS
+--------------------------------------------------------------------------------
+1. ALWAYS LOG: Use `-oA` (Output All) so you have grepable, XML, and normal 
+   formats. You’ll thank yourself when writing the report.
+2. SPEED VS. ACCURACY: In a real engagement, start slow (T2 or T3). Use T4 
+   only in labs or if you know the network is robust.
+3. SUDO MATTERS: Running Nmap without sudo defaults to a TCP Connect scan 
+   (-sT), which is slower and completes the 3-way handshake (very noisy).
+4. THE GREP TRICK: 
+   $ grep "open" full_port_scan.nmap | cut -d'/' -f1 | tr '\n' ','
+   (Quickly extracts open ports into a comma-separated list for a second scan).
+
+===========================================================================================================================================
+NMAP SECURITY EVASION & FIREWALL BYPASS
+============================================================
+
+# 1. PACKET FRAGMENTATION (Bypasses simple packet filters)
+# -f: Fragments packets into 8-byte chunks
+# --mtu: Specifies custom offset (must be multiple of 8)
+nmap -f <target>
+nmap --mtu 24 <target>
+
+# 2. DECOYS (Hides your IP in a crowd of others)
+# RND: Generates random IP addresses
+# ME: Injects your real IP at a specific position
+nmap -D RND:10 <target>
+nmap -D decoy1,decoy2,ME,decoy3 <target>
+
+# 3. SOURCE SPOOFING (Masking origin identity)
+# -S: Spoof Source IP (Requires -e interface and -Pn)
+# --source-port: Use "trusted" ports like 53 (DNS) or 80 (HTTP)
+# --spoof-mac: Use vendor name (Apple, Dell) or a specific MAC
+nmap -Pn -S <Fake_IP> -e eth0 <target>
+nmap --source-port 53 <target>
+nmap --spoof-mac Apple <target>
+
+# 4. DATA APPENDING (Changes packet signature)
+# --data-length: Adds random junk data to reach a specific byte size
+nmap --data-length 25 <target>
+
+# 5. TIMING & STEALTH (Evades IDS rate-limiting)
+# -T0 (Paranoid): Serial scan, 5 min between probes
+# -T1 (Sneaky): 15 seconds between probes
+# --scan-delay: Manual control over probe timing
+nmap -T0 <target>
+nmap --scan-delay 10s <target>
+
+# 6. SCAN CUSTOMIZATION
+# --randomize-hosts: Prevents detection of sequential scanning
+# --badsum: Sends packets with bogus TCP/UDP/SCTP checksums
+nmap --randomize-hosts <target_network>
+nmap --badsum <target>
+
+------------------------------------------------------------
+ULTIMATE EVASION COMBO EXAMPLE:
+nmap -Pn -f -T1 --source-port 53 --data-length 16 -D RND:5 <target>
+============================================================
+
+
+
+VULNERABILITY ANALYSIS MINI-MANUAL
+
+1. FINDING VULNERABILITIES WITH NMAP SCRIPTS (NSE)
+Nmap Scripting Engine (NSE) allows for automated vulnerability detection during port scanning.
+- Basic Syntax: nmap --script <category> <target>
+- Common Categories:
+  * vuln: Checks for known vulnerabilities.
+  * safe: Performs non-intrusive checks.
+  * exploit: Attempts to actively exploit targets (use in labs only).
+- Pro Tip: Use 'nmap -sV --script=vuln <target>' to identify service versions and match them against vulnerability databases simultaneously.
+
+check for scripts database:
+cd /usr/share/nmap/scripts/
+then:
+ls
+
+on the nmap source site you can check all about the script descriptions and how to apply it.
+
+2. MANUAL ANALYSIS & SEARCHSPLOIT
+Automated tools often require manual verification to confirm findings.
+- Step 1: Identify the exact service version from your scan results.
+- Step 2: Use searchsploit to search the local Exploit-DB repository.
+  * Command: searchsploit <software_name> <version>
+- Step 3: Review the exploit file (often in Python, C, or Ruby) using 'cat' or 'less' to understand requirements, payload types, and potential impact.
+
+3. NESSUS INSTALLATION
+Nessus is a powerful, professional-grade vulnerability scanner.
+- Installation: Download the appropriate package (e.g., .deb for Debian/Kali) and install using 'dpkg -i <package_name>'.
+- Service Management: Start the scanner with 'systemctl start nessusd'.
+- Access: Navigate to 'https://localhost:8834' in your browser to complete configuration.
+- Registration: You must activate the scanner with an activation code (Nessus Essentials is available for free for educational/small-scale use).
+
+4. DISCOVERING VULNERABILITIES WITH NESSUS
+Nessus automates the process of finding Common Vulnerabilities and Exposures (CVEs).
+- Configuration: Create a "New Scan" and select the appropriate template (Basic Network Scan is the standard).
+- Credentials: For the most accurate results, perform an "Authenticated Scan" by providing valid system credentials (SSH for Linux, SMB for Windows). This allows Nessus to check for missing patches rather than just testing network-reachable vulnerabilities.
+- Analysis: View findings categorized by severity: Critical, High, Medium, Low, and Info.
+
+5. SCANNING WINDOWS 7 (LEGACY SYSTEMS)
+Legacy systems are prime targets for vulnerability analysis.
+- Focus: Look for missing security patches and deprecated protocols like SMBv1.
+- Stability Warning: Older systems (like Windows 7) can be fragile. Avoid "aggressive" scanning settings in production environments, as they can cause service crashes or system reboots.
+- Best Practice: Always confirm if a detected vulnerability (like MS17-010/EternalBlue) is actually exploitable before attempting to gain access.
+
+SUMMARY CHECKLIST
+- Scan with Nmap: Identify ports, services, and versions.
+- Scan with Nessus: Generate a high-level report of potential CVEs.
+- Manual Search: Use searchsploit to find proofs-of-concept (PoC).
+- Verify: Confirm findings manually to rule out false positives.
+
+

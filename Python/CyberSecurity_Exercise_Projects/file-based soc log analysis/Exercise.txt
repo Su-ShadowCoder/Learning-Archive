@@ -1,0 +1,122 @@
+🟢 Exercise 1 — Read a file
+
+Create a file called:
+
+login_logs.txt
+
+Put this inside it:
+
+SUCCESS user=admin
+FAILED user=shadow
+FAILED user=guest
+SUCCESS user=backup
+FAILED user=shadow
+
+Then write Python that:
+
+Opens the file.
+Reads its contents.
+Prints the contents.
+Important
+
+Don't Google the entire solution immediately.
+
+You are allowed to look up the syntax if you genuinely forget it. That's consistent with how we've been learning.
+
+Your goal is to figure out:
+
+"What Python mechanism lets me open and read a file?"
+
+🟢 Exercise 2 — Read line by line
+
+Now modify your program so that instead of treating the entire file as one block, you process it one line at a time.
+
+For each line, print it.
+
+Expected:
+
+SUCCESS user=admin
+FAILED user=shadow
+FAILED user=guest
+SUCCESS user=backup
+FAILED user=shadow
+
+This is important because security logs can be huge. You don't want to blindly load massive files into memory.
+
+🟡 Exercise 3 — Count failed logins from the file
+
+Now combine what you already know.
+
+Your program should:
+
+Read file
+   ↓
+loop through lines
+   ↓
+check whether "FAILED" exists
+   ↓
+increment counter
+   ↓
+print total
+
+Expected:
+
+Failed attempts: 3
+
+You already know almost all of this.
+
+The only genuinely new component is getting the data from the file.
+
+🔥 Exercise 4 — Extract failed users
+
+Same file.
+
+Produce:
+
+Failed users:
+shadow
+guest
+shadow
+
+You've already solved this exact logical problem with strings.
+
+The difference is now:
+
+Python program
+      ↓
+file
+      ↓
+lines
+      ↓
+your existing string-processing logic
+
+That's the progression.
+
+One rule for today
+
+Don't create a giant program.
+
+
+//////////////////////////////////////////////////
+🔥 Exercise 5 — Detect repeated failed users
+
+Your file currently contains:
+
+SUCCESS user=admin
+FAILED user=shadow
+FAILED user=guest
+SUCCESS user=backup
+FAILED user=shadow
+
+Write:
+
+def count_failed_users(file):
+
+It should return a dictionary containing how many failed attempts each username had.
+
+Expected:
+
+{
+    "shadow": 2,
+    "guest": 1
+}

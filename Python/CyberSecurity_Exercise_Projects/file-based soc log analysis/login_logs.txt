@@ -1,0 +1,5 @@
+SUCCESS user=admin
+FAILED user=shadow
+FAILED user=guest
+SUCCESS user=backup
+FAILED user=shadow
