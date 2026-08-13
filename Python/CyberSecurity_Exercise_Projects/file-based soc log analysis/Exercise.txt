@@ -120,3 +120,88 @@ Expected:
     "shadow": 2,
     "guest": 1
 }
+
+/////////////////////////////////////////////
+
+🟡 Exercise 6 — Malformed log entries
+
+Your file now contains:
+
+SUCCESS user=admin
+FAILED user=shadow
+FAILED user=guest
+INVALID LOG ENTRY
+FAILED user=shadow
+CORRUPTED DATA
+SUCCESS user=backup
+
+You already have:
+
+def count_failed_users(file):
+    ...
+
+Your previous version assumes every FAILED line contains user=.
+
+But now imagine this appears:
+
+FAILED LOGIN ATTEMPT
+
+Your code could attempt:
+
+line.split("user=")[1]
+
+and fail because there is no "user=" to split around.
+
+Your task
+
+Modify your function so that it ignores malformed lines and still produces:
+
+{
+    "shadow": 2,
+    "guest": 1
+}
+Constraint
+
+For this exercise, don't use try/except yet.
+
+Use the conditional logic you already know.
+
+//////////////////////////////////////
+
+🔥 Exercise 7 — Convert raw logs into structured data
+
+You now have a file containing:
+
+SUCCESS LOGIN user=admin ip=10.0.0.5
+FAILED LOGIN user=shadow ip=192.168.1.20
+FAILED LOGIN user=guest ip=172.16.5.10
+SUCCESS LOGIN user=backup ip=10.0.0.8
+FAILED LOGIN user=shadow ip=192.168.1.20
+Your task
+
+Create:
+
+def extract_failed_events(file):
+
+The function must:
+
+Open and read the file.
+Process the file line by line.
+Find the failed login events.
+Extract the username.
+Extract the ip.
+Store each failed event as a dictionary.
+Return a list of dictionaries.
+Do not print inside the function.
+Expected return value
+[
+    {"username": "shadow", "ip": "192.168.1.20"},
+    {"username": "guest", "ip": "172.16.5.10"},
+    {"username": "shadow", "ip": "192.168.1.20"}
+]
+Constraints
+Don't hardcode the usernames or IP addresses.
+Don't create a separate function for username extraction yet.
+Don't use external libraries.
+Use the Python concepts you've already learned.
+You decide the algorithm.

@@ -1,0 +1,7 @@
+SUCCESS user=admin
+FAILED user=shadow
+FAILED user=guest
+INVALID LOG ENTRY
+FAILED user=shadow
+CORRUPTED DATA
+SUCCESS user=backup
