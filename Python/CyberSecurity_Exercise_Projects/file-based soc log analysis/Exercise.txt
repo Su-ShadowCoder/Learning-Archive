@@ -205,3 +205,130 @@ Don't create a separate function for username extraction yet.
 Don't use external libraries.
 Use the Python concepts you've already learned.
 You decide the algorithm.
+
+
+
+🟡 Exercise 8 — Defensive parsing with try/except
+
+Create:
+
+def extract_failed_ips(file):
+
+The function receives a filename containing:
+
+SUCCESS LOGIN user=admin ip=10.0.0.5
+FAILED LOGIN user=shadow ip=192.168.1.20
+FAILED LOGIN user=guest
+FAILED LOGIN user=ahmed ip=172.16.5.10
+SUCCESS LOGIN user=backup ip=10.0.0.8
+
+
+Requirements
+Read the file line by line.
+Find failed login events.
+Extract the IP address from failed events.
+Return a list of IP addresses.
+If a failed event doesn't contain an IP address, ignore that event.
+The program must not crash because of the missing IP.
+Use try/except.
+Don't print inside the function.
+Expected result
+[
+    "192.168.1.20",
+    "172.16.5.10"
+]
+
+New concept: exception handling.
+
+
+
+
+
+🟡 Exercise 9 — Analyze structured events
+
+Use this Python data:
+
+events = [
+    {"username": "admin", "ip": "10.0.0.5", "status": "Success"},
+    {"username": "shadow", "ip": "192.168.1.20", "status": "Failed"},
+    {"username": "guest", "ip": "172.16.5.10", "status": "Failed"},
+    {"username": "shadow", "ip": "192.168.1.20", "status": "Failed"},
+    {"username": "backup", "ip": "10.0.0.8", "status": "Success"},
+]
+
+Create:
+
+def find_failed_users(events):
+Requirements
+Examine every dictionary.
+Find users whose login status is "Failed".
+Return a list containing their usernames.
+Preserve the original order.
+Don't remove duplicates.
+Expected result
+["shadow", "guest", "shadow"]
+
+Don't use the file. We're deliberately switching from raw text → structured data.
+
+🔥 Exercise 10 — Detect repeated attackers
+
+Use the same events data.
+
+Create:
+
+def find_repeated_failed_users(events):
+Requirements
+
+Return a dictionary containing only users who failed more than once.
+
+For the provided data:
+
+{
+    "shadow": 2
+}
+
+Do not include:
+
+"guest": 1
+
+because guest only failed once.
+
+Don't hardcode usernames.
+
+🔥 Exercise 11 — Mini SOC analysis
+
+Now combine what you've learned.
+
+You receive:
+
+events = [
+    {"username": "admin", "ip": "10.0.0.5", "status": "Success"},
+    {"username": "shadow", "ip": "192.168.1.20", "status": "Failed"},
+    {"username": "guest", "ip": "172.16.5.10", "status": "Failed"},
+    {"username": "shadow", "ip": "192.168.1.20", "status": "Failed"},
+    {"username": "backup", "ip": "10.0.0.8", "status": "Success"},
+    {"username": "ahmed", "ip": "172.16.5.15", "status": "Failed"},
+    {"username": "shadow", "ip": "192.168.1.20", "status": "Failed"},
+]
+
+Create:
+
+def analyze_security_events(events):
+
+It must return a dictionary containing:
+
+{
+    "failed_attempts": 5,
+    "failed_users": ["shadow", "guest", "shadow", "ahmed", "shadow"],
+    "repeated_failed_users": {
+        "shadow": 3
+    }
+}
+Requirements
+Don't make one giant block of code.
+You may create helper functions.
+Don't print inside your analysis functions.
+Don't hardcode the expected values.
+Return the final analysis as a dictionary.
+Use the Python concepts you've learned so far.
+You decide the structure and algorithm.
