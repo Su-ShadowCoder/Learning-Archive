@@ -610,44 +610,146 @@
 
 # oepsie well it seems that i have to mesh it together because if i dont do that then it would be difficult to make sure that th username and ip belongs to each other.
 
-def extract_failed_events(file):
-    events = []
-    errors = []
-    try:
-        with open(file) as f:
-            for line in f:
-                try:
+# def extract_failed_events(file):
+#     events = []
+#     errors = []
+#     try:
+#         with open(file) as f:
+#             for line in f:
+#                 try:
                     
                     
-                    if "FAILED LOGIN" in line:
-                        split_line_part1 = line.split("ip=")[1].strip()
-                        ip = split_line_part1
+#                     if "FAILED LOGIN" in line:
+#                         split_line_part1 = line.split("ip=")[1].strip()
+#                         ip = split_line_part1
 
-                        split_line_part1 = line.split("user=")[1]
-                        split_line_part2 = split_line_part1.split()[0].strip()
-                        usernames = split_line_part2
+#                         split_line_part1 = line.split("user=")[1]
+#                         split_line_part2 = split_line_part1.split()[0].strip()
+#                         usernames = split_line_part2
 
-                        # dict
-                        event = {
-                            "usernames": usernames,
-                            "ip": ip
-                        }
+#                         # dict
+#                         event = {
+#                             "usernames": usernames,
+#                             "ip": ip
+#                         }
 
-                        events.append(event)
+#                         events.append(event)
 
 
-                except IndexError:
-                        errors.append(f"Data not found in: '{line}'.")
+#                 except IndexError:
+#                         errors.append(f"Data not found in: '{line}'.")
     
-    except FileNotFoundError:
-        errors.append("File not found!")
+#     except FileNotFoundError:
+#         errors.append("File not found!")
 
-    return events
+#     return events
 
 
-print(extract_failed_events("log15.txt"))
+# print(extract_failed_events("log15.txt"))
 
 
 
 # if i am being honest, i realy was riding blind here, so now i learned if there are multiple condidition that has to be fuffillend in on check, then do it in one if line, and the exception will catch it if any of the condition are not checked. i could i have done elif. or another if. but this felt better i dont know why, but hey i got it after uselessly making 2 whole functions. 
+
+################################################################################
+
+
+
+# 🔥 Exercise 16 — Validate a security event
+ 
+def parse_security_event(line):
+    try:
+        if "FAILED LOGIN" in line:
+            username = line.split("user=")[1].split()[0].strip()
+            ip = line.split("ip=")[1].strip()
+
+            event = {
+                "username": username,
+                "ip": ip
+            }
+        else:
+            return None
+    except IndexError:
+        return None
+
+    return event
+
+# 🟡 Exercise 17 — Parse an entire log using your function
+
+def extract_failed_events(file):
+    try:
+        event_list = []
+        with open(file) as f:
+            for line in f:
+                parsed_event = parse_security_event(line)
+                if parsed_event != None:
+                    event_list.append(parsed_event)
+    except FileNotFoundError:
+        return None
+    
+    return event_list
+
+# i had to delete the exercise requirments because it was becoming bloated and ihad to look up into the functions for what they are. 
+
+# 🔥 Exercise 18 — Count failed attempts by IP
+
+def count_failed_ips(events):
+    failed_count = 0
+    failed_ip_count = {}
+    for event in events:
+        key = event["ip"]
+        if key not in failed_ip_count:
+            failed_ip_count[key] = 1
+        else:
+            failed_ip_count[key] += 1
+    return failed_ip_count
+
+# 🔥 Exercise 19 — Mini SOC report
+
+# total failed attemps
+def total_failed_attempts(failed_ips_value):
+    total_count = 0
+    x = failed_ips_value.values()
+    for number in x:
+        total_count += number
+    return total_count
+
+# all users
+
+
+def extract_failed_users(event_list_value):
+    failed_users = {}
+    for event in event_list_value:
+        value = event["username"]
+        if event["username"] not in failed_users:
+            failed_users[value] = 1
+        else:
+            failed_users[value] += 1
+    return failed_users
+
+
+
+
+def analyse_security_log(file):
+    event_list_value = extract_failed_events(file)
+    failed_ips_value = count_failed_ips(event_list_value)
+    failed_attempts_value = total_failed_attempts(failed_ips_value)
+    failed_user_value = extract_failed_users(event_list_value)
+
+    result = {
+        "failed_attemps": failed_attempts_value,
+        "failed_events": event_list_value,
+        "failed_users": failed_user_value,
+        "failed_ips": failed_ips_value
+    }
+
+    return result
+
+print(analyse_security_log("log19.txt"))
+
+
+# today was really tough, i forgot a lot 1 or 2 times i had to check my previous exercises but kept to a minmun. it was realy tought. with the restriction that i could recode things en had to use either use new ones or make use of the ones that i made. almost 5 hours, between 4 and 5 hours. 
+
+
+################################################################################
 

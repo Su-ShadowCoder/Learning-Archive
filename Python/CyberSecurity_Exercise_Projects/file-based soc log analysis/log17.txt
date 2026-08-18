@@ -1,0 +1,6 @@
+SUCCESS LOGIN user=admin ip=10.0.0.5
+FAILED LOGIN user=shadow ip=192.168.1.20
+FAILED LOGIN ip=172.16.5.10
+FAILED LOGIN user=ahmed
+FAILED LOGIN user=guest ip=172.16.5.11
+SUCCESS LOGIN user=backup ip=10.0.0.8
