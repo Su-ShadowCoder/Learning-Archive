@@ -1,0 +1,44 @@
+# Web Scraping and APIs
+
+# Web scraping is the act of collecting information from a website using an automated program. This can be done either ethically or nethically.abs Because website owners put significant effor into building their sites and collecting information themselves, scraping data in ways they explicitlly forbid is unethical. 
+
+#  To guide this, website ownersprovide guidlines-such as robots.txt files and terms of service- stating what data scrapers are allowed to acces and what is off-limits by following these requirmenets, developers adhere to ethical standard what everyone should ensure to follow. 
+
+# The robots.txt file is the most important technical standard for ethical web scraping.
+
+# The core points to know about this are:
+
+# - What is is: A text file placed in root directory of a website:
+# [https://example.com/robots.txt](https://example.com/robots.txt)
+# It acts as a set of instructions or "house rules" for automated bots and web crawlers. 
+
+# - The standard used: it follows the Robots Exclusion Protocol(REP)
+
+# Key directives:
+    
+    # User-agent: Specifies which bot the rules apply to (* means to all bots, or Googlebot for google)
+    
+    # Allow: Tells the bot which folders or pages can be scraped.
+    
+    # Disallow: Tells the bot which folders or pages cannot be scraped(login pages, private user directories, or heavy database pages). 
+
+
+# Golden Rule to memorize:
+# robots.txt is an ethical agreement, not a legal lock. Technically, a bot can choose to ignore robots.txt and scrape anyway however, ignoring tis is considered unethical, violates the site owner's boundaries, and can often get your IP address blocked or lead to legal consequences. 
+
+# The goal of this project that is from the ZTM Acadamy Course is to make a data scraper that collects information from hacker news website articles that has more than 100 upvotes. so that you can collect reliable news information or information that everyshould know so you are up to date with the tech industry. 
+
+################################################################################
+
+The Hacker News Project
+
+for this project the course is using the python library called beautyful soup.
+
+Resources:
+
+- beautifulsoup4 python library
+    Beautiful Soup is a python library for pulling data out of HTML and XML files.
+
+- requests python library
+    Requests allows you to send http request easily.
+
