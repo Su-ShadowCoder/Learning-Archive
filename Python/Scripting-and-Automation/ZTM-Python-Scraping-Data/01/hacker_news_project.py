@@ -17,6 +17,11 @@ soup = BeautifulSoup(res.text, "html.parser")
 links = soup.select('.titleline > a')
 subtext = soup.select('.subtext')
 
+
+
+def next_page()
+
+
 def sort_stories_by_votes(hnlist):
     return sorted(hnlist, key= lambda k:k["votes"], reverse=True)
 
