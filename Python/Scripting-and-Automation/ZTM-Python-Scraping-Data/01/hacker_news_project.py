@@ -1,6 +1,3 @@
-### Heads up! In the next video we will learn about selectors and we are going to use the Hackernews website to select some stories. Hackernews now uses the .titleline class instead of the .storylink class so you just need to make sure you enter .titleline in the next video when you see me use .storylink ###
-
-### Finally, in the code attached I use .titleline > a because the link is now inside the first <a> tag under the titleline element. ###
 
 import requests
 
@@ -8,23 +5,13 @@ from bs4 import  BeautifulSoup
 
 import pprint
 
-# you can think of res like a webbrowser without the actual window. like how type google.com on a browser and enter it to navigate to. this does the same. 
+from urllib.parse import urljoin
 
-
-res = requests.get('https://news.ycombinator.com/news')
-# convert from string to something you can use. this the act of parsing
-soup = BeautifulSoup(res.text, "html.parser")
-links = soup.select('.titleline > a')
-subtext = soup.select('.subtext')
-
-
-
-def next_page()
+import time
 
 
 def sort_stories_by_votes(hnlist):
     return sorted(hnlist, key= lambda k:k["votes"], reverse=True)
-
 
 def create_custom_hn(links, subtext):
     hn = []
@@ -39,47 +26,58 @@ def create_custom_hn(links, subtext):
 
     return sort_stories_by_votes(hn)
 
-pprint.pprint(create_custom_hn(links, subtext), sort_dicts=False)
+def scrape_pages(base_url):
+    print(f"URL: {base_url}\n")
+    response = requests.get(base_url)
+    soup = BeautifulSoup(response.content, "html.parser")
+    links = soup.select('.titleline > a')
+    subtext = soup.select('.subtext')
+
+    # scraping the website
+    pprint.pprint(create_custom_hn(links, subtext), sort_dicts=False)
+
+    print("End of page 1\n\n")
+
+    next_element = soup.find('a', attrs={'rel': 'next'})
+
+
+    # pagination till 5 pages
+    count = 1
+    while count != 3 and next_element != None:   
+        
+        extracted_link = next_element.get('href')
+    
+        absolute_url = urljoin(base_url, extracted_link)
+        
+        print("Next page.\n\n")
+        time.sleep(3)
+        new_page_response = requests.get(absolute_url)
+        soup = BeautifulSoup(new_page_response.content, "html.parser")
+        links = soup.select('.titleline > a')
+        
+        subtext = soup.select('.subtext')
+
+        # scraping the website
+        pprint.pprint(create_custom_hn(links, subtext), sort_dicts=False)
+        print(f"End of page {count+1}\n")
+
+        print(new_page_response.status_code)
+        print(new_page_response.url)
+
+        next_element = soup.find('a', attrs={'rel': 'next'})
+        count += 1
+
+
+    print("Done") 
+
+
+def main():
+    base_url1 = "https://news.ycombinator.com/news"
+    scrape_pages(base_url1)
+
+
+if __name__=="__main__":
+    main()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-###################################################
-# first challange
-###################################################
-
-# this is how i first made it by making it without watching the following video. 
-
-# def create_custom_hn(links, subtext):
-#     hn = []
-#     for idx, item in enumerate(links):
-#         title = links[idx].getText()
-#         href = links[idx].get("href", None)
-#         try:
-#             min_points = 100
-#             points = int(subtext[idx].getText().split(" points by")[0].strip())
-#             if points >= min_points:
-#                 hn.append({
-#                     "title": title,
-#                     "link": href,
-#                     "votes": points
-#                     })
-#         except ValueError:
-#             print("error")
-#         except Exception:
-#             print(Exception)
-#     return hn
-
-# print(create_custom_hn(links, subtext))
-
-#########################################################################
