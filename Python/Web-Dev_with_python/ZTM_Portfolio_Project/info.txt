@@ -1,0 +1,4 @@
+If you are using Flask v3 or higher, to run the server command:
+    $ flask --app <filename> run
+    NOTE: add --debug to the end to run in debug mode.
+
