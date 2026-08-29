@@ -2,3 +2,58 @@ If you are using Flask v3 or higher, to run the server command:
     $ flask --app <filename> run
     NOTE: add --debug to the end to run in debug mode.
 
+
+
+
+
+basepage and relative paths:
+
+# why does /extendend website, work and not /extended website/extenden website. ?
+# why does basepage/extendwebsite work?
+
+# <a href="{{ url_for('html_page', page_name='about.html') }}">About</a>
+# html_page is the function, and add the page_name= variable.html , variable
+
+# Flask Routing & Link Paths Summary
+
+# Relative Paths (works.html or ./work.html): Tells the browser to look inside the current URL directory. If your URL has a trailing slash (like /works.html/), the browser treats it like a folder and tries to nest paths, causing 404 Not Found errors.
+
+# Root-Relative Paths (/work.html): The leading slash / tells the browser to start fresh from the domain root ([http://127.0.0.1:5000/](http://127.0.0.1:5000/)) instead of the current directory, avoiding nested folder bugs.
+
+# Hardcoding vs. Dynamic (url_for()):
+
+# Hardcoding raw paths (href="/about.html") ties your HTML directly to a specific URL structure. If you change your Python route later, the link breaks and requires manual updating.
+
+# Using url_for('html_page', page_name='about.html') ties your HTML to your Python function name (html_page). If your routing structure changes in the backend, Flask updates the generated URL automatically.
+
+3. The Smart Way: Let the Backend Do the Work (url_for)
+Instead of guessing where files are or hardcoding web addresses into your HTML, you can let your Python code (Flask) handle the traffic control.
+
+Inside your HTML, instead of a raw link, you write a little Jinja code snippet that points straight to your Python function:
+
+HTML
+<a href="{{ url_for('html_page', page_name='about.html') }}">About</a>
+Or for a form:
+
+HTML
+<form action="{{ url_for('submit_form') }}" method="POST">
+Why is this magic?
+You aren't hardcoding a web address anymore; you're calling a Python function by name. Flask looks at that function, figures out the correct web address dynamically, and builds it for you every single time. If you ever change your website's routing structure later on, url_for() automatically updates all your links behind the scenes so nothing breaks.
+
+
+When you write your backend code in Flask, every single route is attached to a Python function using an @app.route decorator. For example, your code probably looks something like this:
+
+Python
+@app.route('/submit_form', methods=['POST'])
+def submit_form():
+    # python code to handle the form data goes here
+    return 'Form submitted!'
+The name of that Python function right underneath the route is submit_form.
+
+So, how do you know what to put inside url_for()?
+
+Look at your Python file and find the name of the function handling that action (in this case, def submit_form():).
+
+Copy that exact function name and drop it into url_for() like this: {{ url_for('submit_form') }}.
+
+url_for() doesn't care about the URL path (/submit_form) or what filename you are currently looking at; it only cares about the name of the Python function. Whenever you need a link or a form action to point to a specific Python route, you just find that function's name and hand it to url_for().

@@ -1,23 +1,29 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for, request, redirect
 
 app = Flask(__name__)
 print(__name__)
 
-
+#base_page
 @app.route("/")
-def hello_world():
+def my_home():
     return render_template("index.html")
 
+#relative_paths
+@app.route("/<string:page_name>/")
+def html_page(page_name):
+    return render_template(page_name)
 
-@app.route("/about.html")
-def about():
-    return render_template("about.html")
 
-@app.route("/blog")
-def blog():
-    return "<p>These are my thoughts on blogs</p>"
 
-@app.route("/blog/2020/cats")
-def blog2():
-    return "<p>I like cats</p>"
+
+#submit_form
+@app.route('/submit_form', methods=['POST', 'GET'])
+def submit_form():
+    if request.method == "POST":
+        data = request.form.to_dict()
+        print(data)
+        return redirect('/thankyou.html/')
+    else:
+        return "something went wrong. Try again!"
+
 
