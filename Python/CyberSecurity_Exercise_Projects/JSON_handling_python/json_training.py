@@ -566,147 +566,147 @@
 
 # JSON is a standardized text format for representing structured data so that different programs can store and exchange it.
 
-import pprint
-import json
+# import pprint
+# import json
 
-security_log = '''
-[
-    {
-        "username": "shadow",
-        "ip": "192.168.1.20",
-        "status": "Failed"
-    },
-    {
-        "username": "admin",
-        "ip": "10.0.0.5",
-        "status": "Success"
-    },
-    {
-        "username": "shadow",
-        "ip": "192.168.1.20",
-        "status": "Failed"
-    },
-    {
-        "username": "guest",
-        "ip": "172.16.5.10",
-        "status": "Failed"
-    },
-    {
-        "username": "shadow",
-        "ip": "192.168.1.20",
-        "status": "Failed"
-    },
-    {
-        "username": "backup",
-        "ip": "10.0.0.8",
-        "status": "Success"
-    }
-]
-'''
+# security_log = '''
+# [
+#     {
+#         "username": "shadow",
+#         "ip": "192.168.1.20",
+#         "status": "Failed"
+#     },
+#     {
+#         "username": "admin",
+#         "ip": "10.0.0.5",
+#         "status": "Success"
+#     },
+#     {
+#         "username": "shadow",
+#         "ip": "192.168.1.20",
+#         "status": "Failed"
+#     },
+#     {
+#         "username": "guest",
+#         "ip": "172.16.5.10",
+#         "status": "Failed"
+#     },
+#     {
+#         "username": "shadow",
+#         "ip": "192.168.1.20",
+#         "status": "Failed"
+#     },
+#     {
+#         "username": "backup",
+#         "ip": "10.0.0.8",
+#         "status": "Success"
+#     }
+# ]
+# '''
 
-## converting json to python
-eventdata1_j2p = json.loads(security_log)
-# print(eventdata1_j2p)
+# ## converting json to python
+# eventdata1_j2p = json.loads(security_log)
+# # print(eventdata1_j2p)
 
-# #    "total_events"
-def total_events(events):
-    return len(events)
-# print(total_events(eventdata1_j2p))
+# # #    "total_events"
+# def total_events(events):
+#     return len(events)
+# # print(total_events(eventdata1_j2p))
 
-# #    "failed_attempts"
-def failed_attempts(events):
-    failed_counts = 0
-    for event in events:
-        if event["status"] == "Failed":
-            failed_counts += 1
-    return failed_counts
-# print(failed_attempts(eventdata1_j2p))
+# # #    "failed_attempts"
+# def failed_attempts(events):
+#     failed_counts = 0
+#     for event in events:
+#         if event["status"] == "Failed":
+#             failed_counts += 1
+#     return failed_counts
+# # print(failed_attempts(eventdata1_j2p))
 
-# #    "successful_attempts"
-def successful_attempts(events):
-    success_attempts = 0
-    for event in events:
-        if event['status'] == 'Success':
-            success_attempts += 1
-    return success_attempts
-# print(successful_attempts(eventdata1_j2p))
+# # #    "successful_attempts"
+# def successful_attempts(events):
+#     success_attempts = 0
+#     for event in events:
+#         if event['status'] == 'Success':
+#             success_attempts += 1
+#     return success_attempts
+# # print(successful_attempts(eventdata1_j2p))
 
-# #    "failed_users"
-def failed_users(events):
-    failed_user_attempts = {}
-    for event in events:
-        if event['status'] == 'Failed':
-            username_value = event['username']
-            if username_value not in failed_user_attempts:
-                failed_user_attempts[username_value] = 1
-            else:
-                failed_user_attempts[username_value] += 1
-    return failed_user_attempts
-# print(failed_users(eventdata1_j2p))
+# # #    "failed_users"
+# def failed_users(events):
+#     failed_user_attempts = {}
+#     for event in events:
+#         if event['status'] == 'Failed':
+#             username_value = event['username']
+#             if username_value not in failed_user_attempts:
+#                 failed_user_attempts[username_value] = 1
+#             else:
+#                 failed_user_attempts[username_value] += 1
+#     return failed_user_attempts
+# # print(failed_users(eventdata1_j2p))
 
-# #    "failed_ips"
-def failed_ips(events):
-    failed_ips_attempts = {}
-    for event in events:
-        if event['status'] == 'Failed':
-            ip_value = event['ip']
-            if ip_value not in failed_ips_attempts:
-                failed_ips_attempts[ip_value] = 1
-            else:
-                failed_ips_attempts[ip_value] += 1
-    return failed_ips_attempts
-# print(failed_ips(eventdata1_j2p))
+# # #    "failed_ips"
+# def failed_ips(events):
+#     failed_ips_attempts = {}
+#     for event in events:
+#         if event['status'] == 'Failed':
+#             ip_value = event['ip']
+#             if ip_value not in failed_ips_attempts:
+#                 failed_ips_attempts[ip_value] = 1
+#             else:
+#                 failed_ips_attempts[ip_value] += 1
+#     return failed_ips_attempts
+# # print(failed_ips(eventdata1_j2p))
 
-# #    "suspicious_users"
-def suspicious_users(events):
-    failed_attempt_user = {}
-    for event in events:
-        if event['status'] == "Failed":
-            user_value = event['username']
-            if user_value not in failed_attempt_user:
-                failed_attempt_user[user_value] = 1
-            else:
-                failed_attempt_user[user_value] += 1
+# # #    "suspicious_users"
+# def suspicious_users(events):
+#     failed_attempt_user = {}
+#     for event in events:
+#         if event['status'] == "Failed":
+#             user_value = event['username']
+#             if user_value not in failed_attempt_user:
+#                 failed_attempt_user[user_value] = 1
+#             else:
+#                 failed_attempt_user[user_value] += 1
     
-    sus_user_result = {}
-    for key, value in failed_attempt_user.items():
-        if value > 2:
-            sus_user_result[key] = value
+#     sus_user_result = {}
+#     for key, value in failed_attempt_user.items():
+#         if value > 2:
+#             sus_user_result[key] = value
     
-    return sus_user_result
-# print(suspicious_users(eventdata1_j2p))
+#     return sus_user_result
+# # print(suspicious_users(eventdata1_j2p))
 
-## 'final report' 
-def full_report(events):
-    value1 = total_events(events)
-    value2 = failed_attempts(events)
-    value3 = successful_attempts(events)
-    value4 = failed_users(events)
-    value5 = failed_ips(events)
-    value6 = suspicious_users(events)
+# ## 'final report' 
+# def full_report(events):
+#     value1 = total_events(events)
+#     value2 = failed_attempts(events)
+#     value3 = successful_attempts(events)
+#     value4 = failed_users(events)
+#     value5 = failed_ips(events)
+#     value6 = suspicious_users(events)
 
-    result = {
-        "total_events": value1,
-        "failed_attempts": value2,
-        "successful_attempts": value3,
-        "failed_users": value4,
-        "failed_ips": value5,
-        "suspicious_users": value6
-    }
+#     result = {
+#         "total_events": value1,
+#         "failed_attempts": value2,
+#         "successful_attempts": value3,
+#         "failed_users": value4,
+#         "failed_ips": value5,
+#         "suspicious_users": value6
+#     }
 
-    return result
-
-
-
-def main():
-    pprint.pprint(full_report(eventdata1_j2p), sort_dicts=False)
+#     return result
 
 
-if __name__=='__main__':
-    main()
+
+# def main():
+#     pprint.pprint(full_report(eventdata1_j2p), sort_dicts=False)
 
 
-# you should have mad it clear that the stuf you wanted to represent was not exactly how it is you have represented i was stuf without the whole pprint doing what you wanted. also , you havent specified to check for invalid events, so i dint use try except, also another one is that i kept using the same code for a certain part i could have done it with another def and using that def for the rest of the funcitons. 
+# if __name__=='__main__':
+#     main()
 
-# also  today did things from exercise 7 to everthing else
+
+# # you should have mad it clear that the stuf you wanted to represent was not exactly how it is you have represented i was stuf without the whole pprint doing what you wanted. also , you havent specified to check for invalid events, so i dint use try except, also another one is that i kept using the same code for a certain part i could have done it with another def and using that def for the rest of the funcitons. 
+
+# # also  today did things from exercise 7 to everthing else
 
