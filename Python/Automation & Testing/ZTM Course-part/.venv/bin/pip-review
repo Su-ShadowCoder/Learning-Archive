@@ -1,0 +1,8 @@
+#!/bin/sh
+'''exec' "/home/abdullah/Documents/github_learning-archive/Learning-Archive/Python/Automation & Testing/ZTM Course-part/.venv/bin/python3" "$0" "$@"
+' '''
+import sys
+from pip_review.__main__ import main
+if __name__ == '__main__':
+    sys.argv[0] = sys.argv[0].removesuffix('.exe')
+    sys.exit(main())
