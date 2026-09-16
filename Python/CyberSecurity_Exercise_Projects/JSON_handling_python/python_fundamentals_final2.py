@@ -14,6 +14,7 @@
 # ============================================================
 
 
+
 # ============================================================
 # EXERCISE 31 — while Loops
 # ============================================================
@@ -28,6 +29,14 @@
 # 5. Print a final message after the loop finishes.
 #
 # Do not use a for loop.
+
+# attempts = 0
+
+# while attempts < 5:
+#     print(attempts)
+#     attempts += 1
+
+# print("Finished looping")
 
 
 # ============================================================
@@ -44,14 +53,30 @@
 #     "LOGIN_FAILED",
 #     "LOGIN_SUCCESS"
 # ]
-#
-# Requirements:
-# 1. Loop through the events.
-# 2. Ignore "SYSTEM_UPDATE" using continue.
-# 3. Print every remaining event.
-# 4. Stop the loop completely when you encounter the
-#    second "LOGIN_FAILED" event.
-# 5. Use both continue and break.
+# #
+# # Requirements:
+# # 1. Loop through the events.
+# # 2. Ignore "SYSTEM_UPDATE" using continue.
+# # 3. Print every remaining event.
+# # 4. Stop the loop completely when you encounter the
+# #    second "LOGIN_FAILED" event.
+# # 5. Use both continue and break.
+
+# count_failed = 1
+
+# for event in events:
+#     if event == "SYSTEM_UPDATE":
+#         continue
+#     if event == "LOGIN_FAILED":
+#         count_failed += 1
+#         if count_failed != 2:
+#             print(event) 
+#         else:
+#             break
+#     else:
+#         print(event)
+
+# what you are asking me doesnt make sense second failed event from what from the contine or whole?
 
 
 # ============================================================
@@ -72,6 +97,19 @@
 #
 # Do not manually write the characters you are extracting.
 
+# username = "shadow"
+
+# print(username[0])
+
+# print(username[-1])
+
+# print(username[0:3])
+
+# print(username[3:6])
+
+# print(username[::-1])
+
+# print(len(username))
 
 # ============================================================
 # EXERCISE 34 — String Methods and Formatting
@@ -91,6 +129,17 @@
 #    Shadow has a failed login.
 # 6. Use an f-string for the final message.
 
+# username = " Shadow "
+# status = "failed"
+
+# no_space_username = username.strip()
+# # print(no_space_username)
+# up_username = no_space_username.lower()
+# better_status = status.upper()
+
+# message = f"{up_username} has a {better_status} login!"
+
+# print(message)
 
 # ============================================================
 # EXERCISE 35 — Type Conversion
@@ -98,21 +147,36 @@
 #
 # You receive these values as strings:
 #
+
+
 # failed_attempts = "5"
 # threshold = "3"
 # account_locked = "False"
-#
-# Requirements:
-# 1. Convert failed_attempts into an integer.
-# 2. Convert threshold into an integer.
-# 3. Convert account_locked into an actual Boolean.
-# 4. Compare failed_attempts against threshold.
-# 5. Print the resulting values.
-# 6. Print the type of each converted value.
-#
-# Do not simply hard-code True or False for account_locked.
-# Practice converting the string representation yourself.
 
+
+# # Requirements:
+# # 1. Convert failed_attempts into an integer.
+# # 2. Convert threshold into an integer.
+# # 3. Convert account_locked into an actual Boolean.
+# # 4. Compare failed_attempts against threshold.
+# # 5. Print the resulting values.
+# # 6. Print the type of each converted value.
+# #
+# # Do not simply hard-code True or False for account_locked.
+# # Practice converting the string representation yourself.
+
+# cor_failed_attempts = int(failed_attempts)
+# cor_threshold = int(threshold)
+
+# cor_account_locked = None
+# if account_locked == "False":
+#     cor_account_locked = False
+
+# print(cor_account_locked)
+
+# if cor_failed_attempts > cor_threshold:
+#     print(cor_failed_attempts, cor_threshold, cor_account_locked)
+#     print(type(cor_failed_attempts), type(cor_threshold), type(cor_account_locked))
 
 # ============================================================
 # EXERCISE 36 — Lists: Indexing, Slicing, and Modification
@@ -136,7 +200,7 @@
 # 5. Add a new IP to the end.
 # 6. Remove one IP.
 # 7. Print the final list.
-
+#############################################################################
 
 # ============================================================
 # EXERCISE 37 — Tuples
