@@ -114,7 +114,11 @@ in order to practice. we need a lab and that lab will be the VM in the VB. by us
 
 see in IT  manual.
 
+when working with vulnerable system and experimenting with you should select the option to make your vulnerable and attacking machines to be on Host-only. this makes the communication method strictly just the host-device. which is the pc you are using to run both of those. 
 
+make sure to not set a iso when setting up the vulnerable machine, and later on attach the .vmdk file as a harddisk and remove the what is apropriate. 
+
+bridged network makes the virtual machine bypasses the operating systems network and connects directly to the physical network router.
 
 # RECONNAISSANCE & INFO GATHERING: PRO-LEVEL MINI-MANUAL
 
@@ -395,5 +399,17 @@ SUMMARY CHECKLIST
 - Scan with Nessus: Generate a high-level report of potential CVEs.
 - Manual Search: Use searchsploit to find proofs-of-concept (PoC).
 - Verify: Confirm findings manually to rule out false positives.
+
+####################################
+
+sep 17, 2026
+
+report
+
+resuming the course where left of. needed to make sure that both virtual machines worked properly. the target_machine had a few problems and become corrupt. because of that i had to set up new virtual target machine, while searching up the correct network adapter option. which was host-only. it means that the communication will take place only on the host machine, where the virtual machine is running on and cannot connect outside of the host machine. this should also be set up for the attacking machine so the lab would be contained only to the host machine which the two virtual machines would be running on. i ran into an another obstacle which was, that it kept asking me to mount a dvd. which meant that the os was not running on iso. which you should keep it empty when seting up the vm. later on you attach the .vmdk file as a harddisk and remove any other that in accordance with the situation. 
+
+closing report.
+
+###################################
 
 
