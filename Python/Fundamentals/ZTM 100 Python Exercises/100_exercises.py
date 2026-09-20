@@ -26,9 +26,7 @@
 # for numb in range(1, numb_inp + 1):
 #     result *= numb
 
-# print(result)
-    
-
+# print(result)                                                      
 
 
 # Question 3
@@ -197,39 +195,126 @@
 # Hints:
 # Note: In case of input data being supplied to the question, it should be assumed to be a console input in a comma-separated form.
 
+# x = int(input('Please enter x:\n'))
+# y = int(input('Please enter y:\n'))
+
+# final_array = []
+# for xnumb in range(0, x):
+#     array = []
+#     for ynumb in range(0, y):
+#         array.append(xnumb * ynumb)
+#     final_array.append(array)
+
+# print(final_array)
 
 
 
+# # Question 8
+# # Question:
+# # Write a program that accepts a comma separated sequence of words as input and prints the words in a comma-separated sequence after sorting them alphabetically.
+
+# # Suppose the following input is supplied to the program:
+
+# # without,hello,bag,world
+# # Then, the output should be:
+
+# # bag,hello,without,world
+# # Hints:
+# # In case of input data being supplied to the question, it should be assumed to be a console input.
+
+# usr_in = input("Enter words with coma seperated sequence:\n")
+
+# usr_list = usr_in.split(',')
+
+# alp_usr_lst = sorted(usr_list)
+
+# result = ",".join(alp_usr_lst)
+
+# print(result)
 
 
-# Question 8
-# Question:
-# Write a program that accepts a comma separated sequence of words as input and prints the words in a comma-separated sequence after sorting them alphabetically.
+
+# # Question 9
+# # Question:
+# # Write a program that accepts sequence of lines as input and prints the lines after making all characters in the sentence capitalized.
+
+# # Suppose the following input is supplied to the program:
+
+# # Hello world
+# # Practice makes perfect
+# # Then, the output should be:
+
+# # HELLO WORLD
+# # PRACTICE MAKES PERFECT
+# # Hints:
+# # In case of input data being supplied to the question, it should be assumed to be a console input.
+
+# lines = []
+
+# while True:
+#     line = input("")
+#     if line == "stop":
+#         break
+#     lines.append(line)
+
+# text = "\n".join(lines).upper()
+
+# print(text)
+
+# Question 10
+# Question
+# Write a program that accepts a sequence of whitespace separated words as input and prints the words after removing all duplicate words and sorting them alphanumerically.
 
 # Suppose the following input is supplied to the program:
 
-# without,hello,bag,world
+# hello world and practice makes perfect and hello world again
 # Then, the output should be:
 
-# bag,hello,without,world
+# again and hello makes perfect practice world
 # Hints:
-# In case of input data being supplied to the question, it should be assumed to be a console input.
+# In case of input data being supplied to the question, it should be assumed to be a console input.We use set container to remove duplicated data automatically and then use sorted() to sort the data.
 
 
+# usr_input = input('Enter a normal sentence:\n')
+
+# tranform_usr1 = usr_input.split(' ')
+
+# tranform_usr2 = sorted(set(tranform_usr1))
+
+# result = " ".join(tranform_usr2)
+
+# print(result)
 
 
+# Question 11
+# Question
+# Write a program which accepts a sequence of comma separated 4 digit binary numbers as its input and then check whether they are divisible by 5 or not. The numbers that are divisible by 5 are to be printed in a comma separated sequence.
 
-# Question 9
-# Question:
-# Write a program that accepts sequence of lines as input and prints the lines after making all characters in the sentence capitalized.
+# Example:
 
-# Suppose the following input is supplied to the program:
+# 0100,0011,1010,1001
+# Then the output should be:
 
-# Hello world
-# Practice makes perfect
-# Then, the output should be:
+# 1010
+# Notes: Assume the data is input by console.
 
-# HELLO WORLD
-# PRACTICE MAKES PERFECT
-# Hints:
-# In case of input data being supplied to the question, it should be assumed to be a console input.
+
+# Write a program which accepts a sequence of comma separated 4 digit binary numbers as its input
+
+# usr_inp = input('Enter a sequence of 4 binary numbers separated by commas:\n')
+
+# usr_lst = usr_inp.split(",")
+
+# conv_str_lst = []
+
+# for obj in usr_lst:
+#     numb = int(obj, 2)
+#     if numb % 5 == 0:
+#         conv_str_lst.append(str(bin(numb))[2:])
+
+# result = ",".join(conv_str_lst)
+
+# print(result)
+
+##############################################################################
+
