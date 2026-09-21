@@ -318,3 +318,120 @@
 
 ##############################################################################
 
+# Question 12
+# Question:
+# Write a program, which will find all such numbers between 1000 and 3000 (both included) such that each digit of the number is an even number.The numbers obtained should be printed in a comma-separated sequence on a single line.
+
+# t_lst = []
+
+# for numb in range(1000, 3000 + 1):
+#     if numb % 2 == 0:
+#         t_lst.append(str(numb))
+
+
+# result = ",".join(t_lst)
+
+# print(result)
+
+
+
+#################
+# Question 13
+# Question:
+# Write a program that accepts a sentence and calculate the number of letters and digits.
+
+
+
+
+
+# try:
+#     usr_inp = input("Please enter a sentence:\n")
+
+#     digits = 0
+#     letters = 0
+#     for car in usr_inp:
+#         if car.isdigit():
+#             digits += 1
+#         elif car.isalpha():
+#             letters += 1
+    
+#     print(f"letters: {letters}, digits: {digits}.")
+# except EOFError:
+#     print("No input is given!")
+
+########################################################
+
+
+# Question 14
+# Question:
+# Write a program that accepts a sentence and calculate the number of upper case letters and lower case letters.
+
+# Suppose the following input is supplied to the program:
+
+# Hello world!
+# Then, the output should be:
+
+# UPPER CASE 1
+# LOWER CASE 9
+
+# def count_lower_upper():
+#     try:
+#         x = input("Enter a sentence without any numbers:\n")
+
+#         upper = 0
+#         lower = 0
+
+#         for car in x:
+#             if car.isupper():
+#                 upper += 1
+#             if car.islower():
+#                 lower += 1
+#             else:
+#                 return "Please enter a sentence without numbers!"
+        
+#         return f"UPPER CASE {upper}\nLOWER CASE {lower}"
+#     except EOFError:
+#         print("No value entered!")
+
+        
+
+# print(count_lower_upper())
+
+
+# ####################
+
+
+# Question 15
+# Question:
+# Write a program that computes the value of a+aa+aaa+aaaa with a given digit as the value of a.
+
+# Suppose the following input is supplied to the program:
+
+# 9
+
+# Then, the output should be:
+
+# 11106
+
+# def special_form1():
+#     try:
+        
+#         x = input("Please enter a number in order to compute it with special formula Type 1:\n")
+
+#         if x.isdigit():
+#             result = 0
+#             for numb in range(1, 4+1):
+#                 n = int(numb * x)
+
+#                 result += n
+#             return result
+#         else:
+#             return "Please Enter a number!"
+
+#     except EOFError:
+#         print("Please enter a number!")
+
+# print(special_form1())
+
+###########################################
+
