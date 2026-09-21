@@ -120,7 +120,9 @@ make sure to not set a iso when setting up the vulnerable machine, and later on 
 
 bridged network makes the virtual machine bypasses the operating systems network and connects directly to the physical network router.
 
-# RECONNAISSANCE & INFO GATHERING: PRO-LEVEL MINI-MANUAL
+# RECONNAISSANCE & INFO GATHERING: 
+
+PRO-LEVEL MINI-MANUAL
 
 ## 1. THE FOUNDATION: What is Information Gathering?
 * **The Concept:** It’s about building a "target footprint." Pros divide this into **Passive** (no direct contact with target) and **Active** (direct interaction/scanning).
@@ -242,6 +244,49 @@ Once you gather this info, create a **Target Map**:
 * **Technology:** CMS versions, Web Servers, Open Ports.
 * **Vulnerabilities:** Match the versions found above to CVEs (Common Vulnerabilities and Exposures).
 
+###########
+Report
+
+sudo ifconfig
+Allows you to check the host machine net status
+is used the attack machine to ping the target machine to ping:
+ping "ipaddress"
+
+then i did:
+sudo arp -a
+i got 2 entrees, one from the host attacking machine and one from the target machine.
+
+sometimes it wont work or wouldt "catch" the other ip addresses in a network and works only when you ping the other machine before it locks on to the other entree's when doing arp command.
+
+That is why a better tool to discover a target within the network is called: netdiscover.
+i used the sudo netdiscover command. and got direct entrees from the host-only-network.
+which was 4 IP entrees, 1 from target machine, 1 from attacking machine, 1 from virtual router and one from the local host in which the 2 vm's are running.
+
+The reason why 1 of the ip entrees was from the router is because the ip address ended with a .1 - usually routers always ends with a .0 or .1
+
+to be sure what the ip address of you router is, you enter to following command:
+netstat -nr
+
+because i am running a vm the actual router ip wont match with the virtual router ip which is the host-only-network.
+
+sep 22 2026 00:03
+close report 
+
+
+open report.
+sep 22 2026 00:04
+
+nmap scanning
+
+-scanned the target m with sudo netdiscover.
+-copied the ip of t-m and did nmap scan with a-m on the t-m.
+-got a entree of the nmap report with the usually information about open and closed ports from the t-m. the scan finished fast. the reason for that is because the target is within the LAN network. a real scan based on real targets can possible take hours to finish. 
+
+scanning of a range of IP's:
+sudo nmap 192.168.56.1-255 and sometimes doing .1/24 stands for that the first 3 parts of the ip address dont change.
+
+with the nmap scanning you can discover open  ports on target. which could contain vulnerabilities depending on the circumstances. These vulnerabilities could used to exploit and gain access for authority on the target machine by implementing certain methods. for example a piece of software that is running on the machine that might not been updated could contain a weak point in the sofware in which we can make use of/take advantage of.
+close report.
 
 
 ================================================================================
