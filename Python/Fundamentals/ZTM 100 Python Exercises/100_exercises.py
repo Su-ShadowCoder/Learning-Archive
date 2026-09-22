@@ -435,3 +435,104 @@
 
 ###########################################
 
+# Question 16
+# Question:
+# Use a list comprehension to square each odd number in a list. The list is input by a sequence of comma-separated numbers. >Suppose the following input is supplied to the program:
+
+# 1,2,3,4,5,6,7,8,9
+# Then, the output should be:
+
+# 1,9,25,49,81
+
+# def square_odd_numb():
+#     try:
+#         x_inp = input("Enter a sequence of comman-separated number:\n").strip()
+#         splitted_lst = x_inp.split(",")
+#         parse_lst = []
+#         for numb in splitted_lst:
+#             numb_int = int(numb)
+#             if numb_int % 2 != 0:
+#                 parse_lst.append(str(numb_int ** 2))
+#         return ",".join(parse_lst)
+#     except (EOFError, ValueError):
+#         return "Enter a sequence of comman-separated number!"
+         
+# print(square_odd_numb())
+
+
+
+# def square_odd_numb():
+#     try:
+#         x_inp = input("Enter a sequence of comman-separated number:\n")
+#         splitted_lst = x_inp.split(",")
+#         parse_lst = [int(numb) ** 2 for numb in splitted_lst if int(numb.strip()) % 2 != 0]
+#         return ",".join([str(num) for num in parse_lst])
+#     except (EOFError, ValueError):
+#         return "Enter a sequence of comman-separated number!"
+         
+# print(square_odd_numb())
+
+
+
+#############################################
+
+# Question 17
+# Question:
+# Write a program that computes the net amount of a bank account based a transaction log from console input. The transaction log format is shown as following:
+
+# D 100
+# W 200
+# D means deposit while W means withdrawal.
+# Suppose the following input is supplied to the program:
+
+# D 300
+# D 300
+# W 200
+# D 100
+# Then, the output should be:
+
+# 500
+#################################################
+
+
+# class BankAccount():
+
+#     def __init__(self, name, balance):
+#         self.name = name
+#         self.balance = balance
+
+
+#     def get_current_balance(self):
+#         return f'Current balance in account: {self.balance}'
+    
+#     def deposit(self, x):
+#         self.balance = self.balance + x
+
+#     def withdraw(self, x):
+#         if self.balance - x > 0:
+#             self.balance = self.balance - x
+#         else:
+#             return "Balance insufficient!"
+
+# account1 = BankAccount("acc1", 0)
+
+
+# while True:
+#     try:
+#         x_usr = input("")
+#         temp_lst = x_usr.split()
+#         if temp_lst[0] == "?":
+#             print(account1.get_current_balance())
+#         if temp_lst[1].isdigit():
+#             amount = int(temp_lst[1])
+#         if temp_lst[0] == "D":
+#             account1.deposit(amount)
+#         elif temp_lst[0] == "W":
+#             account1.withdraw(amount)
+#     except IndexError:
+#         continue
+
+
+
+#########################################################
+
