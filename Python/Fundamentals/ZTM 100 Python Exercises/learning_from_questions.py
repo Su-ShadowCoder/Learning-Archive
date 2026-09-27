@@ -47,3 +47,13 @@
 # print(t_d)
 
 ###########################################################
+
+# import re
+
+# a = input("Enter password:\n").split(",")
+
+# pass_pattern = re.compile(r"^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])(?=.*[$#@]).{6,12}$")
+
+# for part in a:
+#     if pass_pattern.fullmatch(part):
+#         print(part)

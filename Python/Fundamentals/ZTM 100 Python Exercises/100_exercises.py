@@ -536,3 +536,326 @@
 
 #########################################################
 
+# Question 18
+# Question:
+# A website requires the users to input username and password to register. Write a program to check the validity of password input by users.
+
+# Following are the criteria for checking the password:
+
+# At least 1 letter between [a-z]
+# At least 1 number between [0-9]
+# At least 1 letter between [A-Z]
+# At least 1 character from [$#@]
+# Minimum length of transaction password: 6
+# Maximum length of transaction password: 12
+# Your program should accept a sequence of comma separated passwords and will check them according to the above criteria. Passwords that match the criteria are to be printed, each separated by a comma.
+
+# Example
+
+# If the following passwords are given as input to the program:
+
+# ABd1234@1,a F1#,2w3E*,2We3345
+# Then, the output of the program should be:
+
+# ABd1234@1
+
+
+# import re
+
+# a = input("Enter password to validate:\n").split(",")
+
+# pass_pattern =  re.compile(r"^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$#@]).{6,12}$")
+
+# for item in a:
+#     if re.findall(pass_pattern, item):
+#         print(item)
+
+#####
+
+# Question 19
+# Question:
+# You are required to write a program to sort the (name, age, score) tuples by ascending order where name is string, age and score are numbers. The tuples are input by console. The sort criteria is:
+
+# 1: Sort based on name
+# 2: Then sort based on age
+# 3: Then sort by score
+# The priority is that name > age > score.
+
+# If the following tuples are given as input to the program:
+
+# Tom,19,80
+# John,20,90
+# Jony,17,91
+# Jony,17,93
+# Json,21,85
+# Then, the output of the program should be:
+
+# [('John', '20', '90'), ('Jony', '17', '91'), ('Jony', '17', '93'), ('Json', '21', '85'), ('Tom', '19', '80')]
+
+
+
+
+# tlist = []
+
+# while True:
+#     user_input = input("Enter name,age,score (or press Enter to stop): \n")
+
+#     if not user_input.strip():
+#         print("Exiting program.")
+#         break
+
+#     try:
+#         a = user_input.split(',')
+
+#         stuple = (a[0].strip(),int(a[1]),int(a[2]))
+#         tlist .append(stuple)
+
+#         slst = sorted(tlist, key=lambda x: (x[0], x[1], x[2]))
+
+#         print(slst)
+
+
+#     except (IndexError, ValueError):
+#         print('invalid format')
+
+
+########################################
+
+# Question 20
+# Question:
+# Define a class with a generator which can iterate the numbers, which are divisible by 7, between a given range 0 and n.
+
+# Suppose the following input is supplied to the program:
+
+# 7
+# Then, the output should be:
+
+# 0
+# 7
+# 14
+
+
+# class GenDiv7():
+#     def gen_div_7(self, n):
+#         wlst = (numb for numb in range(0, n+1) if numb % 7 == 0)
+#         return wlst
+
+# gendiv7 = GenDiv7()
+# something = gendiv7.gen_div_7(int(input('Please enter the number: \n')))
+# for numb in something:
+#     print(numb)
+
+
+
+
+###########################
+# Question 21
+# Question:
+# A robot moves in a plane starting from the original point (0,0). The robot can move toward UP, DOWN, LEFT and RIGHT with a given steps. The trace of robot movement is shown as the following:
+
+# UP 5
+# DOWN 3
+# LEFT 3
+# RIGHT 2
+# The numbers after the direction are steps. Please write a program to compute the distance from current position after a sequence of movement and original point. If the distance is a float, then just print the nearest integer. Example: If the following tuples are given as input to the program:
+
+# UP 5
+# DOWN 3
+# LEFT 3
+# RIGHT 2
+# Then, the output of the program should be:
+
+# 2
+# Hints:
+
+# In case of input data being supplied to the question, it should be assumed to be a console input.Here distance indicates to euclidean distance.Import math module to use sqrt function.
+
+
+
+# import math
+
+# og_cords = [0,0]
+
+# cords = [0,0]
+
+# print("Welcome to this program that computes the auclidean distance your robot has taken.")
+
+# while True:
+#     usr = input("Enter the movements in the folowing format: 'movement steps', example: 'up 5' then press enter and continue to enter input and enter as much as you want. Press enter  without input after done.\n").upper().split()
+#     if not usr:
+#         break
+#     inp_direction = usr[0]
+#     inp_distance = int(usr[1])
+#     if inp_direction == "UP":
+#         cords[0] += inp_distance
+#     elif inp_direction == "DOWN":
+#         cords[0] -= inp_distance
+#     elif inp_direction == "RIGHT":
+#         cords[1] += inp_distance
+#     elif inp_direction == "LEFT":
+#         cords[1] -= inp_distance
+#     else:
+#         pass
+
+# distance_taken = round(math.sqrt(((cords[0] - og_cords[0])**2) + ((cords[1] - og_cords[1])**2)))
+
+# print(distance_taken)
+
+
+#######################
+
+
+
+# Question 22
+# Question:
+# Write a program to compute the frequency of the words from the input. The output should output after sorting the key alphanumerically.
+
+# Suppose the following input is supplied to the program:
+
+# New to Python or choosing between Python 2 and Python 3? Read Python 2 or Python 3.
+# Then, the output should be:
+
+# 2:2
+# 3.:1
+# 3?:1
+# New:1
+# Python:5
+# Read:1
+# and:1
+# between:1
+# choosing:1
+# or:2
+# to:1
+# Hints
+# In case of input data being supplied to the question, it should be assumed to be a console input.
+
+# og_i = input('Enter a sentence:\n').split()
+
+
+# def sort_alpanumerically(item):
+#     if item.isdigit():
+#         return (0, int(item))
+#     elif item.isupper():
+#         return (1, item)
+#     else:
+#         return (2, item)
+
+
+
+# i_dic = {}
+
+# for key in og_i:
+#     if key not in i_dic:
+#         i_dic[key] = 1
+#     else:
+#         i_dic[key] += 1
+
+
+# sorted_dic = sorted(i_dic, key=sort_alpanumerically)
+# print(sorted_dic)
+
+
+
+
+##########################
+
+
+# Question 23
+# Question:
+# Write a method which can calculate square value of number
+
+# Hints:
+# Using the ** operator which can be written as n**p where means n^p
+
+
+# def squar_v(x):
+#     return x ** 2
+# print(squar_n(9))
+
+
+
+############################
+
+
+# Question 24
+# Question:
+# Python has many built-in functions, and if you do not know how to use it, you can read document online or find some books. But Python has a built-in document function for every built-in functions.
+
+# Please write a program to print some Python built-in functions documents, such as abs(), int(), raw_input()
+
+# And add document for your own function
+
+# Hints:
+# The built-in document method is __doc__
+
+
+# def info_function(function):
+#     """ The info fucntion returns documentation of the inputted function """
+#     return function.__doc__
+
+# print(info_function(abs))
+###################################
+
+# Question 25
+# Question:
+# Define a class, which have a class parameter and have a same instance parameter.
+
+# Hints:
+# Define an instance parameter, need add it in __init__ method.You can init an object with construct parameter or set the value later
+
+
+# class ToyotaCar():
+#     DEFAULT_COLOR = "Green"
+
+#     def __init__(self, name_model, color=None):
+#         self.name_model = name_model
+        
+#         self.color = color if color is not None else ToyotaCar.DEFAULT_COLOR
+
+#     def __str__(self):
+#         return f"{self.name_model}, {self.color}"
+
+
+# car1 = ToyotaCar("Yaris", "Yellow")
+# car2 = ToyotaCar('Prius')
+
+# print(car1)
+# print(car2)
+
+
+####################################
+
+# Question 26
+# Question:
+# Define a function which can compute the sum of two numbers.
+
+# Hints:
+# Define a function with two numbers as arguments. You can compute the sum in the function and return the value.
+
+
+# def sum(x, y):
+#     return x + y
+
+# print(sum(5, 7))
+
+#################################
+
+# Question 27
+# Question:
+# Define a function that can convert a integer into a string and print it in console.
+
+
+def str_conv(number):
+    return str(number)
+
+
+
+##################################
+
+# Question 28
+# Question:
+# Define a function that can receive two integer numbers in string form and compute their sum and then print it in console.
+
+
+###################################
+
