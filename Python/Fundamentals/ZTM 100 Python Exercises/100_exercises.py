@@ -845,8 +845,8 @@
 # Define a function that can convert a integer into a string and print it in console.
 
 
-def str_conv(number):
-    return str(number)
+# def str_conv(number):
+#     return str(number)
 
 
 
@@ -857,5 +857,345 @@ def str_conv(number):
 # Define a function that can receive two integer numbers in string form and compute their sum and then print it in console.
 
 
+# def add_str_numb(x, y):
+#     return int(x) + int(y)
+
+# print(add_str_numb("4", "3"))
+
 ###################################
 
+# Question 29
+# Question:
+# Define a function that can accept two strings as input and concatenate them and then print it in console.
+
+# Hints:
+# Use + sign to concatenate the strings.
+
+# def add_str(x, y):
+#     return x + y
+
+# print(add_str("Hello ", "World!"))
+
+
+# ######################################
+
+# Question 30
+# Question:
+# Define a function that can accept two strings as input and print the string with maximum length in console. If two strings have the same length, then the function should print all strings line by line.
+
+# Hints:
+# Use len() function to get the length of a string.
+
+
+# def get_max_str():
+#     x = input("first line:\n")
+#     y = input("second line:\n")
+
+#     if len(x) > len(y):
+#         return x
+#     if len(x) < len(y):
+#         return y
+#     else:
+#         return f"{x}\n{y}"
+
+# print(get_max_str())
+
+
+# ########################################
+
+# Question 31
+# Question:
+# Define a function which can print a dictionary where the keys are numbers between 1 and 20 (both included) and the values are square of keys.
+
+# Hints:
+# Use dict[key]=value pattern to put entry into a dictionary.Use ** operator to get power of a number.Use range() for loops.
+
+
+# def square_key_dic():
+#     squarekey = {}
+#     for numb in range(1, 21):
+#         squarekey[numb] = numb ** 2
+#     return squarekey
+
+# print(square_key_dic())
+
+
+# ########################################
+
+# Question 32
+# Question:
+# Define a function which can generate a dictionary where the keys are numbers between 1 and 20 (both included) and the values are square of keys. The function should just print the keys only.
+
+# Hints:
+# Use dict[key]=value pattern to put entry into a dictionary.Use ** operator to get power of a number.Use range() for loops.Use keys() to iterate keys in the dictionary. Also we can use item() to get key/value pairs.
+
+
+# def only_key():
+#     squarekey = {}
+#     keyonly = []
+#     for numb in range(1, 21):
+#         squarekey[numb] = numb ** 2
+#     for key, value in squarekey.items():
+#         keyonly.append(key)
+#     for item in keyonly:
+#         print(item)
+
+
+# print(only_key())
+
+# ########################################
+
+# Question 33
+# Question:
+# Define a function which can generate and print a list where the values are square of numbers between 1 and 20 (both included).
+
+# Hints:
+# Use ** operator to get power of a number.Use range() for loops.Use list.append() to add values into a list.
+
+# def squarevalue_lst():
+#     squarevalue = []
+#     for numb in range(1, 21):
+#         squarevalue.append(numb**2)
+#     return squarevalue
+
+# print(squarevalue_lst())
+
+# ########################################
+
+# Question 34
+# Question:
+# Define a function which can generate a list where the values are square of numbers between 1 and 20 (both included). Then the function needs to print the first 5 elements in the list.
+
+# Hints:
+# Use ** operator to get power of a number.Use range() for loops.Use list.append() to add values into a list.Use [n1:n2] to slice a list
+
+
+# def squarevalue_lst():
+#     squarevalue = []
+#     for numb in range(1, 21):
+#         squarevalue.append(numb**2)
+#     return squarevalue
+
+# print(squarevalue_lst()[0:6])
+
+# ########################################
+
+# Question 35
+# Question:
+# Define a function which can generate a list where the values are square of numbers between 1 and 20 (both included). Then the function needs to print the last 5 elements in the list.
+
+# Hints:
+# Use ** operator to get power of a number.Use range() for loops.Use list.append() to add values into a list.Use [n1:n2] to slice a list
+
+
+# def squarevalue_lst():
+#     squarevalue = []
+#     for numb in range(1, 21):
+#         squarevalue.append(numb**2)
+#     return squarevalue
+
+# print(squarevalue_lst()[-5:])
+
+# ########################################
+
+# Question 36
+# Question:
+# Define a function which can generate a list where the values are square of numbers between 1 and 20 (both included). Then the function needs to print all values except the first 5 elements in the list.
+
+# Hints: Use ** operator to get power of a number.Use range() for loops.Use list.append() to add values into a list.Use [n1:n2] to slice a list
+
+# def squarevalue_lst():
+#     squarevalue = []
+#     for numb in range(1, 21):
+#         squarevalue.append(numb**2)
+#     return squarevalue
+
+# print(squarevalue_lst()[5:])
+
+# ########################################
+
+# Question 37
+# Question:
+# Define a function which can generate and print a tuple where the value are square of numbers between 1 and 20 (both included).
+
+# Hints:
+# Use ** operator to get power of a number.Use range() for loops.Use list.append() to add values into a list.Use tuple() to get a tuple from a list.
+
+# def squarevalue_tupl():
+#     squarevalue = []
+#     for numb in range(1, 21):
+#         squarevalue.append(numb**2)
+#     return tuple(squarevalue)
+
+# print(squarevalue_tupl())
+
+
+# #################################################
+
+
+
+
+
+# Question 38
+# Question:
+# With a given tuple (1,2,3,4,5,6,7,8,9,10), write a program to print the first half values in one line and the last half values in one line.
+
+# Hints:
+# Use [n1:n2] notation to get a slice from a tuple.
+
+# given = (1,2,3,4,5,6,7,8,9,10)
+
+# print(given[0:5])
+# print(given[5:11])
+
+# #################################################
+
+
+# Question 39
+# Question:
+# Write a program to generate and print another tuple whose values are even numbers in the given tuple (1,2,3,4,5,6,7,8,9,10).
+
+# even_steven = []
+# for numb in given:
+#     if numb % 2 == 0:
+#         even_steven.append(numb)
+
+# parrot = tuple(even_steven)
+
+# print(parrot)
+
+# #################################################
+# Question 40
+# Question:
+# Write a program which accepts a string as input to print "Yes" if the string is "yes" or "YES" or "Yes", otherwise print "No".
+
+# x = input("Enter yes in any manner or something else: \n")
+
+# if x == "YES" or x == "Yes" or x == "yes":
+#     print("Yes")
+# else:
+#     print("No")
+
+
+# #################################################
+# Question 41
+# Question:
+# Write a program which can map() to make a list whose elements are square of elements in [1,2,3,4,5,6,7,8,9,10].
+
+# Use map() to generate a list.Use lambda to define anonymous functions.
+
+# random = [1,2,3,4,5,6,7,8,9,10]
+
+# square_lst = list(map(lambda element: element ** 2, random))
+
+# print(square_lst)
+
+# #################################################
+# Question 42
+# Question:
+# Write a program which can map() and filter() to make a list whose elements are square of even number in 
+# 
+
+random = [1,2,3,4,5,6,7,8,9,10]
+
+# Hints:
+# Use map() to generate a list.Use filter() to filter elements of a list.Use lambda to define anonymous functions.
+
+square_even_lst = [map()]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# #################################################
+# Question 43
+# Question:
+# Write a program which can filter() to make a list whose elements are even number between 1 and 20 (both included).
+
+# Hints:
+# Use filter() to filter elements of a list.Use lambda to define anonymous functions.
+
+# #################################################
+
+# Question 44
+# Question:
+# Write a program which can map() to make a list whose elements are square of numbers between 1 and 20 (both included).
+
+# Hints:
+# Use map() to generate a list. Use lambda to define anonymous functions.
+
+# ###################################
+# Question 45
+# Question:
+# Define a class named American which has a static method called printNationality.
+
+# Hints:
+# Use @staticmethod decorator to define class static method.There are also two more methods.To know more, go to this link.
+
+# ###################################
+# Question 46
+# Question:
+# Define a class named American and its subclass NewYorker.
+
+# Hints:
+# Use class Subclass(ParentClass) to define a subclass.*
+
+# ###################################
+# Question 47
+# Question
+# Define a class named Circle which can be constructed by a radius. The Circle class has a method which can compute the area.
+
+# Hints
+# Use def methodName(self) to define a method.
+
+# ###################################
+# Question 48
+# Question
+# Define a class named Rectangle which can be constructed by a length and width. The Rectangle class has a method which can compute the area.
+
+# Hints
+# Use def methodName(self) to define a method.
+
+# ###################################
+# Question 49
+# Question
+# Define a class named Shape and its subclass Square. The Square class has an init function which takes a length as argument. Both classes have a area function which can print the area of the shape where Shape's area is 0 by default.
+
+# Hints
+# To override a method in super class, we can define a method with the same name in the super class.
+
+# ###################################
+# Question 50
+# Question
+# Please raise a RuntimeError exception.
+
+# Hints
+# UUse raise() to raise an exception.
+
+# ###################################
