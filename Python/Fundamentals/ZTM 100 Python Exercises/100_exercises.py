@@ -1096,39 +1096,18 @@
 # Write a program which can map() and filter() to make a list whose elements are square of even number in 
 # 
 
-random = [1,2,3,4,5,6,7,8,9,10]
+# random = [1,2,3,4,5,6,7,8,9,10]
 
-# Hints:
-# Use map() to generate a list.Use filter() to filter elements of a list.Use lambda to define anonymous functions.
+# # Hints:
+# # Use map() to generate a list.Use filter() to filter elements of a list.Use lambda to define anonymous functions.
 
-square_even_lst = [map()]
+# even = filter(lambda numb: numb % 2 == 0, random)
+# even = list(even)
+# print(even)
 
+# even_squared = list(map(lambda numb: numb ** 2, even))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# print(even_squared)
 
 
 
@@ -1141,6 +1120,12 @@ square_even_lst = [map()]
 # Hints:
 # Use filter() to filter elements of a list.Use lambda to define anonymous functions.
 
+# numbers = range(1, 21)
+
+# even_el = list(filter(lambda numb: numb % 2 == 0, numbers))
+
+# print(even_el)
+
 # #################################################
 
 # Question 44
@@ -1150,6 +1135,9 @@ square_even_lst = [map()]
 # Hints:
 # Use map() to generate a list. Use lambda to define anonymous functions.
 
+# square_lst = list(map(lambda numb: numb ** 2, numbers))
+# print(square_lst)
+
 # ###################################
 # Question 45
 # Question:
@@ -1157,6 +1145,16 @@ square_even_lst = [map()]
 
 # Hints:
 # Use @staticmethod decorator to define class static method.There are also two more methods.To know more, go to this link.
+
+
+# class American:
+
+#     @staticmethod
+#     def printNationality():
+#         print('Nationality')
+
+
+# American.printNationality()
 
 # ###################################
 # Question 46
@@ -1166,6 +1164,16 @@ square_even_lst = [map()]
 # Hints:
 # Use class Subclass(ParentClass) to define a subclass.*
 
+# class American:
+    
+#     @staticmethod
+#     def printNationality():
+#         print('Nationality')
+
+
+# class NewYorker(American):
+#     pass
+
 # ###################################
 # Question 47
 # Question
@@ -1173,6 +1181,20 @@ square_even_lst = [map()]
 
 # Hints
 # Use def methodName(self) to define a method.
+
+# import math
+
+# class Circle:
+
+#     def __init__(self, radius):
+#         self.radius = radius
+
+#     def circle_area(self):
+#         return math.pi * self.radius ** 2
+
+
+
+
 
 # ###################################
 # Question 48
@@ -1182,6 +1204,14 @@ square_even_lst = [map()]
 # Hints
 # Use def methodName(self) to define a method.
 
+# class Rectangle:
+#     def __init__(self, length, width):
+#         self.length = length
+#         self.width = width
+
+#     def rect_area(self):
+#         return self.length * self.width
+
 # ###################################
 # Question 49
 # Question
@@ -1189,6 +1219,22 @@ square_even_lst = [map()]
 
 # Hints
 # To override a method in super class, we can define a method with the same name in the super class.
+
+# class Shape:
+#     area = 0
+
+#     def get_area(self):
+#         return self.area
+
+# class Square(Shape):
+
+#     def __init__(self, length):
+#         self.length = length
+
+#     def get_area(self):
+#         return self.length ** 2
+
+
 
 # ###################################
 # Question 50
@@ -1199,3 +1245,8 @@ square_even_lst = [map()]
 # UUse raise() to raise an exception.
 
 # ###################################
+
+# raise RuntimeError("problem")
+
+###########################################
+
