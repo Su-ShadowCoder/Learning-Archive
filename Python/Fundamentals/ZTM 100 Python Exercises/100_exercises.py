@@ -1250,3 +1250,101 @@
 
 ###########################################
 
+# Question 51
+# Question
+# Write a function to compute 5/0 and use try/except to catch the exceptions.
+
+# Hints
+# Use try/except to catch exceptions.
+
+
+# def div_zero(x):
+#     try:
+#         return x / 0
+#     except(ZeroDivisionError):
+#         return "Python doesnt know how to divide a number by zero!!!"
+
+
+# print(div_zero(5))
+
+
+##############################################
+
+# Question 52
+# Question
+# Define a custom exception class which takes a string message as attribute.
+
+# Hints
+# To define a custom exception, we need to define a class inherited from Exception.
+
+# class TestCustomException(Exception):
+
+#     def __init__(self, message):
+#         self.message = message
+    
+#     def __str__(self):
+#         return f'{self.message}'
+
+# error1 = TestCustomException("Invalid Operation, Python cannot handle this!")
+
+# print(error1)
+
+# or
+
+# class MyException(Exception):
+#     pass
+
+# error2 = MyException("Wonderful!")
+
+# # print(error2)
+
+# def div_zero(x):
+#     try:
+#         return x / 0
+#     except Exception:
+#         raise MyException("very good!")
+
+# print(div_zero(10))
+
+# ##############################################
+
+# Question 53
+# Question
+# Assuming that we have some email addresses in the "username@companyname.com" format, please write program to print the user name of a given email address. Both user names and company names are composed of letters only.
+
+# Example: If the following email address is given as input to the program:
+
+# john@google.com
+# Then, the output of the program should be:
+
+# john
+# In case of input data being supplied to the question, it should be assumed to be a console input.
+
+# Hints
+# Use \w to match letters.
+
+#################################################
+
+
+
+# try:
+#     x = input("Enter company mail:\n")
+#     result = x.split("@")
+#     print(result[0])
+# except Exception:
+#     raise Exception
+
+# or 
+
+# import re
+
+# text = input("Enter company mail:\n")
+
+# pattern = r"(\w+)"
+
+# match = re.search(pattern, text)
+
+# print(match.group(1))
+
+##############################################
+
