@@ -1469,3 +1469,588 @@
 # print(round(something, 2))
 # ##############################################
 
+# Question 60
+# Question
+# Write a program to compute:
+
+# f(n)=f(n-1)+100 when n>0
+# and f(0)=0
+# with a given n input by console (n>0).
+
+# Example: If the following n is given as input to the program:
+
+# 5
+# Then, the output of the program should be:
+
+# 500
+# In case of input data being supplied to the question, it should be assumed to be a console input.
+
+# Hints
+# We can define recursive function in Python.
+
+
+# def somef(n):
+#     if n == 0:
+#         return 0
+#     else:
+#         result = somef(n - 1) + 100
+#         return result
+
+
+
+# print(somef(5))
+
+##############################################
+
+# Question 61
+# Question
+# The Fibonacci Sequence is computed based on the following formula:
+
+# f(n)=0 if n=0
+# f(n)=1 if n=1
+# f(n)=f(n-1)+f(n-2) if n>1
+# Please write a program to compute the value of f(n) with a given n input by console.
+
+# Example: If the following n is given as input to the program:
+
+# 7
+# Then, the output of the program should be:
+
+# 13
+# In case of input data being supplied to the question, it should be assumed to be a console input.
+
+# Hints
+# We can define recursive function in Python.
+
+
+# def fibonacci(n):
+#     if n == 0:
+#         return 0
+#     if n == 1:
+#         return 1
+#     else:
+#         return fibonacci(n-1) + fibonacci(n-2)
+
+# print(fibonacci(7))
+
+# ##############################################
+
+# Question 62
+# Question
+# The Fibonacci Sequence is computed based on the following formula:
+
+# f(n)=0 if n=0
+# f(n)=1 if n=1
+# f(n)=f(n-1)+f(n-2) if n>1
+# Please write a program to compute the value of f(n) with a given n input by console.
+
+# Example: If the following n is given as input to the program:
+
+# 7
+# Then, the output of the program should be:
+
+# 0,1,1,2,3,5,8,13
+# In case of input data being supplied to the question, it should be assumed to be a console input.
+
+# Hints
+# We can define recursive function in Python. Use list comprehension to generate a list from an existing list. Use string.join() to join a list of strings.
+
+
+# x = 7
+
+
+# def get_fib_lst(n):
+#     somelst = ["0"]
+#     a, b = 0, 1
+#     for numb in range(n):
+#         a, b = b, a + b
+#         somelst.append(str(a))
+#     return somelst
+
+# something = get_fib_lst(x)
+
+# result = ",".join(something)
+
+# print(result)
+
+
+
+
+# ##############################################
+
+# Question 63
+# Question
+# Please write a program using generator to print the even numbers between 0 and n in comma separated form while n is input by console.
+
+# Example: If the following n is given as input to the program:
+
+# 10
+# Then, the output of the program should be:
+
+# 0,2,4,6,8,10
+# In case of input data being supplied to the question, it should be assumed to be a console input.
+
+# Hints
+# Use yield to produce the next value in generator.
+
+# x = 10
+
+# even_lst = [str(numb) for numb in range(0, x+1) if numb % 2 == 0]
+
+# def gen(x):
+#     for numb in range(0, x+1):
+#         if numb % 2 == 0:
+#             yield numb
+
+# result = gen(10)
+# something = []
+# for numb in result:
+#     something.append(str(numb))
+
+# real_result = ",".join(something)
+
+# print(real_result)
+# ##############################################
+
+# Question 64
+# Question
+# Please write a program using generator to print the numbers which can be divisible by 5 and 7 between 0 and n in comma separated form while n is input by console.
+
+# Example: If the following n is given as input to the program:
+
+# 100
+# Then, the output of the program should be:
+
+# 0,35,70
+# In case of input data being supplied to the question, it should be assumed to be a console input.
+
+# Hints
+# Use yield to produce the next value in generator.
+
+
+
+# def gen(x):
+#     for numb in range(0, x+1):
+#         if numb % 5 == 0 and numb % 7 ==0:
+#             yield numb
+
+# result = gen(100)
+# something = []
+# for numb in result:
+#     something.append(str(numb))
+
+# real_result = ",".join(something)
+
+# print(real_result)
+
+
+
+# ##############################################
+
+# Question 65
+# Question
+# Please write assert statements to verify that every number in the list [2,4,6,8] is even.
+
+# Hints
+# Use "assert expression" to make assertion.
+
+# lst = [2,4,6,8]
+
+# for numb in lst:
+#     assert numb % 2 == 0
+#     print(numb)
+
+
+# ##############################################
+
+# Question 66
+# Question
+# Please write a program which accepts basic mathematic expression from console and print the evaluation result.
+
+# Example: If the following n is given as input to the program:
+
+# 35 + 3
+# Then, the output of the program should be:
+
+# 38
+# Hints
+# Use eval() to evaluate an expression.
+
+Here. 
+
+
+
+
+
+
+
+# ##############################################
+
+# Question 67
+# Question
+# Please write a binary search function which searches an item in a sorted list. The function should return the index of element to be searched in the list.
+
+# Hints
+# Use if/elif to deal with conditions.
+
+# ##############################################
+
+# Question 68
+# Question
+# Please generate a random float where the value is between 10 and 100 using Python module.
+
+# Hints
+# Use random.random() to generate a random float in [0,1].
+
+# ##############################################
+
+# Question 69
+# Question
+# Please generate a random float where the value is between 5 and 95 using Python module.
+
+# Hints
+# Use random.random() to generate a random float in [0,1].
+
+
+# ##############################################
+ 
+# Question 70
+# Question
+# Please write a program to output a random even number between 0 and 10 inclusive using random module and list comprehension.
+
+# Hints
+# Use random.choice() to a random element from a list.
+
+# ##############################################
+
+##############################################
+
+
+# Question 71
+# Question
+# Please write a program to output a random number, which is divisible by 5 and 7, between 10 and 150 inclusive using random module and list comprehension.
+
+# Hints
+# Use random.choice() to a random element from a list.
+
+# Question 72
+# Question
+# Please write a program to generate a list with 5 random numbers between 100 and 200 inclusive.
+
+# Hints
+# Use random.sample() to generate a list of random values.
+
+# Question 73
+# Question
+# Please write a program to randomly generate a list with 5 even numbers between 100 and 200 inclusive.
+
+# Hints
+# Use random.sample() to generate a list of random values.
+
+# Question 74
+# Question
+# Please write a program to randomly generate a list with 5 numbers, which are divisible by 5 and 7 , between 1 and 1000 inclusive.
+
+# Hints
+# Use random.sample() to generate a list of random values.
+
+# Question 75
+# Question
+# Please write a program to randomly print a integer number between 7 and 15 inclusive.
+
+# Hints
+# Use random.randrange() to a random integer in a given range.
+
+# Question 76
+# Question
+# Please write a program to compress and decompress the string "hello world!hello world!hello world!hello world!".
+
+# Hints
+# Use zlib.compress() and zlib.decompress() to compress and decompress a string.
+
+# Question 77
+# Question
+# Please write a program to print the running time of execution of "1+1" for 100 times.
+
+# Hints
+# Use timeit() function to measure the running time.
+
+# Question 78
+# Question
+# Please write a program to shuffle and print the list [3,6,7,8].
+
+# Hints
+# Use shuffle() function to shuffle a list.
+
+# Question 79
+# Question
+# Please write a program to generate all sentences where subject is in ["I", "You"] and verb is in ["Play", "Love"] and the object is in ["Hockey","Football"].
+
+# Hints
+# Use list[index] notation to get a element from a list.
+
+# Question 80
+# Question
+# Please write a program to print the list after removing even numbers in [5,6,77,45,22,12,24].
+
+# Hints
+# Use list comprehension to delete a bunch of element from a list.
+
+# Question 81
+# Question
+# By using list comprehension, please write a program to print the list after removing numbers which are divisible by 5 and 7 in [12,24,35,70,88,120,155].
+
+# Hints
+# Use list comprehension to delete a bunch of element from a list.
+
+# Question 82
+# Question
+# By using list comprehension, please write a program to print the list after removing the 0th, 2nd, 4th,6th numbers in [12,24,35,70,88,120,155].
+
+# Hints
+# Use list comprehension to delete a bunch of element from a list. Use enumerate() to get (index, value) tuple.
+
+# Question 83
+# Question
+# By using list comprehension, please write a program to print the list after removing the 2nd - 4th numbers in [12,24,35,70,88,120,155].
+
+# Hints
+# Use list comprehension to delete a bunch of element from a list. Use enumerate() to get (index, value) tuple.
+
+# Question 84
+# Question
+# By using list comprehension, please write a program generate a 3*5*8 3D array whose each element is 0.
+
+# Hints
+# Use list comprehension to make an array.
+
+# Question 85
+# Question
+# By using list comprehension, please write a program to print the list after removing the 0th,4th,5th numbers in [12,24,35,70,88,120,155].
+
+# Hints
+# Use list comprehension to delete a bunch of element from a list.Use enumerate() to get (index, value) tuple.
+
+# Question 86
+# Question
+# By using list comprehension, please write a program to print the list after removing the value 24 in [12,24,35,24,88,120,155].
+
+# Hints
+# Use list's remove method to delete a value.
+
+# Question 87
+# Question
+# With two given lists [1,3,6,78,35,55] and [12,24,35,24,88,120,155], write a program to make a list whose elements are intersection of the above given lists.
+
+# Hints
+# Use set() and "&=" to do set intersection operation.
+
+# Question 88
+# Question
+# With a given list [12,24,35,24,88,120,155,88,120,155], write a program to print this list after removing all duplicate values with original order reserved.
+
+# Hints
+# Use set() to store a number of values without duplicate.
+
+# Question 89
+# Question
+# Define a class Person and its two child classes: Male and Female. All classes have a method "getGender" which can print "Male" for Male class and "Female" for Female class.
+
+# Hints
+# Use Subclass(Parentclass) to define a child class.
+
+# Question 90
+# Question
+# Please write a program which count and print the numbers of each character in a string input by console.
+
+# Example: If the following string is given as input to the program:
+
+# abcdefgabc
+# Then, the output of the program should be:
+
+# a,2
+# c,2
+# b,2
+# e,1
+# d,1
+# g,1
+# f,1
+# Hints
+# Use dict to store key/value pairs. Use dict.get() method to lookup a key with default value.
+
+# Question 91
+# Question
+# Please write a program which accepts a string from console and print it in reverse order.
+
+# Example: If the following string is given as input to the program:*
+
+# rise to vote sir
+# Then, the output of the program should be:
+
+# ris etov ot esir
+# Hints
+# Use list[::-1] to iterate a list in a reverse order.
+
+# Question 92
+# Question
+# Please write a program which accepts a string from console and print the characters that have even indexes.
+
+# Example: If the following string is given as input to the program:
+
+# H1e2l3l4o5w6o7r8l9d
+# Then, the output of the program should be:
+
+# Helloworld
+# Hints
+# Use list[::2] to iterate a list by step 2.
+
+# Question 93
+# Question
+# Please write a program which prints all permutations of [1,2,3]
+
+# Hints
+# Use itertools.permutations() to get permutations of list.
+
+# Question 94
+# Question
+# Write a program to solve a classic ancient Chinese puzzle: We count 35 heads and 94 legs among the chickens and rabbits in a farm. How many rabbits and how many chickens do we have?
+
+# Hints
+# Use for loop to iterate all possible solutions.
+
+# Question 95
+# Question
+# Given the participants' score sheet for your University Sports Day, you are required to find the runner-up score. You are given scores. Store them in a list and find the score of the runner-up.
+
+# If the following string is given as input to the program:
+
+# 5
+# 2 3 6 6 5
+# Then, the output of the program should be:
+
+# 5
+# Hints
+# Make the scores unique and then find 2nd best number
+
+# Question 96
+# Question
+# You are given a string S and width W. Your task is to wrap the string into a paragraph of width.
+
+# If the following string is given as input to the program:
+
+# ABCDEFGHIJKLIMNOQRSTUVWXYZ
+# 4
+# Then, the output of the program should be:
+
+# ABCD
+# EFGH
+# IJKL
+# IMNO
+# QRST
+# UVWX
+# YZ
+# Hints
+# Use wrap function of textwrap module
+
+# Question 97
+# Question
+# You are given an integer, N. Your task is to print an alphabet rangoli of size N. (Rangoli is a form of Indian folk art based on creation of patterns.)
+
+# Different sizes of alphabet rangoli are shown below:
+
+# #size 3
+
+# ----c----
+# --c-b-c--
+# c-b-a-b-c
+# --c-b-c--
+# ----c----
+
+# #size 5
+
+# --------e--------
+# ------e-d-e------
+# ----e-d-c-d-e----
+# --e-d-c-b-c-d-e--
+# e-d-c-b-a-b-c-d-e
+# --e-d-c-b-c-d-e--
+# ----e-d-c-d-e----
+# ------e-d-e------
+# --------e--------
+# Hints
+# First print the half of the Rangoli in the given way and save each line in a list. Then print the list in reverse order to get the rest.
+
+# Question 98
+# Question
+# You are given a date. Your task is to find what the day is on that date.
+
+# Input
+
+# A single line of input containing the space separated month, day and year, respectively, in MM DD YYYY format.
+
+# 08 05 2015
+# Output
+
+# Output the correct day in capital letters.
+
+# WEDNESDAY
+# Hints
+# Use weekday function of calender module
+
+# Question 99
+# Question
+# Given 2 sets of integers, M and N, print their symmetric difference in ascending order. The term symmetric difference indicates those values that exist in either M or N but do not exist in both.
+
+# Input
+
+# The first line of input contains an integer, M.The second line contains M space-separated integers.The third line contains an integer, N.The fourth line contains N space-separated integers.
+
+# 4
+# 2 4 5 9
+# 4
+# 2 4 11 12
+# Output
+
+# Output the symmetric difference integers in ascending order, one per line.
+
+# 5
+# 9
+# 11
+# 12
+# Hints
+# Use '^' to make symmetric difference operation.
+
+# Question 100
+# Question
+# You are given words. Some words may repeat. For each word, output its number of occurrences. The output order should correspond with the input order of appearance of the word. See the sample input/output for clarification.
+
+# If the following string is given as input to the program:
+
+# 4
+# bcdef
+# abcdefg
+# bcde
+# bcdef
+# Then, the output of the program should be:
+
+# 3
+# 2 1 1
+# Hints
+# Make a list to get the input order and a dictionary to count the word frequency
+
+# Question 101
+# Question
+# You are given a string.Your task is to count the frequency of letters of the string and print the letters in descending order of frequency.
+
+# If the following string is given as input to the program:
+
+# aabbbccde
+# Then, the output of the program should be:
+
+# b 3
+# a 2
+# c 2
+# d 1
+# e 1
+# Hints
+# Count frequency with dictionary and sort by Value from dictionary Items
