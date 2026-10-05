@@ -1676,10 +1676,10 @@
 # Hints
 # Use eval() to evaluate an expression.
 
-Here. 
 
 
 
+# print(eval("35+3"))
 
 
 
@@ -1693,6 +1693,55 @@ Here.
 # Hints
 # Use if/elif to deal with conditions.
 
+# fruits = sorted(['strawberry', 'banana', 'appel', 'grape'])
+
+# def get_index_item(lst, a):
+#     for item in lst:
+#         if a == item:
+#             return lst.index(item)
+
+# print(get_index_item(fruits, 'banana'))
+
+# example:
+# def binary_search_Ascending(array, target):
+#     lower = 0
+#     upper = len(array)
+#     print('Array Length:',upper)
+#     while lower < upper:
+#         x = (lower + upper) // 2
+#         print('Middle Index:',x)
+#         value = array[x]
+#         if target == value:
+#             return x
+#         elif target > value:
+#             lower = x
+#         elif target < value:
+#             upper = x
+
+# Array = [1,5,8,10,12,13,55,66,73,78,82,85,88,99]
+# print('The Value Found at Index:',binary_search_Ascending(Array, 82))
+ 
+# fruits = sorted(['strawberry', 'banana', 'appel', 'grape', 'kiwi', 'passionfruit', 'peach', 'pineappel'])
+
+# def get_index_item(lst, item):
+#     start = 0
+#     end = len(lst) - 1
+#     print(start)
+#     print(end)
+#     while start <= end:
+#         half = (start + end) // 2
+#         print(half)
+#         middle_ind = lst[half]
+#         if item == middle_ind:
+#             return half
+#         elif item < middle_ind:
+#             end = half - 1
+#         elif item > middle_ind:
+#             start = half + 1
+
+# print(f"The item Found at Index: {get_index_item(fruits, 'peach')}")
+
+
 # ##############################################
 
 # Question 68
@@ -1701,6 +1750,14 @@ Here.
 
 # Hints
 # Use random.random() to generate a random float in [0,1].
+
+# import random
+
+# lst = list(range(10, 101))
+# # print(lst)
+
+# value = random.uniform(10, 100)
+# print(value)
 
 # ##############################################
 
@@ -1711,6 +1768,10 @@ Here.
 # Hints
 # Use random.random() to generate a random float in [0,1].
 
+# import random
+
+# value = random.uniform(5, 95)
+# print(value)
 
 # ##############################################
  
@@ -1721,17 +1782,36 @@ Here.
 # Hints
 # Use random.choice() to a random element from a list.
 
+# import random
+
+# lst = list(range(0, 11))
+
+# new_lst = [numb for numb in lst if numb % 2 == 0]
+
+# print(random.choice(new_lst))
+
+
 # ##############################################
 
 ##############################################
 
 
-# Question 71
-# Question
-# Please write a program to output a random number, which is divisible by 5 and 7, between 10 and 150 inclusive using random module and list comprehension.
+# # Question 71
+# # Question
+# # Please write a program to output a random number, which is divisible by 5 and 7, between 10 and 150 inclusive using random module and list comprehension.
 
-# Hints
-# Use random.choice() to a random element from a list.
+# # Hints
+# # Use random.choice() to a random element from a list.
+
+# import random
+
+# lst = list(range(10, 151))
+
+# value_r = random.choice([value for value in lst if value % 5 == 0 and value % 7 == 0])
+
+# print(value_r)
+
+# ##############################################
 
 # Question 72
 # Question
@@ -1740,6 +1820,14 @@ Here.
 # Hints
 # Use random.sample() to generate a list of random values.
 
+# import random
+
+# lst_randome = random.sample(list(range(100, 201)), k=5)
+
+# print(lst_randome)
+
+# ##############################################
+
 # Question 73
 # Question
 # Please write a program to randomly generate a list with 5 even numbers between 100 and 200 inclusive.
@@ -1747,19 +1835,39 @@ Here.
 # Hints
 # Use random.sample() to generate a list of random values.
 
+# import random
+
+# even_random_lst = random.sample([numb for numb in range(100, 201) if numb % 2 ==0], k=5)
+
+# print(even_random_lst)
+
+# ##############################################
+
 # Question 74
 # Question
 # Please write a program to randomly generate a list with 5 numbers, which are divisible by 5 and 7 , between 1 and 1000 inclusive.
 
-# Hints
-# Use random.sample() to generate a list of random values.
+# import random
 
-# Question 75
-# Question
-# Please write a program to randomly print a integer number between 7 and 15 inclusive.
+# lst_random_5s = random.sample([numb for numb in range(1, 1001) if numb % 5 == 0 and numb % 7 == 0], k=5)
 
-# Hints
-# Use random.randrange() to a random integer in a given range.
+# print(lst_random_5s)
+
+# ##############################################
+
+# # Question 75
+# # Question
+# # Please write a program to randomly print a integer number between 7 and 15 inclusive.
+
+# # Hints
+# # Use random.randrange() to a random integer in a given range.
+# import random
+
+
+# value_random = random.randrange(7, 16)
+# print(value_random)
+
+# ##############################################
 
 # Question 76
 # Question
@@ -1768,12 +1876,18 @@ Here.
 # Hints
 # Use zlib.compress() and zlib.decompress() to compress and decompress a string.
 
+
+
+# ##############################################
+
 # Question 77
 # Question
 # Please write a program to print the running time of execution of "1+1" for 100 times.
 
 # Hints
 # Use timeit() function to measure the running time.
+
+# ##############################################
 
 # Question 78
 # Question
