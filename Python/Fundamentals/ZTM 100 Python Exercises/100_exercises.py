@@ -1876,6 +1876,12 @@
 # Hints
 # Use zlib.compress() and zlib.decompress() to compress and decompress a string.
 
+# import zlib
+
+# text = b"hello world!hello world!hello world!hello world!"
+
+# compressed = zlib.compress(text)
+# decrompressed = zlib.decompress(compressed)
 
 
 # ##############################################
@@ -1887,6 +1893,14 @@
 # Hints
 # Use timeit() function to measure the running time.
 
+# import timeit
+
+# def sum_2():
+#     for numb in range(1, 101):
+#         return 1 + 1
+
+# print(timeit.timeit(sum_2))
+
 # ##############################################
 
 # Question 78
@@ -1896,12 +1910,34 @@
 # Hints
 # Use shuffle() function to shuffle a list.
 
-# Question 79
-# Question
-# Please write a program to generate all sentences where subject is in ["I", "You"] and verb is in ["Play", "Love"] and the object is in ["Hockey","Football"].
+# import random
 
-# Hints
-# Use list[index] notation to get a element from a list.
+# somelst = [3,6,7,8]
+
+# random.shuffle(somelst)
+
+# print(somelst)
+
+# ##############################################
+
+# # Question 79
+# # Question
+# # Please write a program to generate all sentences where subject is in ["I", "You"] and verb is in ["Play", "Love"] and the object is in ["Hockey","Football"].
+
+# # Hints
+# # Use list[index] notation to get a element from a list.
+
+# subjects = ["I", "You"]
+# verbs = ["Play", "Love"]
+# objects = ["Hockey","Football"]
+
+# for subject in subjects:
+#     for verb in verbs:
+#         for objectt in objects:
+#             print(f"{subject} {verb} {objectt}")
+
+
+# ##############################################
 
 # Question 80
 # Question
@@ -1910,12 +1946,28 @@
 # Hints
 # Use list comprehension to delete a bunch of element from a list.
 
+# somelst = [5,6,77,45,22,12,24]
+
+# newlst = [numb for numb in somelst if numb % 2 != 0]
+
+# print(newlst)
+
+# ##############################################
+
 # Question 81
 # Question
 # By using list comprehension, please write a program to print the list after removing numbers which are divisible by 5 and 7 in [12,24,35,70,88,120,155].
 
 # Hints
 # Use list comprehension to delete a bunch of element from a list.
+
+# alst = [12,24,35,70,88,120,155]
+
+# newlst = [item for item in alst if item % 5 != 0 and item % 7 != 0]
+
+# print(newlst)
+
+# ##############################################
 
 # Question 82
 # Question
@@ -1924,12 +1976,29 @@
 # Hints
 # Use list comprehension to delete a bunch of element from a list. Use enumerate() to get (index, value) tuple.
 
+# firstlst = [12,24,35,70,88,120,155]
+
+# filrdlst = [ v for i, v in enumerate(firstlst) if i != 0 and i != 2 and i != 4 and i != 6]
+
+# print(filrdlst)
+
+# ##############################################
+
 # Question 83
 # Question
 # By using list comprehension, please write a program to print the list after removing the 2nd - 4th numbers in [12,24,35,70,88,120,155].
 
 # Hints
 # Use list comprehension to delete a bunch of element from a list. Use enumerate() to get (index, value) tuple.
+
+# somelst = [12,24,35,70,88,120,155]
+
+# firstlst = [v for i, v in enumerate(somelst) if i != 2 and i != 4]
+
+# print(firstlst)
+
+
+# ##############################################
 
 # Question 84
 # Question
@@ -1938,12 +2007,34 @@
 # Hints
 # Use list comprehension to make an array.
 
+# array_3d = [[[0 for a in range(1, 3 + 1) for b in range(1, 5 + 1)] for c in range(1, 8 + 1)]]
+
+# print(array_3d)
+
+# for xnumb in range(3):
+#     for ynumb in range(6):
+#         print('0')
+#         # for znumb in range(8):
+#         #     print("0")
+            
+
+
+# ##############################################
+
 # Question 85
 # Question
 # By using list comprehension, please write a program to print the list after removing the 0th,4th,5th numbers in [12,24,35,70,88,120,155].
 
 # Hints
 # Use list comprehension to delete a bunch of element from a list.Use enumerate() to get (index, value) tuple.
+
+# firstlst = [12,24,35,70,88,120,155]
+
+# secondlst = [v for (i, v) in enumerate(firstlst) if i != 0 and i != 4 and i != 5]
+
+# print(secondlst)
+
+# ##############################################
 
 # Question 86
 # Question
@@ -1952,12 +2043,39 @@
 # Hints
 # Use list's remove method to delete a value.
 
+# first = [12,24,35,24,88,120,155]
+
+# second = [v for v in first if v != 24]
+
+# print(second)
+
+# ##############################################
+
 # Question 87
 # Question
 # With two given lists [1,3,6,78,35,55] and [12,24,35,24,88,120,155], write a program to make a list whose elements are intersection of the above given lists.
 
 # Hints
 # Use set() and "&=" to do set intersection operation.
+
+# first = [1,3,6,78,35,55]
+# second = [12,24,35,24,88,120,155]
+
+# # third = []
+# # for xnumb in first:
+# #     for ynumb in second:
+# #         if xnumb == ynumb:
+# #             third.append(xnumb)
+
+# first_s = set(first)
+# second_s = set(second)
+
+# first_s &= second_s
+
+# print(first_s)
+
+
+# ##############################################
 
 # Question 88
 # Question
@@ -1966,12 +2084,41 @@
 # Hints
 # Use set() to store a number of values without duplicate.
 
+# first = [12,24,35,24,88,120,155,88,120,155]
+
+# result = set(first)
+
+# print(result)
+
+# ##############################################
+
 # Question 89
 # Question
 # Define a class Person and its two child classes: Male and Female. All classes have a method "getGender" which can print "Male" for Male class and "Female" for Female class.
 
 # Hints
 # Use Subclass(Parentclass) to define a child class.
+
+# class Person:
+#     def get_gender(self):
+#         return "UNKNOWN"
+
+# class Male(Person):
+#     def get_gender(self):
+#         return "Male"
+
+# class Female(Person):
+#     def get_gender(self):
+#         return "Female"
+
+
+# male1 = Male()
+# female1 = Female()
+
+# print(male1.get_gender())
+# print(female1.get_gender())
+
+# ##############################################
 
 # Question 90
 # Question
@@ -1992,6 +2139,33 @@
 # Hints
 # Use dict to store key/value pairs. Use dict.get() method to lookup a key with default value.
 
+# a = "abcdefgabc"
+
+# lst = []
+
+# for v in a:
+#     lst.append(v)
+
+# # print(lst)
+
+# some_dict = {}
+
+# for key in lst:
+#     some_dict[key] = some_dict.get(key, 0) + 1
+# print(some_dict)
+
+
+# for key in lst:
+#     if key not in some_dict:
+#         some_dict[key] = 1
+#     else:
+#         some_dict[key] += 1
+# print(some_dict)
+# print(some_dict.get("a"))
+
+
+# ##############################################
+
 # Question 91
 # Question
 # Please write a program which accepts a string from console and print it in reverse order.
@@ -2004,6 +2178,14 @@
 # ris etov ot esir
 # Hints
 # Use list[::-1] to iterate a list in a reverse order.
+
+
+# a = 'rise to vote sir'
+
+# print(a[::-1])
+
+
+# ##############################################
 
 # Question 92
 # Question
@@ -2018,6 +2200,13 @@
 # Hints
 # Use list[::2] to iterate a list by step 2.
 
+# a = 'H1e2l3l4o5w6o7r8l9d'
+
+# print(a[::2])
+
+
+# ##############################################
+
 # Question 93
 # Question
 # Please write a program which prints all permutations of [1,2,3]
@@ -2025,12 +2214,39 @@
 # Hints
 # Use itertools.permutations() to get permutations of list.
 
+# import itertools
+
+# lst = [1, 2, 3]
+
+# result = list(itertools.permutations(lst))
+
+# print(result)
+
+# ##############################################
+
 # Question 94
 # Question
 # Write a program to solve a classic ancient Chinese puzzle: We count 35 heads and 94 legs among the chickens and rabbits in a farm. How many rabbits and how many chickens do we have?
 
 # Hints
 # Use for loop to iterate all possible solutions.
+
+
+# legs = 94
+# heads = 35
+
+# resultcount = []
+
+# for chickenc in range(1, 35 + 1):
+#     rabitc = heads - chickenc
+#     clegs = chickenc * 2
+#     rlegs = rabitc * 4
+#     if clegs + rlegs == legs:
+#         resultcount.append([rabitc,chickenc])
+
+# print(resultcount)
+
+# ##############################################
 
 # Question 95
 # Question
@@ -2045,6 +2261,24 @@
 # 5
 # Hints
 # Make the scores unique and then find 2nd best number
+
+# somelst = [2, 3, 5, 6, 6]
+# goodlst = sorted(somelst)
+# scoreset = set(goodlst)
+# scorelst = list(scoreset)
+
+# highest = 0
+# for score in goodlst:
+#     if score > highest:
+#         highest = score
+
+# scorelst.remove(highest)
+
+# print(scorelst[-1])
+
+
+
+# ##############################################
 
 # Question 96
 # Question
@@ -2065,6 +2299,20 @@
 # YZ
 # Hints
 # Use wrap function of textwrap module
+
+
+# from textwrap import wrap
+
+# a = 'ABCDEFGHIJKLIMNOQRSTUVWXYZ'
+# b = 4
+
+
+# fixed = wrap(a, b)
+
+# for item in fixed:
+#     print(item)
+
+# ##############################################
 
 # Question 97
 # Question
@@ -2094,6 +2342,53 @@
 # Hints
 # First print the half of the Rangoli in the given way and save each line in a list. Then print the list in reverse order to get the rest.
 
+
+# import string
+
+# n = 5
+# width = n * 4 - 3
+
+# alph = list(string.ascii_lowercase)
+# norm_alph_n = alph[:n]
+# rev_alp_n = norm_alph_n[::-1]
+
+# full = []
+
+# for x_axis in range(n):
+#     row = []
+
+#     for index, letter in enumerate(rev_alp_n):
+#         if x_axis >= index:
+#             row.append(letter)
+
+#     for index, letter in enumerate(norm_alph_n[1:], start=1):
+#         if index <= x_axis:
+#             row.append(letter)
+
+#     row = "-".join(row)
+
+#     item_amount = len(row)
+#     full_padding_dash = width - item_amount
+#     one_side_padd = full_padding_dash // 2
+
+#     x = "-" * one_side_padd
+#     y = x + row + x
+
+#     full.append(y)
+
+
+# full2 = full[-2::-1]
+
+# for item in full:
+#     print(item)
+
+# for item in full2:
+#     print(item)
+
+
+
+# ##############################################
+
 # Question 98
 # Question
 # You are given a date. Your task is to find what the day is on that date.
@@ -2110,6 +2405,25 @@
 # WEDNESDAY
 # Hints
 # Use weekday function of calender module
+
+# x = input("Enter:'month' 'date' 'year'").strip()
+
+# import datetime
+
+# x = '08 05 2015'
+
+# y = x.split()
+
+# z = []
+# for item in y:
+#     z.append(int(item))
+
+# date_obj1 = datetime.datetime(z[2], z[0], z[1])
+
+# print(date_obj1.strftime("%A"))
+
+
+# ##############################################
 
 # Question 99
 # Question
@@ -2134,6 +2448,38 @@
 # Hints
 # Use '^' to make symmetric difference operation.
 
+# m_1 = int(input("enter M int value, of the the total values: "))
+
+# m_lst = (input("enter M the int values with spaces:  ")).split()
+
+# n_1 = int(input("enter N int value, of the the total values: "))
+
+# n_lst = (input("enter N the int values with spaces:  ")).split()
+
+# m_1 = 4
+# m_str = "2 4 5 9"
+# n_1 = 4
+# n_str = '2 4 11 12'
+
+# m_lst = m_str.split()
+# n_lst = n_str.split()
+
+# m_lst = [int(x) for x in m_lst]
+# n_lst = [int(x) for x in n_lst]
+
+# m_set = set(m_lst)
+# n_set = set(n_lst)
+
+# res = list(m_set.symmetric_difference(n_set))
+
+# result = sorted(res)
+
+# for number in result:
+#     print(number)
+
+
+# ##############################################
+
 # Question 100
 # Question
 # You are given words. Some words may repeat. For each word, output its number of occurrences. The output order should correspond with the input order of appearance of the word. See the sample input/output for clarification.
@@ -2152,6 +2498,35 @@
 # Hints
 # Make a list to get the input order and a dictionary to count the word frequency
 
+# user_amm_itt = int(input("enter the amount of values you are going to enter: "))
+
+# user_lst = []
+
+# for amm in range(user_amm_itt):
+#     x = input("Enter value: ")
+#     user_lst.append(x)
+
+
+# first_dict = {}
+
+# for item in user_lst:
+#     if item not in first_dict:
+#         first_dict[item] = 1
+#     else:
+#         first_dict[item] += 1
+
+# print(len(first_dict))
+
+# popsi = []
+# for key, val in first_dict.items():
+#     popsi.append(val)
+
+# for item in popsi:
+#     print(item, end=' ')
+
+
+# ##############################################
+
 # Question 101
 # Question
 # You are given a string.Your task is to count the frequency of letters of the string and print the letters in descending order of frequency.
@@ -2168,3 +2543,19 @@
 # e 1
 # Hints
 # Count frequency with dictionary and sort by Value from dictionary Items
+
+# x_str = 'aabbbccde'
+
+# x_lst = [item for item in x_str]
+
+# x_dict = {}
+# for item in x_lst:
+#     if item not in x_dict:
+#         x_dict[item] = 1
+#     else: 
+#         x_dict[item] += 1
+
+# x_dict = {k: v for k, v in sorted(x_dict.items(), key=lambda item: item[1], reverse=True)}
+
+# for key, value in x_dict.items():
+#     print(key, value)
