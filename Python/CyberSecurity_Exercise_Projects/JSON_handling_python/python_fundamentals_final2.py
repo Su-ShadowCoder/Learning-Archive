@@ -141,6 +141,8 @@
 
 # print(message)
 
+
+
 # ============================================================
 # EXERCISE 35 — Type Conversion
 # ============================================================
@@ -183,7 +185,7 @@
 # ============================================================
 #
 # Create:
-#
+
 # ips = [
 #     "192.168.1.10",
 #     "192.168.1.20",
@@ -191,7 +193,8 @@
 #     "172.16.5.10",
 #     "10.0.0.20"
 # ]
-#
+
+
 # Requirements:
 # 1. Print the first IP.
 # 2. Print the last IP.
@@ -201,6 +204,20 @@
 # 6. Remove one IP.
 # 7. Print the final list.
 #############################################################################
+
+# print(ips[0])
+# print(ips[-1])
+# print(ips[0:3])
+
+# ips[2] =  "192.168.1.32"
+
+# print(ips)
+
+# ips.append('10.0.0.40')
+
+# ips.remove("172.16.5.10")
+
+# print(ips)
 
 # ============================================================
 # EXERCISE 37 — Tuples
@@ -225,6 +242,18 @@
 # 6. Attempt to explain in a comment why you cannot directly
 #    change one item inside the tuple.
 
+# event_types = ('LOGIN', 'LOGOUT', 'PASSWORD_CHANGE', 'FILE_ACCES')
+
+# print(event_types)
+
+# print(event_types[0])
+# print(event_types[-1])
+
+# print("LOGIN" in event_types)
+
+# print(len(event_type))
+
+# Because items are immutable/not changable in a tuple
 
 # ============================================================
 # EXERCISE 38 — Set Operations
@@ -237,20 +266,28 @@
 #     "192.168.1.20",
 #     "10.0.0.15"
 # }
-#
+
 # successful_ips = {
 #     "192.168.1.20",
 #     "10.0.0.20",
 #     "172.16.5.10"
 # }
-#
-# Requirements:
-# 1. Find the IPs appearing in both sets.
-# 2. Find all IPs appearing in either set.
-# 3. Find IPs appearing only in failed_ips.
-# 4. Add a new IP to failed_ips.
-# 5. Remove an IP from successful_ips.
-# 6. Print the resulting sets.
+# #
+# # Requirements:
+# # 1. Find the IPs appearing in both sets.
+# # 2. Find all IPs appearing in either set.
+# # 3. Find IPs appearing only in failed_ips.
+# # 4. Add a new IP to failed_ips.
+# # 5. Remove an IP from successful_ips.
+# # 6. Print the resulting sets.
+
+# both = failed_ips.intersection(successful_ips)
+# print(both)
+
+# all_ips = failed_ips.union(successful_ips)
+# print(all_ips)
+
+
 
 
 # ============================================================
