@@ -209,9 +209,8 @@
 # print(ips[-1])
 # print(ips[0:3])
 
-# ips[2] =  "192.168.1.32"
+# ips[1] =  "192.168.1.32"
 
-# print(ips)
 
 # ips.append('10.0.0.40')
 
@@ -296,7 +295,7 @@
 #
 # Use:
 #
-# numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 #
 # Requirements:
 # 1. Create a new list containing only even numbers.
@@ -307,6 +306,11 @@
 #
 # Do not use a normal for loop for the two requested lists.
 
+even_steven = [n for n in numbers if n % 2 == 0]
+doppelganger_steven = [n*2 for n in numbers]
+
+print(even_steven)
+print(doppelganger_steven)
 
 # ============================================================
 # EXERCISE 40 — Dictionary and Set Comprehensions

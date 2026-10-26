@@ -244,50 +244,6 @@ Once you gather this info, create a **Target Map**:
 * **Technology:** CMS versions, Web Servers, Open Ports.
 * **Vulnerabilities:** Match the versions found above to CVEs (Common Vulnerabilities and Exposures).
 
-###########
-Report
-
-sudo ifconfig
-Allows you to check the host machine net status
-is used the attack machine to ping the target machine to ping:
-ping "ipaddress"
-
-then i did:
-sudo arp -a
-i got 2 entrees, one from the host attacking machine and one from the target machine.
-
-sometimes it wont work or wouldt "catch" the other ip addresses in a network and works only when you ping the other machine before it locks on to the other entree's when doing arp command.
-
-That is why a better tool to discover a target within the network is called: netdiscover.
-i used the sudo netdiscover command. and got direct entrees from the host-only-network.
-which was 4 IP entrees, 1 from target machine, 1 from attacking machine, 1 from virtual router and one from the local host in which the 2 vm's are running.
-
-The reason why 1 of the ip entrees was from the router is because the ip address ended with a .1 - usually routers always ends with a .0 or .1
-
-to be sure what the ip address of you router is, you enter to following command:
-netstat -nr
-
-because i am running a vm the actual router ip wont match with the virtual router ip which is the host-only-network.
-
-sep 22 2026 00:03
-close report 
-
-
-open report.
-sep 22 2026 00:04
-
-nmap scanning
-
--scanned the target m with sudo netdiscover.
--copied the ip of t-m and did nmap scan with a-m on the t-m.
--got a entree of the nmap report with the usually information about open and closed ports from the t-m. the scan finished fast. the reason for that is because the target is within the LAN network. a real scan based on real targets can possible take hours to finish. 
-
-scanning of a range of IP's:
-sudo nmap 192.168.56.1-255 and sometimes doing .1/24 stands for that the first 3 parts of the ip address dont change.
-
-with the nmap scanning you can discover open  ports on target. which could contain vulnerabilities depending on the circumstances. These vulnerabilities could used to exploit and gain access for authority on the target machine by implementing certain methods. for example a piece of software that is running on the machine that might not been updated could contain a weak point in the sofware in which we can make use of/take advantage of.
-close report.
-
 
 ================================================================================
                     PRO-LEVEL MINI-MANUAL: NETWORK SCANNING
@@ -388,6 +344,8 @@ nmap --scan-delay 10s <target>
 nmap --randomize-hosts <target_network>
 nmap --badsum <target>
 
+Security Evasion Nmap Options
+
 ------------------------------------------------------------
 ULTIMATE EVASION COMBO EXAMPLE:
 nmap -Pn -f -T1 --source-port 53 --data-length 16 -D RND:5 <target>
@@ -457,4 +415,450 @@ closing report.
 
 ###################################
 
+###########
+Report
 
+sudo ifconfig
+Allows you to check the host machine net status
+is used the attack machine to ping the target machine to ping:
+ping "ipaddress"
+
+then i did:
+sudo arp -a
+i got 2 entrees, one from the host attacking machine and one from the target machine.
+
+sometimes it wont work or wouldt "catch" the other ip addresses in a network and works only when you ping the other machine before it locks on to the other entree's when doing arp command.
+
+That is why a better tool to discover a target within the network is called: netdiscover.
+i used the sudo netdiscover command. and got direct entrees from the host-only-network.
+which was 4 IP entrees, 1 from target machine, 1 from attacking machine, 1 from virtual router and one from the local host in which the 2 vm's are running.
+
+The reason why 1 of the ip entrees was from the router is because the ip address ended with a .1 - usually routers always ends with a .0 or .1
+
+to be sure what the ip address of you router is, you enter to following command:
+netstat -nr
+
+because i am running a vm the actual router ip wont match with the virtual router ip which is the host-only-network.
+
+sep 22 2026 00:03
+close report 
+
+
+open report.
+sep 22 2026 00:04
+
+nmap scanning
+
+-scanned the target m with sudo netdiscover.
+-copied the ip of t-m and did nmap scan with a-m on the t-m.
+-got a entree of the nmap report with the usually information about open and closed ports from the t-m. the scan finished fast. the reason for that is because the target is within the LAN network. a real scan based on real targets can possible take hours to finish. 
+
+scanning of a range of IP's:
+sudo nmap 192.168.56.1-255 and sometimes doing .1/24 stands for that the first 3 parts of the ip address dont change.
+
+with the nmap scanning you can discover open  ports on target. which could contain vulnerabilities depending on the circumstances. These vulnerabilities could used to exploit and gain access for authority on the target machine by implementing certain methods. for example a piece of software that is running on the machine that might not been updated could contain a weak point in the sofware in which we can make use of/take advantage of.
+close report.
+
+
+report
+27 sept 2026
+nmap scan types. 
+nmap -sS <ipaddress>
+i got a quick ports status results from the nmap scan.
+this is a tcp scan, that partially sends the tcp handshake. its sends only the syn packet and wait for the the syn/ack but doesnt send anything back. which means that it never establishes a full tcp connection.
+
+There is also a tcp connect scan.
+sudo nmap -sT <ipaddress>
+This scan will be easily detected, and will leave your traces, and that is why the -sS scan is better. less noise on the target machine.
+
+sudo nmap -sU <ip address>
+is also known as the udp scan. the reason why this is unpopular. because a lot of people uses tcp connection scan. sometimes when people devlop their software they ignore the udp ports and this is a opportunity you can take advantage of. this scan takes time.
+
+man nmap
+allows you to open the nmap manual which has information about nmap application.
+end report
+
+report
+27 sept 2026
+checking target machine os:
+sudo nmap -O <target Ipaddress>
+
+target machine os is linux 2.6.X
+checking the mac address you can infer that the target you are scanning could be a honeypot(digital trap), which is a virtual machine and not a real machine. this is a deliberate vulnerable machine used to lure in hackers in order to find out if they being hacked or not.
+
+Detecting Version of Service Running on an Open Port.
+sudo nmap -sV <target ip>
+i can see a lot of open ports with the service that it is using and the version of those services.
+
+sudo nmap -A <target IP>
+This is the aggressive scan. it enables, os detection, version detection, nmap script scanning.
+since -A is one of the most aggressive scans, please do not use this scan on machines you do not have permission for. basically try to be ethical with this scan.
+
+not important
+sudo nmap -sV --version-intensity 9 <target IP> 
+intensity can be set between 0 and 9, default is 7 without specifying it.
+mostly not needed.
+close report
+
+report
+27 sept 2026
+sudo nmap -A <target IP>
+
+sudo nmap -sn 192.168.56.1-255
+checks all the hosts within the network or specified ranged that are up/online.
+sudo netdiscover is better.
+
+sudo nmap -p 80 192.168.56.103 
+specified port scan
+
+sudo nmap -p 80,22,100 192.168.56.103
+
+sudo nmap -p 1-100 192.168.56.103 
+ranged port scans. they are usefull to find a open port or a different option.
+
+sudo nmap -F <target IP>
+it scans first 100 used ports, its like the top 100 hits on radio.
+
+sudo nmap -sS <target IP> >> outputofscan.txt
+output of nmap scan results in user or home. by doing cat file.txt
+
+sudo nmap -oN <doc name> -sS 192.168.56.103 
+output of nmap scan results in user or home. this one is a normal document.
+close report
+
+report
+27 sept 2026
+
+target machine has uncomplicated firewall turned on. 
+sudo su
+ufw enable
+
+checking target machine with normal nmap scan.
+sudo nmap -sS <target IP>
+The scan is taking longer than expected. and the result clearly depicts that from the 1000 ports scannend, all of them are filtered and received no response. This is a clear indication of a firewall being active/enabled.
+
+Packet Fragmentation
+sudo nmap -f 192.168.56.103
+this scan sends tiny packets to target machine instead of one hole by splitting the tcp header over several packets to make it harder for packetfilters or intrusion detection system to know what you are doing. 
+if you specify this option <-f> once the nmap will split the packet to 8 bytes of less.
+<-f -f> splits even more.
+and for more
+<--mtu <number multiple of 8>>
+sometimes programs have trouble receiving this as it is not made to receive this.
+
+Using Decoys
+by either using the fragmentation or the decoy methods you can be more stealthier and hide you ip address.
+sudo nmap -D RND:5 <target ip>
+no results
+
+sudo nmap -D RND:5 <target ip> -sS
+no results.
+RND = random ip idresses
+
+so essentialy when you are scanning outside of your network you can camoflougae yourself with fake ip addresses and add your own ip adresses so it make it more difficult to infer which ip address is at fault.
+me for mine ip
+sudo nmap -D <decIp,decIP,decIP,Me> <target IP>
+close report
+
+
+#############################################
+
+Vulnerability Analysis
+
+
+Finding First Vulnerability With Nmap Scripts192.168.56.103
+
+accessing nmap scripts:
+cd /usr/share/nmap/scripts/
+ls
+
+for help check nmap.org book usage on script categories.
+
+sudo nmap --script <script category name> <target IP> -sS
+
+with a http vulnerability you use you browser to visit the target vulnerable port in accordance with the scan results
+<target ip>:<vulnerable port>
+
+you can add the -F, to scan all the top 100 ports.
+
+
+sudo nmap --script banner <target IP> -sS -F
+allows you to check the version the services are running from the ports that are open and nmap was able to scan.
+
+the exploit category scan allows you to check for vulnerability's. with exploitable action. that you can execute.
+
+in the script library you will find scripts. and .nse are the script files.
+
+to check what a script does you can do this:
+sudo nmap --script-help <name of the script file.nse>
+
+to run the script:
+sudo nmap --script <script name.nse> <target IP>
+
+using the information from the previous nmap scan you can infer what the vulnerability points are and you execute the apropriate script or in order to exploit the vulnerability, gaining access.
+
+course example
+ftp <target ip>
+once done you can do 
+help
+to see the available options you can run.
+
+################################
+Manual Vulnerability Analysis & Searchsploit
+##################################
+
+simple googling the vulnerability based on the service versions of the target ports.
+
+sudo nmap -sV <target ip>
+
+copy the version of the service version.
+google it
+
+check all the vulnerabilities it has. and how strong the vulnerability exploit is.
+you also check if the os is approriate with the target machine.
+after that you search for the exploit that was created by someone else. and use it on the target machine.
+
+!!there are official databases for vulnerabilities and exploits via google.!!
+
+or another thing you could do is:
+
+################################
+Searchsploit
+################################
+searchsploit locates the exploit troughout the akali attacking machine. so you could use that on the target machine
+
+searchsploit --help
+
+copy the target port service name version.
+searchsploint <version name>
+
+rb stand for ruby as it was coded in rb language
+
+copy the name of the exploit.
+locate <exploit name>
+
+then copy directory
+cd directory patway
+
+nano <exploit name>
+
+this will open the exploit which is used to attack the target machine service/port.
+
+Also from now on every pt engagement will be called PT-OPP, and an ongoing session is called
+PT Engagement. saved name will be: PT-OPP_Target-<sort machine,example:VM>-<machine name and version>-<vOS>
+
+example:
+PT-OPP_Target-VM-MSv2-Linux
+
+################################
+Nessus : Vulnerability Analysis Tool
+################################
+
+###
+Installing Nessus:
+Download nesus via website
+
+open terminal from download location of the file.
+
+to install the app:
+sudo dpkg -i <filename>
+
+start the Nessus scanner in accordance with the step to open up after installing it.
+
+A link will be provided by Nessus, copy it and visit the link site.
+
+select advanced and accept and continue.
+
+specify Nessus essentials and click continue
+fill in the form.
+
+##################################
+Using the Nessus Tool:
+
+select new scan button for scan options.
+
+With Nessus you can scan internal Networks IP, for company's and such. LAN. But you cannot scan external IP addresses like that from a website unless the website is inside your network so internal. 
+again internalNetwork-> works, external/internet-> X.
+
+once you select the basic scan option you specify the info of the 
+target machine. when specifying ip address targets you can used the range method; Starting_ip-end_ip
+
+once done.
+select the discovery side tab.
+select appropriate port scan example; scan all ports
+
+select the assessment side tab
+select the scan type for the purpose of this tutorial(fast scan):
+scan for known web vulnerabilities. 
+
+once done look over the tabs for appropriate measures if needed. then select the advanced side tab. And select the option to save.
+
+To start the scan, select on the play button on the right side of the application that is available and Launch the scan. Usually these scans take longer than nmap scans. 
+
+To know the time and status of the ongoing scan click the name of the scan. Then click on the color bar, you will find what the scan has managed to find at current stage of the scan.
+
+
+##########################
+PT-OPP Test: Vulnerability Scanner Test — Nessus on VM
+##########################
+
+Instead of Nessus, GVM (Greenbone Vulnerability Management) / OpenVAS can be used.
+
+GVM is a widely used open-source vulnerability management platform and is a common alternative to commercial vulnerability scanners such as Nessus.
+
+It can be used to scan systems for known vulnerabilities and produce vulnerability assessment reports.
+
+I will add the vulnerability scanning PT-OPP test results to this folder.
+
+
+##########################
+Exploitation & Gaining Access
+##########################
+
+Reverse Shells, Bind Shells
+
+Shell = payload
+
+Reverse shell: a shell session where the target/compromised machine initiates an outbound connection to the attacker's/listener machine, and the attacker receives a shell over that connection.
+
+“reverse” describes the direction of the initial connection relative to the usual expectation. It doesn't mean all subsequent traffic only travels target → attacker; TCP is bidirectional.
+
+Payload = the code/action delivered or executed after exploiting a vulnerability.
+
+Shell = an interface that lets you execute commands on a system.
+
+Bind shell = the target machine listens for the attacker's connection
+Bind shell = a shell exposed on a listening port of the target, allowing the attacker to connect to it.
+
+
+Metasploit Framework Structure:
+
+cd /usr/share/metsploit-framework/
+
+ls
+
+msfconcole is an executable file to run the program
+To run the application you run the name in the terminal and the application will run in the terminal.
+
+msfvenom is a tool to generate a payload and enter it in a target shell.
+
+module directory, you will find 7modules.
+the exploit module executes a sequence of commands to target a specific vulnerability in the system or application or service. it takes advantage of that vulnerability in order to provide us an access to that machine.
+-buffer overflow
+-code injection
+-more
+within the module contains categories and subcategories of exploits for different and various purposes.
+you can nano the every exploits if you know ruby or depending on what language its written in.
+back to the 7 modules, the auxillary module contains tools that can be usefull in the first 2 stages of pen testing/hacking.
+
+back to the 7 main modules, the post module, is the post exploitation module.
+within this module are tool for after exploiting the target.
+
+payload main module:
+payload is delivering something/script to the target in order to control the target machine.
+stagers are reliable scripts for making the connection after exploitation.
+
+encoders allows you to evade antivirus detection trough encoding script
+evasion is almost the same thing. for bypassing windows defender.
+
+nops, nop gives the the cpu to do nothing. This is useful for bufferoverflow to allocate space/memory before the payload executes. nops stands for no operations.
+
+Msfconsole Basic Commands:
+
+msfconsole
+
+help
+help manual.
+
+show <module name from the 7 main modules>
+list any type of modules we want
+
+show payloads
+shows all payloads, naturally youcan keyword search it.
+
+show exploits
+lists all exploits. like payloads.
+//
+
+//////
+copy an exploit name
+
+msf5 > use <exploit name, example: exploit/windows/smb/something>
+you will see that the payload is currently selected/loaded by msf.
+
+The first thing you do when the payload is armed, is to find out what it does:
+show info
+
+armed state, to set up the payload targeting the target.
+show options
+
+Reverse shell
+specify RHOSTS = remote hosts if required, to target the target machine by inputting the target ip, if the schema say yes.
+
+the first schema represent the module options, exploit options
+
+second schema gives you payload options.
+
+specify LHOST if required, the ipaddress of the attacking machine, which you are using to execute the payload targeting the target machine.
+
+set LHOST <current attack machine ip address>
+
+set RHOST <target machine ip address>
+
+if needed you can change the payload. in order to see all the avalable payloads, you can enter:
+
+show payloads
+this will only list the payloads for the current exploit that you are trying to execute.
+
+set payload <paste the payload name from list>
+you will see that msf has selected the payload you have set up.
+
+show options
+
+using bind shell payload, the attack machine connects with the target machine
+
+set LPORT 5555
+
+show targets
+
+set target <id numb, depending on what the target might be and if you dont know you enter 0 or automatic mode>
+
+Then for execution:
+exploit
+
+################################
+Attacking SSH - Bruteforce Attack
+
+
+################################
+Exploiting 5 different exploits.
+
+Exploit 1: port 53 - DNS - domain ISC BIND 9.4.2
+• Note: The DNS Cache Poisoning exploit does not grant a shell. For target shell access via this service, mapping internal zone configurations is required to locate administrative entry vectors.
+
+Exploit 2: Port 3306 – mysql  MySQL 5.0.51a-3ubuntu5
+• Note: Requires bypassing authentication to gain administrative rights, which can then be leveraged to drop a system shell file.
+
+Exploit 3: Port 8180 - HTTP Apache Tomcat/Coyote JSP engine 1.1
+• Analysis: Legacy versions of application managers require strict configuration audits, particularly regarding default credentials and access controls on deployment features to prevent unauthorized deployment of arbitrary code.
+
+Exploit 4: Port 5900 - VNC (Protocol 3.3)
+• Analysis: Virtual Network Computing services using older protocol versions should be monitored for authentication vulnerabilities. Securing these endpoints typically involves implementing strong encryption, robust authentication mechanisms, or restricting access via network firewalls.
+
+Exploit 5: Port 8009 - AJP13 Apache Jserv (Protocol v1.3)
+• Analysis: The AJP protocol can be susceptible to file inclusion vulnerabilities (such as Ghostcat) if the port is exposed publicly. Proper remediation involves upgrading the server software, disabling the AJP connector if it is not required, or binding it strictly to localhost.
+
+Port 53 (DNS): The internet's phonebook. It matches human-readable website names (like website.com) to machine-readable IP addresses.
+
+Port 3306 (MySQL): The database doorway. It allows applications to log in, read, write, and organize structured data stored in a MySQL database.
+
+Port 8180 (HTTP / Tomcat): An alternative web server port. It handles incoming web traffic specifically for hosting and running Java-based web applications.
+
+Port 5900 (VNC): The remote desktop screen. It streams a computer's visual interface over the network so a user can control the keyboard and mouse from afar.
+
+Port 8009 (AJP13): The internal bridge. It acts as a fast, private channel for a front-end web server (like Apache) to pass complex Java tasks back to a Tomcat engine.
+
+
+################################
+
+################################
