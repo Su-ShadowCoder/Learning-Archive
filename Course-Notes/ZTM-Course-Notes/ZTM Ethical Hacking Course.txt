@@ -833,31 +833,29 @@ Attacking SSH - Bruteforce Attack
 ################################
 Exploiting 5 different exploits.
 
-Exploit 1: port 53 - DNS - domain ISC BIND 9.4.2
-• Note: The DNS Cache Poisoning exploit does not grant a shell. For target shell access via this service, mapping internal zone configurations is required to locate administrative entry vectors.
+1. UnrealIRCd backdoor — port 6667
+Start here
+Difficulty: Easy
+A known backdoor in UnrealIRCd 3.2.8.1 can allow remote command execution without normal authentication.
 
-Exploit 2: Port 3306 – mysql  MySQL 5.0.51a-3ubuntu5
-• Note: Requires bypassing authentication to gain administrative rights, which can then be leveraged to drop a system shell file.
 
-Exploit 3: Port 8180 - HTTP Apache Tomcat/Coyote JSP engine 1.1
-• Analysis: Legacy versions of application managers require strict configuration audits, particularly regarding default credentials and access controls on deployment features to prevent unauthorized deployment of arbitrary code.
+2. Apache Tomcat Manager — port 8180
+Difficulty: Easy if credentials work
+If the Manager application is accessible and you have valid deployment credentials, Metasploit can upload a malicious WAR application to obtain code execution.
 
-Exploit 4: Port 5900 - VNC (Protocol 3.3)
-• Analysis: Virtual Network Computing services using older protocol versions should be monitored for authentication vulnerabilities. Securing these endpoints typically involves implementing strong encryption, robust authentication mechanisms, or restricting access via network firewalls.
 
-Exploit 5: Port 8009 - AJP13 Apache Jserv (Protocol v1.3)
-• Analysis: The AJP protocol can be susceptible to file inclusion vulnerabilities (such as Ghostcat) if the port is exposed publicly. Proper remediation involves upgrading the server software, disabling the AJP connector if it is not required, or binding it strictly to localhost.
+3. PostgreSQL — port 5432
+Difficulty: Easy if credentials and permissions permit
+Metasploit has a module that can execute a payload through PostgreSQL when authentication and the required database privileges allow it.
 
-Port 53 (DNS): The internet's phonebook. It matches human-readable website names (like website.com) to machine-readable IP addresses.
 
-Port 3306 (MySQL): The database doorway. It allows applications to log in, read, write, and organize structured data stored in a MySQL database.
+TCP 5900 - 5902	VNC (Virtual Network Computing)
+Frequently misconfigured with weak passwords or entirely unauthenticated "view/control" access, which gives an attacker instant UI control over the operating system
 
-Port 8180 (HTTP / Tomcat): An alternative web server port. It handles incoming web traffic specifically for hosting and running Java-based web applications.
 
-Port 5900 (VNC): The remote desktop screen. It streams a computer's visual interface over the network so a user can control the keyboard and mouse from afar.
+TCP 3389	RDP (Remote Desktop)	Vulnerable to worms and pre-authentication RCE flaws if left unpatched (such as BlueKeep / CVE-2019-0708).
 
-Port 8009 (AJP13): The internal bridge. It acts as a fast, private channel for a front-end web server (like Apache) to pass complex Java tasks back to a Tomcat engine.
-
+TCP 80 / 443 / 8080	HTTP / HTTPS (Web Services)	The widest attack surface. RCE happens easily here due to vulnerable web applications, outdated CMS platforms (WordPress, Drupal), or web server software flaws (e.g., Apache, Nginx, or enterprise appliances running vulnerable APIs).
 
 ################################
 

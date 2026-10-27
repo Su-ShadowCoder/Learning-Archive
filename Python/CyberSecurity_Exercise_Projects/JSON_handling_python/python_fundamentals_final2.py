@@ -293,42 +293,51 @@
 # EXERCISE 39 — List Comprehension
 # ============================================================
 #
-# Use:
-#
-numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-#
-# Requirements:
-# 1. Create a new list containing only even numbers.
-# 2. Use a list comprehension.
-# 3. Create another list containing each number multiplied by 2.
-# 4. Use a list comprehension.
-# 5. Print both lists.
-#
-# Do not use a normal for loop for the two requested lists.
+# # Use:
+# #
+# numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# #
+# # Requirements:
+# # 1. Create a new list containing only even numbers.
+# # 2. Use a list comprehension.
+# # 3. Create another list containing each number multiplied by 2.
+# # 4. Use a list comprehension.
+# # 5. Print both lists.
+# #
+# # Do not use a normal for loop for the two requested lists.
 
-even_steven = [n for n in numbers if n % 2 == 0]
-doppelganger_steven = [n*2 for n in numbers]
+# even_steven = [n for n in numbers if n % 2 == 0]
+# doppelganger_steven = [n*2 for n in numbers]
 
-print(even_steven)
-print(doppelganger_steven)
+# print(even_steven)
+# print(doppelganger_steven)
 
 # ============================================================
 # EXERCISE 40 — Dictionary and Set Comprehensions
 # ============================================================
 #
-# Use:
-#
+# # Use:
+# #
 # usernames = ["shadow", "guest", "ahmed"]
-#
-# Requirements:
-# 1. Create a dictionary comprehension where each username
-#    is a key and the value is the length of the username.
-# 2. Create a set comprehension containing the lengths of
-#    the usernames.
-# 3. Print both results.
-#
-# The purpose is to practice the syntax and behavior of
-# dictionary and set comprehensions.
+# #
+# # Requirements:
+# # 1. Create a dictionary comprehension where each username
+# #    is a key and the value is the length of the username.
+# # 2. Create a set comprehension containing the lengths of
+# #    the usernames.
+# # 3. Print both results.
+# #
+# # The purpose is to practice the syntax and behavior of
+# # dictionary and set comprehensions.
+
+# first_dict = {k: len(k) for k in usernames}
+
+# print(first_dict)
+
+# first_set = {len(x) for x in usernames}
+
+# print(first_set)
+
 
 
 # ============================================================
