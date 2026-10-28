@@ -833,13 +833,43 @@ Attacking SSH - Bruteforce Attack
 ################################
 Exploiting 5 different exploits.
 
-1. UnrealIRCd backdoor — port 6667
-Start here
-Difficulty: Easy
+1. 
+#####
+UnrealIRCd backdoor — port 6667
 A known backdoor in UnrealIRCd 3.2.8.1 can allow remote command execution without normal authentication.
 
+report: Open; pen-testing operation oct 28/2026
 
-2. Apache Tomcat Manager — port 8180
+UnrealIRCd backdoor — port 6667
+A known backdoor in UnrealIRCd 3.2.8.1 can allow remote command execution without normal authentication.
+
+get target ip; sudo netdiscover
+get host attack ip; sudo ifconfig
+nmap scan ; sudo nmap -sV <target ip>
+identify target port
+search for vulnerbility in port; searchsploit service banner name
+seach in msfconsole, check info, use aprpriate exploit, set lhost for host attack machine,  set rhosts for target machine\
+exploit. 
+succesfull exploit. 
+meterpreter > getuid
+Server username: root
+
+1. Vulnerability identified
+UnrealIRCd backdoor on TCP port 6667.
+
+2. Remote code execution achieved
+Metasploit delivered the payload and opened a session.
+
+3. Root identity confirmed
+getuid returned root.
+
+Report: Closed.
+#####
+
+
+
+2. 
+Apache Tomcat Manager — port 8180
 Difficulty: Easy if credentials work
 If the Manager application is accessible and you have valid deployment credentials, Metasploit can upload a malicious WAR application to obtain code execution.
 
