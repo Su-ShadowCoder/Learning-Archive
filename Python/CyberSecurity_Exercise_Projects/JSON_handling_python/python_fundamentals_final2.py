@@ -364,6 +364,15 @@
 # Do not manually arrange the users.
 
 
+# failed_attempts_sorted1 = {k: v for k, v in sorted(failed_attempts.items(), key=lambda item: item[1])}
+# print(failed_attempts_sorted1)
+
+# failed_attempts_sorted2 = {k: v for k, v in sorted(failed_attempts.items(), key=lambda item: item[1], reverse=True)}
+# print(failed_attempts_sorted2)
+
+# i googled it and i didnt make the dict
+
+
 # ============================================================
 # EXERCISE 42 — lambda
 # ============================================================
@@ -376,17 +385,23 @@
 #     {"username": "ahmed", "failed": 5},
 #     {"username": "admin", "failed": 9}
 # ]
-#
-# Requirements:
-# 1. Sort the events by failed attempts.
-# 2. Use sorted().
-# 3. Use a lambda function as the key.
-# 4. Sort from highest to lowest.
-# 5. Print the resulting list.
-#
-# The goal is specifically to understand what the lambda is
-# receiving and returning.
+# #
+# # Requirements:
+# # 1. Sort the events by failed attempts.
+# # 2. Use sorted().
+# # 3. Use a lambda function as the key.
+# # 4. Sort from highest to lowest.
+# # 5. Print the resulting list.
+# #
+# # The goal is specifically to understand what the lambda is
+# # receiving and returning.
 
+
+
+# events_sorted = [event for event in sorted(events, key=lambda k: k["failed"], reverse=True)]
+
+
+# print(events_sorted)
 
 # ============================================================
 # EXERCISE 43 — map()
@@ -395,13 +410,17 @@
 # Use:
 #
 # usernames = ["shadow", "guest", "ahmed", "admin"]
-#
-# Requirements:
-# 1. Use map() to convert every username to uppercase.
-# 2. Convert the resulting map object into a list.
-# 3. Print the resulting list.
-# 4. Do not use a list comprehension for this exercise.
+# #
+# # Requirements:
+# # 1. Use map() to convert every username to uppercase.
+# # 2. Convert the resulting map object into a list.
+# # 3. Print the resulting list.
+# # 4. Do not use a list comprehension for this exercise.
 
+# res = map(lambda x: x.upper(), usernames)
+# result = list(res)
+
+# print(result)
 
 # ============================================================
 # EXERCISE 44 — filter()
@@ -415,13 +434,18 @@
 #     {"username": "ahmed", "status": "Failed"},
 #     {"username": "admin", "status": "Success"}
 # ]
-#
-# Requirements:
-# 1. Use filter() to select only failed events.
-# 2. Convert the result into a list.
-# 3. Print the resulting list.
-# 4. Do not use a list comprehension.
+# #
+# # Requirements:
+# # 1. Use filter() to select only failed events.
+# # 2. Convert the result into a list.
+# # 3. Print the resulting list.
+# # 4. Do not use a list comprehension.
 
+# res = filter(lambda event:  event["status"] == "Failed", events)
+
+# result = list(res)
+
+# print(result)
 
 # ============================================================
 # EXERCISE 45 — File Writing
@@ -439,6 +463,16 @@
 #
 # Each line should contain information such as:
 # username, event type, and status.
+
+# f1 = open("security_log.txt", "x")
+
+# with open("security_log.txt", 'w') as f:
+#     f.write("{'username': 'shadow', 'status': 'Failed'}\n")
+#     f.write("{'username': 'admin', 'status': 'Success'}\n")
+#     f.write("{'username': 'shadow', 'status': 'Failed'}\n")
+
+# with open('security_log.txt', 'r') as f:
+#     print(f.read())
 
 
 # ============================================================
