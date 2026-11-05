@@ -488,6 +488,13 @@
 # 4. Read the file using a with statement.
 # 5. Do not manually call close().
 
+try:
+    with open('security_log.txt', 'r') as file:
+        content = file.read()
+        print(content)
+except FileNotFoundError as e:
+    print('Error', e)
+
 
 # ============================================================
 # EXERCISE 47 — File Processing
@@ -504,6 +511,23 @@
 # 6. Build the counts dynamically.
 #
 # Do not manually enter the final counts.
+
+log_counts = {}
+
+with open('security_log.txt', 'r') as file:
+    for line in file:
+        if "Failed" in line:
+            if "FAILED" not in log_counts:
+                log_counts["FAILED"] = 1
+            else:
+                log_counts["FAILED"] += 1
+        if "Success" in line:
+            if 'Success' not in log_counts:
+                log_counts["SUCCESS"] = 1
+            else:
+                log_counts["SUCCESS"] += 1
+
+print(log_counts)
 
 
 # ============================================================

