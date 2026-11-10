@@ -488,12 +488,12 @@
 # 4. Read the file using a with statement.
 # 5. Do not manually call close().
 
-try:
-    with open('security_log.txt', 'r') as file:
-        content = file.read()
-        print(content)
-except FileNotFoundError as e:
-    print('Error', e)
+# try:
+#     with open('security_log.txt', 'r') as file:
+#         content = file.read()
+#         print(content)
+# except FileNotFoundError as e:
+#     print('Error', e)
 
 
 # ============================================================
@@ -512,64 +512,86 @@ except FileNotFoundError as e:
 #
 # Do not manually enter the final counts.
 
-log_counts = {}
+# log_counts = {}
 
-with open('security_log.txt', 'r') as file:
-    for line in file:
-        if "Failed" in line:
-            if "FAILED" not in log_counts:
-                log_counts["FAILED"] = 1
-            else:
-                log_counts["FAILED"] += 1
-        if "Success" in line:
-            if 'Success' not in log_counts:
-                log_counts["SUCCESS"] = 1
-            else:
-                log_counts["SUCCESS"] += 1
+# with open('security_log.txt', 'r') as file:
+#     for line in file:
+#         if "Failed" in line:
+#             if "FAILED" not in log_counts:
+#                 log_counts["FAILED"] = 1
+#             else:
+#                 log_counts["FAILED"] += 1
+#         if "Success" in line:
+#             if 'Success' not in log_counts:
+#                 log_counts["SUCCESS"] = 1
+#             else:
+#                 log_counts["SUCCESS"] += 1
 
-print(log_counts)
-
-
-# ============================================================
-# EXERCISE 48 — Modules and Imports
-# ============================================================
-#
-# Requirements:
-# 1. Import the math module.
-# 2. Use one function from math.
-# 3. Import the random module.
-# 4. Use one function from random.
-# 5. Print the results.
-#
-# Then:
-# 6. Import only one specific function from a module.
-# 7. Use that function without writing the module name before it.
-#
-# The purpose is to understand both:
-#
-# import module
-#
-# and:
-#
-# from module import function
+# print(log_counts)
 
 
-# ============================================================
-# EXERCISE 49 — Exception Handling
-# ============================================================
-#
-# Create a program that asks for a number.
-#
-# Requirements:
-# 1. Use input() to receive the value.
-# 2. Convert the value into an integer.
-# 3. Handle invalid input with try/except.
-# 4. If the user enters something that cannot become an
-#    integer, print an appropriate message.
-# 5. If the conversion succeeds, print the number.
-# 6. Use the appropriate exception rather than catching
-#    every possible exception.
+# # ============================================================
+# # EXERCISE 48 — Modules and Imports
+# # ============================================================
+# #
+# # Requirements:
+# # 1. Import the math module.
+# # 2. Use one function from math.
+# # 3. Import the random module.
+# # 4. Use one function from random.
+# # 5. Print the results.
+# #
+# # Then:
+# # 6. Import only one specific function from a module.
+# # 7. Use that function without writing the module name before it.
+# #
+# # The purpose is to understand both:
+# #
+# # import module
+# #
+# # and:
+# #
+# # from module import function
 
+# from math import sqrt
+# print(sqrt(81))
+
+# import math
+# print(math.sqrt(25))
+
+# import random
+# a = list(range(1, 11))
+# print(random.choice(a))
+
+# # ============================================================
+# # EXERCISE 49 — Exception Handling
+# # ============================================================
+# #
+# # Create a program that asks for a number.
+# #
+# # Requirements:
+# # 1. Use input() to receive the value.
+# # 2. Convert the value into an integer.
+# # 3. Handle invalid input with try/except.
+# # 4. If the user enters something that cannot become an
+# #    integer, print an appropriate message.
+# # 5. If the conversion succeeds, print the number.
+# # 6. Use the appropriate exception rather than catching
+# #    every possible exception.
+
+# while True:
+#     try:
+#         a = int(input("yow enter a number  yow:\n"))
+#         print(a)
+#         break
+#     except ValueError as e:
+#         print(f"Yow you have entered no number yow!->{e}")
+#         break
+
+
+# # checking for exceptions
+# # a = int(input("yow enter a number  yow:\n"))
+# # print(a)
 
 # ============================================================
 # EXERCISE 50 — Python Fundamentals Integration
